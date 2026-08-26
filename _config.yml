@@ -43,7 +43,7 @@ social:
     - https://github.com/mikionakamaru # change to your GitHub homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    - https://www.linkedin.com/in/mikionakamaru/
+    - https://de.linkedin.com/in/mikionakamaru/
 
 # Site Verification Settings
 webmaster_verifications:
@@ -99,7 +99,7 @@ theme_mode: # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: "[https://github.com/mikionakamaru.png] (https://github.com/mikionakamaru.png)"
+avatar: https://github.com/mikionakamaru.png
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
