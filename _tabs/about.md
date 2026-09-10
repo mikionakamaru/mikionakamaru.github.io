@@ -4,16 +4,14 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-> Oi, bem-vindo ao blog. Sou [Mikio Nakamaru](https://www.linkedin.com/in/mikionakamaru/), Cybersecurityosoft Certified Trainer (MCT). Trabalho em modelo MSSP na SGA TI em Nuvem, conduzindo projetos e operação contínua de soluções Microsoft para clientes dos setores de Saúde, Financeiro, Indústria e Governo.
+> Oi, bem-vindo ao blog. Sou [Mikio Nakamaru](https://www.linkedin.com/in/mikionakamaru/), Cybersecurity Specialist e Microsoft Certified Trainer (MCT). Trabalho em modelo MSSP na SGA TI em Nuvem, conduzindo projetos e operação contínua de soluções Microsoft para clientes dos setores de Saúde, Financeiro, Indústria e Governo.
 >
 > Meu foco está em Microsoft Sentinel, Defender XDR, Defender for Cloud, Intune, Purview e Entra ID, com trabalhos de threat hunting em KQL, automação em PowerShell e integração de soluções de segurança na nuvem.
 >
-> Aqui você vai encontrar conteúdos sobre detecção de ameaças, resposta a incidentes, troubleshooting, automação, Microsoft Security e aprendizados do dia a dia. 🔐
+> Aqui você vai encontrar conteúdos sobre detecção de ameaças, resposta a incidentes, troubleshooting, automação e aprendizados do dia a dia. 🔐
 {: .prompt-tip }
 
-> 🇧🇷 PT-BR | 🇺🇸 EN
->
-> Português é meu idioma nativo, mas também posso conversar e colaborar em inglês.
+> PT-BR | EN > Português é meu idioma nativo, mas também posso conversar e colaborar em inglês.
 {: .prompt-info }
 
 ## Carreira
