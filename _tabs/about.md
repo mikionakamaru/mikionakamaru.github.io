@@ -71,7 +71,7 @@ order: 4
     <div class="tl-years">01/2026 – Atual</div>
     <div class="tl-title">Cybersecurity Specialist</div>
     <div class="tl-company">
-      <a href="https://www.sgaGA TI em Nuvem</a>
+      <a href="https://sga.com.br">SGA TI em Nuvem</a>
     </div>
   </li>
 
@@ -79,7 +79,7 @@ order: 4
     <div class="tl-years">07/2022 – 12/2025</div>
     <div class="tl-title">Analista de Segurança Cloud & Infraestrutura</div>
     <div class="tl-company">
-      <a href="https://www.avant-brAvanade</a>
+      <a href="https://www.avanade.com">Avanade</a>
     </div>
   </li>
 
@@ -87,7 +87,7 @@ order: 4
     <div class="tl-years">06/2020 – 07/2022</div>
     <div class="tl-title">Analista de Segurança da Informação Pleno</div>
     <div class="tl-company">
-      <a href="https://www.workdborkDB Data Business</a>
+      <a href="https://workdb.com.br">WorkDB Data Business</a>
     </div>
   </li>
 
