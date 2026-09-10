@@ -1,11 +1,20 @@
 ---
-# the default layout is 'page'
+layout: page
 icon: fas fa-info-circle
 order: 4
 ---
 
-> Oi, bem-vindo ao blog. Sou [Mikio Nakamaru](https://www.linkedin.com/in/mikionakamaru/), Cybersecurity Specialist e Microsoft Certified Trainer (MCT). Trabalho em modelo MSSP na SGA TI em Nuvem, conduzindo projetos e operação contínua de soluções Microsoft para clientes de Saúde, Financeiro, Indústria e Governo. Meu foco é Sentinel, Defender XDR, Defender for Cloud, Intune, Purview e Entra ID, com threat hunting em KQL e automação em PowerShell e Logic Apps. Aqui você vai encontrar KQL, detecção, resposta a incidentes, troubleshooting e tudo que aprendo no dia a dia. 🔐
+> Oi, bem-vindo ao blog. Sou [Mikio Nakamaru](https://www.linkedin.com/in/mikionakamaru/), Cybersecurityosoft Certified Trainer (MCT). Trabalho em modelo MSSP na SGA TI em Nuvem, conduzindo projetos e operação contínua de soluções Microsoft para clientes dos setores de Saúde, Financeiro, Indústria e Governo.
+>
+> Meu foco está em Microsoft Sentinel, Defender XDR, Defender for Cloud, Intune, Purview e Entra ID, com trabalhos de threat hunting em KQL, automação em PowerShell e integração de soluções de segurança na nuvem.
+>
+> Aqui você vai encontrar conteúdos sobre detecção de ameaças, resposta a incidentes, troubleshooting, automação, Microsoft Security e aprendizados do dia a dia. 🔐
 {: .prompt-tip }
+
+> 🇧🇷 PT-BR | 🇺🇸 EN
+>
+> Português é meu idioma nativo, mas também posso conversar e colaborar em inglês.
+{: .prompt-info }
 
 ## Carreira
 
@@ -14,16 +23,19 @@ order: 4
   position: relative;
   margin: 1.5rem 0 2rem;
   padding-left: 1.75rem;
-  border-left: 2px solid rgba(128, 128, 128, .35);
+  border-left: 2px solid rgba(128,128,128,.35);
   list-style: none;
 }
+
 .career-timeline li {
   position: relative;
   padding-bottom: 1.5rem;
 }
+
 .career-timeline li:last-child {
   padding-bottom: 0;
 }
+
 .career-timeline li::before {
   content: "";
   position: absolute;
@@ -34,28 +46,59 @@ order: 4
   transform: translateX(-50%);
   border-radius: 50%;
   background: #0056b2;
-  box-shadow: 0 0 0 3px var(--main-bg, #fff);
+  box-shadow: 0 0 0 3px var(--main-bg,#fff);
+}
+
+.career-timeline .tl-years {
+  font-size: .95rem;
+  font-weight: 600;
+  color: #0056b2;
+}
+
+.career-timeline .tl-title {
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.career-timeline .tl-company {
+  color: var(--text-muted-color,#6c757d);
+  font-size: .9rem;
 }
 </style>
 
-- **Jan/2026 – Atual**
+<ul class="career-timeline">
+  <li>
+    <div class="tl-years">01/2026 – Atual</div>
+    <div class="tl-title">Cybersecurity Specialist</div>
+    <div class="tl-company">
+      <a href="https://www.sgaGA TI em Nuvem</a>
+    </div>
+  </li>
 
-  Cybersecurity Specialist
-  [SGA TI em Nuvem](https://www.sga.com.br/)
+  <li>
+    <div class="tl-years">07/2022 – 12/2025</div>
+    <div class="tl-title">Analista de Segurança Cloud & Infraestrutura</div>
+    <div class="tl-company">
+      <a href="https://www.avant-brAvanade</a>
+    </div>
+  </li>
 
-- **Jul/2022 – Dez/2025**
+  <li>
+    <div class="tl-years">06/2020 – 07/2022</div>
+    <div class="tl-title">Analista de Segurança da Informação Pleno</div>
+    <div class="tl-company">
+      <a href="https://www.workdborkDB Data Business</a>
+    </div>
+  </li>
 
-  Analista de Segurança Cloud & Infraestrutura
-  [Avanade](https://www.avanade.com/pt-br)
+  <li>
+    <div class="tl-years">12/2021 – Atual</div>
+    <div class="tl-title">Microsoft Certified Trainer (MCT)</div>
+    <div class="tl-company">Microsoft</div>
+  </li>
+</ul>
 
-- **Jun/2020 – Jul/2022**
-
-  Analista de Segurança da Informação Pleno
-  [WorkDB Data Business](https://www.workdb.com.br/)
-
-- **Dez/2021 – Atual**
-
-  Microsoft Certified Trainer (MCT)
-
-> 💬 Dúvidas, feedback ou quer trocar ideia? Me acha no [LinkedIn](https://www.linkedin.com/in/mikionakamaru/) ou manda e-mail pra [mikionakamaru@gmail.com](mailto:mikionakamaru@gmail.com).
-{: .prompt-info }
+> 💬 Tem alguma dúvida, sugestão ou quer trocar uma ideia?
+>
+> Me encontre no [LinkedIn](https://www.linkedin.com/in/mikionakamaru/) ou envie um [E-mail](mailto:mikionakamaru@gmail.com).
+{: .prompt-tip }
