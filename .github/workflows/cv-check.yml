@@ -1,0 +1,119 @@
+# Testes da página /cv/ em branches de trabalho. Nunca faz deploy:
+# o deploy continua só no pages-deploy.yml (push na main).
+name: "CV check"
+
+on:
+  push:
+    branches-ignore:
+      - main
+      - master
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cv-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Baixa a foto do GitHub enquanto o cv.yml ainda marca placeholder, gera os webp e commita na branch.
+  photo:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      updated: ${{ steps.commit.outputs.updated }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Ver se a foto ainda é placeholder
+        id: need
+        run: |
+          if grep -q '^  photo_placeholder: true' _data/cv.yml; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Baixar foto e gerar webp 1x e 2x
+        if: steps.need.outputs.run == 'true'
+        run: |
+          curl -fsSL https://github.com/mikionakamaru.png -o assets/cv/foto.png
+          pip install --quiet pillow
+          python3 - <<'EOF'
+          from PIL import Image
+          im = Image.open("assets/cv/foto.png").convert("RGB")
+          w, h = im.size
+          print(f"original: {w}x{h}")
+          with open("assets/cv/foto-original-size.txt", "w") as f:
+              f.write(f"{w}x{h}\n")
+          s = min(w, h)
+          im = im.crop(((w - s) // 2, (h - s) // 2, (w + s) // 2, (h + s) // 2))
+          for size, name in ((280, "foto.webp"), (560, "foto@2x.webp")):
+              im.resize((size, size), Image.LANCZOS).save(f"assets/cv/{name}", "WEBP", quality=82, method=6)
+          EOF
+          sed -i '/foto atual é um placeholder/d; /^  photo_placeholder: true/d' _data/cv.yml
+
+      - name: Commitar foto
+        id: commit
+        if: steps.need.outputs.run == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/cv/foto.png assets/cv/foto.webp assets/cv/foto@2x.webp assets/cv/foto-original-size.txt _data/cv.yml
+          git commit -m "cv: foto do GitHub (png + webp 1x/2x)"
+          git push
+          echo "updated=true" >> "$GITHUB_OUTPUT"
+
+  build:
+    needs: photo
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.4
+          bundler-cache: true
+
+      - name: Build da branch
+        run: bundle exec jekyll b -d _site
+        env:
+          JEKYLL_ENV: "production"
+
+      - name: htmlproofer (mesmas opções do deploy)
+        run: |
+          bundle exec htmlproofer _site \
+            --disable-external \
+            --ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
+
+      - name: /cv/ e /cv/en/ existem e estão completas
+        run: |
+          for p in _site/cv/index.html _site/cv/en/index.html; do
+            test -s "$p" || { echo "faltou $p"; exit 1; }
+            for id in about evidence stack career certifications talks blog contact; do
+              grep -q "id=\"$id\"" "$p" || { echo "$p sem #$id"; exit 1; }
+            done
+            if grep -q '{{\|{%' "$p"; then echo "$p tem Liquid sem renderizar"; exit 1; fi
+          done
+          grep -q '<html lang="pt-BR">' _site/cv/index.html
+          grep -q '<html lang="en">' _site/cv/en/index.html
+          grep -q 'hreflang="x-default"' _site/cv/en/index.html
+          echo "ok"
+
+      - name: Blog e /about/ iguais aos da main
+        run: |
+          git worktree add ../base origin/main
+          (cd ../base && bundle exec jekyll b -d ../base-site --quiet)
+          for p in index.html about/index.html; do
+            if diff -q "_site/$p" "../base-site/$p"; then echo "igual: $p"; else
+              diff "_site/$p" "../base-site/$p" | head -40; exit 1; fi
+          done
+        env:
+          JEKYLL_ENV: "production"
+          BUNDLE_GEMFILE: ${{ github.workspace }}/Gemfile
