@@ -117,11 +117,14 @@ jobs:
       - name: Blog e /about/ iguais aos da main
         run: |
           git worktree add ../base origin/main
-          (cd ../base && bundle exec jekyll b -d ../base-site --quiet)
+          bundle exec jekyll b -s ../base -d ../base-site 2>&1 | tail -3
+          rc=0
           for p in index.html about/index.html; do
-            if diff -q "_site/$p" "../base-site/$p"; then echo "igual: $p"; else
-              diff "_site/$p" "../base-site/$p" | head -40; exit 1; fi
+            if diff -q "_site/$p" "../base-site/$p" >/dev/null; then echo "igual: $p"; else
+              rc=1
+              diff "_site/$p" "../base-site/$p" | head -20 | while IFS= read -r l; do echo "::error::$p ${l:0:300}"; done
+            fi
           done
+          exit $rc
         env:
           JEKYLL_ENV: "production"
-          BUNDLE_GEMFILE: ${{ github.workspace }}/Gemfile
