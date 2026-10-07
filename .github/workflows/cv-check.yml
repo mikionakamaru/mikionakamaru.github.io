@@ -47,8 +47,6 @@ jobs:
           im = Image.open("assets/cv/foto.png").convert("RGB")
           w, h = im.size
           print(f"original: {w}x{h}")
-          with open("assets/cv/foto-original-size.txt", "w") as f:
-              f.write(f"{w}x{h}\n")
           s = min(w, h)
           im = im.crop(((w - s) // 2, (h - s) // 2, (w + s) // 2, (h + s) // 2))
           for size, name in ((280, "foto.webp"), (560, "foto@2x.webp")):
@@ -62,7 +60,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/cv/foto.png assets/cv/foto.webp assets/cv/foto@2x.webp assets/cv/foto-original-size.txt _data/cv.yml
+          git add assets/cv/foto.png assets/cv/foto.webp assets/cv/foto@2x.webp _data/cv.yml
           git commit -m "cv: foto do GitHub (png + webp 1x/2x)"
           git push
           echo "updated=true" >> "$GITHUB_OUTPUT"
