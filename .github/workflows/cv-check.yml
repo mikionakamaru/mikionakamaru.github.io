@@ -1,0 +1,141 @@
+# Testes da página /cv/ em branches de trabalho. Nunca faz deploy:
+# o deploy continua só no pages-deploy.yml (push na main).
+name: "CV check"
+
+on:
+  push:
+    branches-ignore:
+      - main
+      - master
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cv-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Baixa a foto do GitHub enquanto o cv.yml ainda marca placeholder, gera os webp e commita na branch.
+  photo:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      updated: ${{ steps.commit.outputs.updated }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Ver se a foto ainda é placeholder
+        id: need
+        run: |
+          if grep -q '^  photo_placeholder: true' _data/cv.yml; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Baixar foto e gerar webp 1x e 2x
+        if: steps.need.outputs.run == 'true'
+        run: |
+          curl -fsSL https://github.com/mikionakamaru.png -o assets/cv/foto.png
+          pip install --quiet pillow
+          python3 - <<'EOF'
+          from PIL import Image
+          im = Image.open("assets/cv/foto.png").convert("RGB")
+          w, h = im.size
+          print(f"original: {w}x{h}")
+          s = min(w, h)
+          im = im.crop(((w - s) // 2, (h - s) // 2, (w + s) // 2, (h + s) // 2))
+          for size, name in ((280, "foto.webp"), (560, "foto@2x.webp")):
+              im.resize((size, size), Image.LANCZOS).save(f"assets/cv/{name}", "WEBP", quality=82, method=6)
+          EOF
+          sed -i '/foto atual é um placeholder/d; /^  photo_placeholder: true/d' _data/cv.yml
+
+      - name: Commitar foto
+        id: commit
+        if: steps.need.outputs.run == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/cv/foto.png assets/cv/foto.webp assets/cv/foto@2x.webp _data/cv.yml
+          git commit -m "cv: foto do GitHub (png + webp 1x/2x)"
+          git push
+          echo "updated=true" >> "$GITHUB_OUTPUT"
+
+  build:
+    needs: photo
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.4
+          bundler-cache: true
+
+      - name: Build da branch
+        run: |
+          set -o pipefail
+          bundle exec jekyll b -d _site --trace 2>&1 | tee build.log
+        env:
+          JEKYLL_ENV: "production"
+
+      - name: Mostrar erro do build nas anotações
+        if: failure()
+        run: |
+          grep -n -i -E "error|liquid|exception|warn" build.log | head -15 | while IFS= read -r l; do echo "::error::${l}"; done
+          tail -15 build.log | while IFS= read -r l; do echo "::warning::${l}"; done
+
+      - name: htmlproofer (mesmas opções do deploy)
+        run: |
+          bundle exec htmlproofer _site \
+            --disable-external \
+            --ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
+
+      - name: /cv/ e /cv/en/ existem e estão completas
+        run: |
+          for p in _site/cv/index.html _site/cv/en/index.html; do
+            test -s "$p" || { echo "faltou $p"; exit 1; }
+            for id in about evidence stack career certifications talks blog contact; do
+              grep -q "id=\"$id\"" "$p" || { echo "$p sem #$id"; exit 1; }
+            done
+            if grep -q '{{\|{%' "$p"; then echo "$p tem Liquid sem renderizar"; exit 1; fi
+          done
+          grep -q '<html lang="pt-BR">' _site/cv/index.html
+          grep -q '<html lang="en">' _site/cv/en/index.html
+          grep -q 'hreflang="x-default"' _site/cv/en/index.html
+          echo "ok"
+
+      - name: Blog e /about/ iguais aos da main
+        run: |
+          git worktree add ../base origin/main
+          bundle exec jekyll b -s ../base -d ../base-site 2>&1 | tail -3
+          rc=0
+          # O Chirpy grava o horário do build em article:*_time; normaliza antes de comparar.
+          for d in _site ../base-site; do
+            for p in index.html about/index.html; do
+              sed -i -E 's/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}[-+][0-9]{2}:[0-9]{2}/TS/g' "$d/$p"
+            done
+          done
+          for p in index.html about/index.html; do
+            if diff -q "_site/$p" "../base-site/$p" >/dev/null; then echo "igual: $p"; else
+              rc=1
+              python3 -c "
+          import sys
+          a=open(sys.argv[1],encoding='utf-8').read(); b=open(sys.argv[2],encoding='utf-8').read()
+          i=next((k for k in range(min(len(a),len(b))) if a[k]!=b[k]),min(len(a),len(b)))
+          print('::error::'+sys.argv[3]+' pos '+str(i)+' len '+str(len(a))+'/'+str(len(b)))
+          print('::error::BRANCH ...'+a[max(0,i-160):i+160].replace(chr(10),' '))
+          print('::error::MAIN   ...'+b[max(0,i-160):i+160].replace(chr(10),' '))
+          " "_site/$p" "../base-site/$p" "$p"
+            fi
+          done
+          exit $rc
+        env:
+          JEKYLL_ENV: "production"
