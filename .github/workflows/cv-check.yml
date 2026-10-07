@@ -122,7 +122,14 @@ jobs:
           for p in index.html about/index.html; do
             if diff -q "_site/$p" "../base-site/$p" >/dev/null; then echo "igual: $p"; else
               rc=1
-              diff "_site/$p" "../base-site/$p" | head -20 | while IFS= read -r l; do echo "::error::$p ${l:0:300}"; done
+              python3 -c "
+          import sys
+          a=open(sys.argv[1],encoding='utf-8').read(); b=open(sys.argv[2],encoding='utf-8').read()
+          i=next((k for k in range(min(len(a),len(b))) if a[k]!=b[k]),min(len(a),len(b)))
+          print('::error::'+sys.argv[3]+' pos '+str(i)+' len '+str(len(a))+'/'+str(len(b)))
+          print('::error::BRANCH ...'+a[max(0,i-160):i+160].replace(chr(10),' '))
+          print('::error::MAIN   ...'+b[max(0,i-160):i+160].replace(chr(10),' '))
+          " "_site/$p" "../base-site/$p" "$p"
             fi
           done
           exit $rc
