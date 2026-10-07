@@ -119,6 +119,12 @@ jobs:
           git worktree add ../base origin/main
           bundle exec jekyll b -s ../base -d ../base-site 2>&1 | tail -3
           rc=0
+          # O Chirpy grava o horário do build em article:*_time; normaliza antes de comparar.
+          for d in _site ../base-site; do
+            for p in index.html about/index.html; do
+              sed -i -E 's/[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}[-+][0-9]{2}:[0-9]{2}/TS/g' "$d/$p"
+            done
+          done
           for p in index.html about/index.html; do
             if diff -q "_site/$p" "../base-site/$p" >/dev/null; then echo "igual: $p"; else
               rc=1
