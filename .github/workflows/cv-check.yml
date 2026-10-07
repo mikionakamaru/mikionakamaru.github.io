@@ -82,9 +82,17 @@ jobs:
           bundler-cache: true
 
       - name: Build da branch
-        run: bundle exec jekyll b -d _site
+        run: |
+          set -o pipefail
+          bundle exec jekyll b -d _site --trace 2>&1 | tee build.log
         env:
           JEKYLL_ENV: "production"
+
+      - name: Mostrar erro do build nas anotações
+        if: failure()
+        run: |
+          grep -n -i -E "error|liquid|exception|warn" build.log | head -15 | while IFS= read -r l; do echo "::error::${l}"; done
+          tail -15 build.log | while IFS= read -r l; do echo "::warning::${l}"; done
 
       - name: htmlproofer (mesmas opções do deploy)
         run: |
