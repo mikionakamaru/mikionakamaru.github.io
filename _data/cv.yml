@@ -1,0 +1,539 @@
+# Conteúdo da página /cv/ (PT-BR) e /cv/en/ (EN).
+# Cada texto tem as chaves pt e en lado a lado. Mudou aqui, muda nas duas páginas.
+# Fontes: projeto "Pessoal" no Claude (CV_Felipe_Nakamaru.md, 02 a 05), CTPS digital,
+# certificados de evento e conversas sobre MVP Conf e TDC. Nada de nome de cliente.
+
+meta:
+  name: Mikio Nakamaru
+  url_pt: /cv/
+  url_en: /cv/en/
+  photo: /assets/cv/foto.webp
+  photo_2x: /assets/cv/foto@2x.webp
+  photo_og: /assets/cv/foto.png
+  # TODO: a foto atual é um placeholder com iniciais. Troque os 3 arquivos e apague a linha abaixo.
+  photo_placeholder: true
+  # Primeiro cargo de TI registrado na CTPS: Administrador de Banco de Dados, jun/2009.
+  it_since: 2009
+  # PDF do CV por idioma. Deixe vazio enquanto não existir; o botão some sozinho.
+  # TODO: subir assets/cv/cv-mikio-nakamaru-pt.pdf e assets/cv/cv-mikio-nakamaru-en.pdf
+  pdf:
+    pt: ""
+    en: ""
+
+links:
+  linkedin: https://www.linkedin.com/in/mikionakamaru/
+  email: mikionakamaru@gmail.com
+  github: https://github.com/mikionakamaru
+  transcript: https://learn.microsoft.com/en-us/users/mikionakamaru/transcript/vnn42c6ool6ojrr
+  jornada365: https://jornada365.cloud/
+  blog: /
+
+ui:
+  skip:
+    pt: Pular para o conteúdo
+    en: Skip to content
+  nav_label:
+    pt: Seções da página
+    en: Page sections
+  menu:
+    pt: Menu
+    en: Menu
+  theme_to_dark:
+    pt: Mudar para tema escuro
+    en: Switch to dark theme
+  theme_to_light:
+    pt: Mudar para tema claro
+    en: Switch to light theme
+  lang_label:
+    pt: Read this page in English
+    en: Ler esta página em português
+  nav:
+    - id: about
+      pt: Sobre
+      en: About
+    - id: career
+      pt: Carreira
+      en: Career
+    - id: certifications
+      pt: Certificações
+      en: Certifications
+    - id: talks
+      pt: Palestras
+      en: Talks
+    - id: blog
+      pt: Blog
+      en: Blog
+    - id: contact
+      pt: Contato
+      en: Contact
+  btn_linkedin:
+    pt: LinkedIn
+    en: LinkedIn
+  btn_email:
+    pt: E-mail
+    en: Email
+  btn_pdf:
+    pt: Baixar CV em PDF
+    en: Download CV (PDF)
+  photo_alt:
+    pt: Foto de Mikio Nakamaru
+    en: Photo of Mikio Nakamaru
+  logo_alt:
+    pt: Logo da
+    en: Logo of
+  evidence_title:
+    pt: Onde conferir
+    en: Where to check
+  evidence_intro:
+    pt: Cada número entre colchetes na página aponta pra um destes links. Dá pra verificar sem falar comigo.
+    en: Every bracketed number on this page points to one of these links. You can check them without asking me.
+  stack_title:
+    pt: Stack
+    en: Stack
+  career_title:
+    pt: Carreira
+    en: Career
+  current:
+    pt: atual
+    en: present
+  certs_title:
+    pt: Certificações
+    en: Certifications
+  certs_verify:
+    pt: Conferir no Microsoft Learn
+    en: Verify on Microsoft Learn
+  status_retired:
+    pt: Aposentada pela Microsoft
+    en: Retired by Microsoft
+  status_retired_on:
+    pt: Prova aposentada em
+    en: Exam retired on
+  status_noexpire:
+    pt: Não expira
+    en: Does not expire
+  status_check:
+    pt: Validade no transcript
+    en: Expiry on transcript
+  talks_title:
+    pt: Palestras e eventos
+    en: Talks and events
+  talk_slides:
+    pt: Slides
+    en: Slides
+  talk_video:
+    pt: Vídeo
+    en: Video
+  blog_title:
+    pt: Últimos posts
+    en: Latest posts
+  blog_all:
+    pt: Ver todos os posts
+    en: See all posts
+  blog_loading:
+    pt: Carregando posts do blog…
+    en: Loading blog posts…
+  contact_title:
+    pt: Contato
+    en: Contact
+  contact_text:
+    pt: O jeito mais rápido é o LinkedIn. Pra proposta de trabalho ou convite pra palestra, e-mail também funciona.
+    en: LinkedIn is the fastest way to reach me. For job offers or speaking invites, email works too.
+  footer_blog:
+    pt: Voltar pro blog
+    en: Back to the blog
+  in_portuguese:
+    pt: ""
+    en: "(talk in Portuguese)"
+
+hero:
+  role:
+    pt: Especialista em segurança Microsoft
+    en: Microsoft security specialist
+  lead:
+    pt: >-
+      Trabalho numa operação MSSP cuidando de Sentinel, Defender XDR, Defender for Cloud,
+      Purview e Entra ID de vários clientes ao mesmo tempo. Escrevo KQL pra caçar ameaça
+      e PowerShell e Logic Apps pra tirar trabalho repetido da mão do analista.
+    en: >-
+      I work in an MSSP, running Sentinel, Defender XDR, Defender for Cloud, Purview and
+      Entra ID for several clients at once. I write KQL to hunt threats, and PowerShell
+      and Logic Apps to take repetitive work off the analyst's plate.
+  location:
+    pt: São José do Rio Preto, SP
+    en: São José do Rio Preto, Brazil
+  # Fatos curtos do hero. ref aponta pro número do cartão em #evidence.
+  facts:
+    - pt: "Em TI desde {since}"
+      en: "In IT since {since}"
+    - pt: "{exams} provas Microsoft aprovadas"
+      en: "{exams} Microsoft exams passed"
+      ref: 1
+    - pt: Microsoft Certified Trainer desde 2021
+      en: Microsoft Certified Trainer since 2021
+      ref: 1
+    - pt: Palestrei no MVP Conf e no TDC em 2026
+      en: Spoke at MVP Conf and TDC in 2026
+      ref: 2
+
+about:
+  - pt: >-
+      Comecei em suporte e infraestrutura no Pará. Fui de analista a supervisor de TI,
+      passei por SOC N1 e só depois entrei de vez em segurança. Hoje trabalho só com o
+      ecossistema de segurança da Microsoft.
+    en: >-
+      I started in IT support and infrastructure in Pará, in northern Brazil. I went from
+      analyst to IT supervisor, did a stint in a tier 1 SOC, and only then moved fully
+      into security. These days I work only with Microsoft's security stack.
+  - pt: >-
+      Essa base de infra ajuda todo dia. Quando um alerta chega, eu sei como funcionam a
+      máquina, a rede e a identidade que estão por trás dele.
+    en: >-
+      That infrastructure background pays off every day. When an alert fires, I know how
+      the machine, the network and the identity behind it actually work.
+  - pt: >-
+      Também dou treinamento como MCT, conduzo workshops do programa MCI da Microsoft
+      (Threat Protection e Cloud Security) e ajudei a fundar a
+      <a href="https://jornada365.cloud/">Jornada 365</a>, comunidade de Microsoft 365
+      em português.
+    en: >-
+      I also teach as an MCT, run workshops for Microsoft's MCI program (Threat Protection
+      and Cloud Security), and co-founded <a href="https://jornada365.cloud/">Jornada 365</a>,
+      a Portuguese-language Microsoft 365 community.
+
+evidence:
+  - n: 1
+    url: https://learn.microsoft.com/en-us/users/mikionakamaru/transcript/vnn42c6ool6ojrr
+    title:
+      pt: Transcript oficial no Microsoft Learn
+      en: Official Microsoft Learn transcript
+    text:
+      pt: Todas as provas e certificações, com data e situação atual, direto da Microsoft.
+      en: Every exam and certification, with dates and current status, straight from Microsoft.
+  - n: 2
+    url: https://mikionakamaru.github.io/ragciso/
+    title:
+      pt: Demo da palestra no TDC São Carlos
+      en: Live demo from my TDC São Carlos talk
+    text:
+      pt: >-
+        A página do QR code que mostrei sem explicar nada no início de "Seu RAG tem mais
+        acesso que o CISO". Quem escaneou caiu num aviso de quishing. Nenhum dado é coletado.
+      en: >-
+        The page behind the QR code I put on screen, without a word, at the start of my
+        RAG talk. Whoever scanned it landed on a quishing warning. No data is collected.
+  - n: 3
+    url: https://github.com/mikionakamaru/Consultas-KQL-MicrosoftDefender-e-Sentinel
+    title:
+      pt: Consultas KQL pra Defender XDR e Sentinel
+      en: KQL queries for Defender XDR and Sentinel
+    text:
+      pt: As queries de hunting que eu uso no trabalho, organizadas por domínio.
+      en: The hunting queries I use at work, sorted by domain.
+    extra_url: https://github.com/mikionakamaru/kql-lab-playground
+    extra:
+      pt: E um playground de KQL com dados simulados, pra quem está aprendendo.
+      en: Plus a KQL playground with simulated data, for people learning the language.
+  - n: 4
+    url: https://github.com/mikionakamaru/Relatorio-Conformidade-Defender
+    title:
+      pt: Relatório de postura de endpoint no Defender
+      en: Endpoint posture report for Defender
+    text:
+      pt: >-
+        Queries de Advanced Hunting que viram um relatório que o gestor de TI do cliente
+        lê sozinho, com status traduzido e ação recomendada em cada linha.
+      en: >-
+        Advanced Hunting queries that turn into a report a client's IT manager can read on
+        their own, with translated status and a recommended action on every row.
+
+stack:
+  - group:
+      pt: Detecção e resposta
+      en: Detection and response
+    items:
+      - Microsoft Sentinel (SIEM/SOAR)
+      - Defender XDR
+      - Defender for Endpoint
+      - Defender for Office 365
+      - Defender for Identity
+      - Defender Vulnerability Management
+      - Security Exposure Management
+      - Threat hunting (KQL)
+  - group:
+      pt: Nuvem e dados
+      en: Cloud and data
+    items:
+      - Defender for Cloud (CSPM/CWPP)
+      - Microsoft Purview (DLP, Information Protection)
+      - Azure
+      - Azure Arc
+      - Azure Lighthouse
+      - Log Analytics
+  - group:
+      pt: Identidade e endpoint
+      en: Identity and endpoint
+    items:
+      - Microsoft Entra ID
+      - Entra ID Protection
+      - Conditional Access
+      - Microsoft Intune
+      - Configuration Manager (SCCM/MECM)
+      - Jamf Pro
+  - group:
+      pt: Automação
+      en: Automation
+    items:
+      - KQL
+      - PowerShell
+      - Logic Apps
+  - group:
+      pt: Referências
+      en: Frameworks
+    items:
+      - Zero Trust
+      - MITRE ATT&CK
+      - NIST CSF
+
+# Mais recente primeiro. slug = nome do arquivo de logo em assets/cv/logos/
+# (sga.svg, avanade.png etc). Sem arquivo, aparece o círculo com initials.
+career:
+  - company: SGA TI em Nuvem
+    slug: sga
+    initials: SGA
+    start: { pt: jan/2026, en: Jan 2026 }
+    end: null
+    roles:
+      - pt: Cybersecurity Specialist (PJ)
+        en: Cybersecurity Specialist (contractor)
+    points:
+      - pt: >-
+          Opero Sentinel, Defender XDR, Defender for Cloud, Purview e Entra ID de vários
+          clientes ao mesmo tempo, via Azure Lighthouse. São empresas de saúde, financeiro,
+          indústria e governo.
+        en: >-
+          I run Sentinel, Defender XDR, Defender for Cloud, Purview and Entra ID for several
+          clients at once through Azure Lighthouse. They're in healthcare, finance,
+          manufacturing and government.
+      - pt: >-
+          Implantei o Sentinel numa holding financeira com várias empresas: conectores de
+          fontes diferentes, regras de detecção, workbooks e playbooks em Logic Apps.
+        en: >-
+          Rolled out Sentinel for a financial holding with several companies under it:
+          connectors from different sources, detection rules, workbooks and Logic Apps playbooks.
+      - pt: >-
+          Conduzo workshops MCI de Cloud Security em ambientes com Azure, AWS e Google Cloud.
+        en: >-
+          I lead MCI Cloud Security workshops for environments spread across Azure, AWS and
+          Google Cloud.
+  - company: Avanade
+    slug: avanade
+    initials: AV
+    start: { pt: jul/2022, en: Jul 2022 }
+    end: { pt: mai/2026, en: May 2026 }
+    roles:
+      - pt: Analista de Segurança Cloud e Infraestrutura (CLT)
+        en: Cloud and Infrastructure Security Analyst (full-time)
+    points:
+      - pt: >-
+          Cuidei de um parque com mais de 70 mil dispositivos (Windows, Linux, Android e iOS)
+          em Intune e Configuration Manager.
+        en: >-
+          Managed a fleet of more than 70,000 devices (Windows, Linux, Android and iOS) in
+          Intune and Configuration Manager.
+      - pt: >-
+          Revisei 69 regras analíticas do Sentinel antes da mudança de nomenclatura de conta
+          da Microsoft (jul/2026). 17 estavam ok e 52 precisaram de ajuste no KQL.
+        en: >-
+          Reviewed 69 Sentinel analytics rules ahead of Microsoft's account entity naming
+          change (July 2026). 17 were fine, 52 needed KQL fixes.
+      - pt: >-
+          Numa empresa de energia de grande porte, implantei Defender for Endpoint em Linux
+          e migrei os certificados SCEP via Intune pra atender ao KDC Strong.
+        en: >-
+          At a large energy company, deployed Defender for Endpoint on Linux and migrated
+          SCEP certificates through Intune to meet KDC Strong authentication.
+  - company: WorkDB Data Business
+    slug: workdb
+    initials: WDB
+    start: { pt: jun/2020, en: Jun 2020 }
+    end: { pt: jul/2022, en: Jul 2022 }
+    roles:
+      - pt: Analista de Segurança da Informação Pleno (nov/2021 a jul/2022)
+        en: Information Security Analyst (Nov 2021 to Jul 2022)
+      - pt: Analista de Suporte de TI Pleno (jun/2020 a nov/2021)
+        en: IT Support Analyst (Jun 2020 to Nov 2021)
+    points:
+      - pt: Comecei no SOC N1, monitorando com Zabbix, Grafana e Elastic.
+        en: Started in a tier 1 SOC, monitoring with Zabbix, Grafana and Elastic.
+      - pt: >-
+          Liderei a implantação interna do Intune e virei a referência da empresa na
+          plataforma. Depois passei pra segurança: Entra ID (AD Connect, ADFS, MIM),
+          compliance e migração de ambientes on-premises pro Azure.
+        en: >-
+          Led the company's own Intune rollout and became the go-to person for it. Then
+          moved into security: Entra ID (AD Connect, ADFS, MIM), compliance policies and
+          on-prem to Azure migrations.
+  - company: Secretaria de Estado de Educação do Pará (SEDUC/PA)
+    slug: seduc-pa
+    initials: SE
+    start: { pt: fev/2018, en: Feb 2018 }
+    end: { pt: fev/2020, en: Feb 2020 }
+    roles:
+      - pt: Analista de Suporte de TI
+        en: IT Support Analyst
+    points:
+      - pt: >-
+          Suporte num ambiente com muito usuário e muita estação, quase tudo em Linux.
+          Entrei por processo seletivo.
+        en: >-
+          Support for a large pool of users and workstations, mostly on Linux. Hired through
+          a public selection process.
+  - company: SENAR Pará
+    slug: senar-para
+    initials: SN
+    start: { pt: jan/2014, en: Jan 2014 }
+    end: { pt: mar/2017, en: Mar 2017 }
+    roles:
+      - pt: Supervisor de TI (ago/2014 a mar/2017)
+        en: IT Supervisor (Aug 2014 to Mar 2017)
+      - pt: Analista de Suporte de TI (jan/2014 a ago/2014)
+        en: IT Support Analyst (Jan 2014 to Aug 2014)
+    points:
+      - pt: Entrei como analista de suporte e virei supervisor em menos de um ano.
+        en: Joined as a support analyst and was promoted to supervisor within a year.
+      - pt: >-
+          Liderava a equipe de suporte, acompanhava indicadores e ajudava em licitação,
+          contrato e avaliação de fornecedor.
+        en: >-
+          Ran the support team, tracked its metrics, and helped with procurement, contracts
+          and vendor reviews.
+  - company: Casa do Sorveteiro
+    slug: casa-do-sorveteiro
+    initials: CS
+    start: { pt: nov/2012, en: Nov 2012 }
+    end: { pt: jan/2014, en: Jan 2014 }
+    roles:
+      - pt: Analista de Sistemas
+        en: Systems Analyst
+    points:
+      - pt: Infraestrutura, Active Directory, backup, rede e suporte ao ERP WinThor.
+        en: Infrastructure, Active Directory, backups, networking and support for the WinThor ERP.
+
+# status: active_unknown (validade no transcript), noexpire, retired.
+# retired_on só quando a data foi conferida na página oficial de provas aposentadas.
+# TODO: trocar o link de cada item pelo link individual do Credly/Learn, se existir.
+certifications:
+  - track:
+      pt: Segurança e identidade
+      en: Security and identity
+    items:
+      - code: SC-100
+        name: Cybersecurity Architect Expert
+        status: active_unknown
+      - code: SC-200
+        name: Security Operations Analyst Associate
+        status: active_unknown
+      - code: SC-300
+        name: Identity and Access Administrator Associate
+        status: active_unknown
+      - code: SC-400
+        name: Information Protection Administrator Associate
+        status: retired
+      - code: MS-500
+        name: Microsoft 365 Security Administrator Associate
+        status: retired
+      - code: SC-900
+        name: Security, Compliance and Identity Fundamentals
+        status: noexpire
+  - track:
+      pt: Azure
+      en: Azure
+    items:
+      - code: AZ-305
+        name: Azure Solutions Architect Expert
+        status: active_unknown
+      - code: AZ-104
+        name: Azure Administrator Associate
+        status: active_unknown
+      - code: AZ-700
+        name: Azure Network Engineer Associate
+        status: active_unknown
+      - code: AZ-500
+        name: Azure Security Engineer Associate
+        status: retired
+        retired_on: { pt: 31/08/2026, en: Aug 31, 2026 }
+      - code: AZ-800
+        name: Windows Server Hybrid Administrator Associate
+        status: retired
+        retired_on: { pt: 30/09/2026, en: Sep 30, 2026 }
+      - code: AZ-801
+        name: Windows Server Hybrid Advanced Services
+        status: retired
+        retired_on: { pt: 30/09/2026, en: Sep 30, 2026 }
+      - code: AZ-900
+        name: Azure Fundamentals
+        status: noexpire
+  - track:
+      pt: Microsoft 365 e Modern Workplace
+      en: Microsoft 365 and Modern Workplace
+    items:
+      - code: MS-100
+        name: Microsoft 365 Identity and Services
+        status: retired
+      - code: MS-101
+        name: Microsoft 365 Mobility and Security
+        status: retired
+      - code: MD-100
+        name: Windows Client
+        status: retired
+      - code: MD-101
+        name: Managing Modern Desktops
+        status: retired
+      - code: MS-900
+        name: Microsoft 365 Fundamentals
+        status: retired
+        retired_on: { pt: 31/03/2026, en: Mar 31, 2026 }
+
+other_credentials:
+  - name: Microsoft Certified Trainer (MCT)
+    since: { pt: desde dez/2021, en: since Dec 2021 }
+    status: active_unknown
+  - name: ITIL 4 Foundation
+    since: null
+    status: noexpire
+
+talks:
+  - event: MVP Conf Brasil 2026
+    date: { pt: 26/09/2026, en: Sep 26, 2026 }
+    place: { pt: "UNIP Vergueiro, São Paulo", en: "UNIP Vergueiro, São Paulo" }
+    title: "Técnico, Especialista ou Gestor? A carreira em Y na cibersegurança"
+    subtitle: "e as decisões reais que ninguém te conta"
+    text:
+      pt: >-
+        Palestrei sobre carreira em segurança pra quem está começando: técnico, especialista
+        ou gestor, CLT ou PJ, e quais certificações valeram a pena na minha trajetória.
+      en: >-
+        Spoke to people starting out in security about the career fork: hands-on,
+        specialist or manager, employee or contractor, and which certifications actually
+        paid off for me.
+    # TODO: link dos slides e/ou do vídeo da MVP Conf
+    slides: ""
+    video: ""
+  - event: TDC São Carlos 2026 (São Carlos Experience)
+    date: { pt: 27/08/2026, en: Aug 27, 2026 }
+    place: { pt: "São Carlos, SP", en: "São Carlos, Brazil" }
+    title: "Seu RAG tem mais acesso que o CISO"
+    subtitle: ""
+    text:
+      pt: >-
+        Palestrei sobre RAG rodando com identidade de aplicação e enxergando mais dado do
+        que qualquer pessoa aprovada na empresa. No mesmo dia participei de um painel sobre
+        IA e segurança no dia a dia corporativo e do hub de mentoria de carreira.
+      en: >-
+        Spoke about RAG systems running on an app identity and seeing more data than any
+        approved person in the company. Same day, I joined a panel on AI and security in
+        corporate life and mentored at the career hub.
+    demo: https://mikionakamaru.github.io/ragciso/
+    # TODO: link dos slides e/ou do vídeo do TDC
+    slides: ""
+    video: ""
