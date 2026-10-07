@@ -161,10 +161,10 @@ hero:
     en: São José do Rio Preto, Brazil
   # Fatos curtos do hero. ref aponta pro número do cartão em #evidence.
   facts:
-    - pt: "Em TI desde {since}"
-      en: "In IT since {since}"
-    - pt: "{exams} provas Microsoft aprovadas"
-      en: "{exams} Microsoft exams passed"
+    - pt: "Em TI desde %since%"
+      en: "In IT since %since%"
+    - pt: "%exams% provas Microsoft aprovadas"
+      en: "%exams% Microsoft exams passed"
       ref: 1
     - pt: Microsoft Certified Trainer desde 2021
       en: Microsoft Certified Trainer since 2021

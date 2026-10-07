@@ -104,7 +104,7 @@
           </p>
           <ul class="facts">
             {%- for f in cv.hero.facts %}
-            <li>{{ f[l] | replace: '{since}', since | replace: '{exams}', exams_s }}{% if f.ref %}<sup><a class="ref" href="#ev-{{ f.ref }}" aria-label="{% if l == 'en' %}Evidence{% else %}Evidência{% endif %} {{ f.ref }}">[{{ f.ref }}]</a></sup>{% endif %}</li>
+            <li>{{ f[l] | replace: '%since%', since | replace: '%exams%', exams_s }}{% if f.ref %}<sup><a class="ref" href="#ev-{{ f.ref }}" aria-label="{% if l == 'en' %}Evidence{% else %}Evidência{% endif %} {{ f.ref }}">[{{ f.ref }}]</a></sup>{% endif %}</li>
             {%- endfor %}
           </ul>
           <p class="actions">
