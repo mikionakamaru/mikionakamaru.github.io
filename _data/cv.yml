@@ -10,8 +10,6 @@ meta:
   photo: /assets/cv/foto.webp
   photo_2x: /assets/cv/foto@2x.webp
   photo_og: /assets/cv/foto.png
-  # TODO: a foto atual é um placeholder com iniciais. Troque os 3 arquivos e apague a linha abaixo.
-  photo_placeholder: true
   # Primeiro cargo de TI registrado na CTPS: Administrador de Banco de Dados, jun/2009.
   it_since: 2009
   # PDF do CV por idioma. Deixe vazio enquanto não existir; o botão some sozinho.
