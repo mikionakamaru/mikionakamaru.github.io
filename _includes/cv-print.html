@@ -1,0 +1,144 @@
+{%- comment -%}
+  Versão A4 do currículo, usada pra gerar o PDF (cv/pdf/ e cv/en/pdf/).
+  Mesmos dados de _data/cv.yml. O workflow "CV check" imprime esta página em PDF.
+{%- endcomment -%}
+{%- assign cv = site.data.cv -%}
+{%- if page.lang == 'en' -%}{%- assign l = 'en' -%}{%- else -%}{%- assign l = 'pt' -%}{%- endif -%}
+{%- assign ui = cv.ui -%}
+{%- assign pr = cv.print -%}
+{%- if l == 'en' -%}{%- assign url_cv = cv.meta.url_en -%}{%- assign mfmt = '%b %Y' -%}{%- else -%}{%- assign url_cv = cv.meta.url_pt -%}{%- assign mfmt = '%m/%Y' -%}{%- endif -%}
+{%- assign cv_logos = site.static_files | where_exp: "f", "f.path contains '/assets/cv/logos/'" -%}
+{%- assign active = 0 -%}{%- for track in cv.certifications -%}{%- for c in track.items -%}{%- if c.status != 'expired' -%}{%- assign active = active | plus: 1 -%}{%- endif -%}{%- endfor -%}{%- endfor -%}
+{%- assign since = cv.meta.it_since | append: '' -%}{%- assign active_s = active | append: '' -%}
+<!doctype html>
+<html lang="{{ page.lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>{{ cv.meta.name }} | {{ pr.doc_title[l] }}</title>
+  <meta name="author" content="{{ cv.meta.name }}">
+  <meta name="description" content="{{ cv.hero.role[l] }}">
+  <link rel="canonical" href="{{ site.url }}{{ url_cv }}">
+  <link rel="stylesheet" href="{{ '/assets/cv/print.css' | relative_url }}">
+</head>
+<body>
+<main class="sheet">
+
+  <header class="head">
+    <img class="photo" src="{{ cv.meta.photo_2x | relative_url }}" width="560" height="560" alt="{{ ui.photo_alt[l] }}">
+    <div class="id">
+      <h1>{{ cv.meta.name }}</h1>
+      <p class="role">{{ cv.hero.role[l] }}</p>
+      <p class="lead">{{ cv.hero.lead[l] }}</p>
+    </div>
+    <ul class="contact">
+      <li><a href="mailto:{{ cv.links.email }}">{{ cv.links.email }}</a></li>
+      <li><a href="{{ cv.links.linkedin }}">linkedin.com/in/mikionakamaru</a></li>
+      <li><a href="{{ cv.links.github }}">github.com/mikionakamaru</a></li>
+      <li><a href="{{ site.url }}{{ url_cv }}">{{ site.url | remove: 'https://' }}{{ url_cv }}</a></li>
+      <li>{{ cv.hero.location[l] }}</li>
+    </ul>
+  </header>
+
+  <ul class="facts">
+    {%- for f in cv.hero.facts %}
+    <li>{{ f[l] | replace: '%since%', since | replace: '%active%', active_s }}</li>
+    {%- endfor %}
+  </ul>
+
+  <div class="cols">
+    <div class="main">
+      <section>
+        <h2>{{ pr.summary[l] }}</h2>
+        {%- for p in cv.about %}
+        <p class="about">{{ p[l] }}</p>
+        {%- endfor %}
+      </section>
+
+      <section>
+        <h2>{{ pr.experience[l] }}</h2>
+        {%- for job in cv.career %}
+        {%- assign logo = cv_logos | where: "basename", job.slug | first %}
+        <article class="job">
+          <div class="job-head">
+            {%- if logo %}<img class="logo" src="{{ logo.path | relative_url }}" width="96" height="96" alt="{{ ui.logo_alt[l] }} {{ job.company }}">{% else %}<span class="logo initials" aria-hidden="true">{{ job.initials }}</span>{% endif %}
+            <div>
+              <h3>{{ job.company }}</h3>
+              <p class="period">{{ job.start[l] }} – {% if job.end %}{{ job.end[l] }}{% else %}{{ ui.current[l] }}{% endif %}</p>
+            </div>
+          </div>
+          <ul class="roles">
+            {%- for r in job.roles %}<li>{{ r[l] }}</li>{% endfor %}
+          </ul>
+          <ul class="points">
+            {%- for pt in job.points %}<li>{{ pt[l] }}</li>{% endfor %}
+          </ul>
+        </article>
+        {%- endfor %}
+      </section>
+    </div>
+
+    <aside class="side">
+      <section>
+        <h2>{{ pr.certifications[l] }}</h2>
+        {%- for track in cv.certifications %}
+        <h3 class="track">{{ track.track[l] }}</h3>
+        <ul class="certs">
+          {%- for c in track.items %}
+          {%- if l == 'en' and c.exams_en %}{% assign exams_txt = c.exams_en %}{% else %}{% assign exams_txt = c.exams %}{% endif %}
+          <li class="{% if c.status == 'expired' %}expired{% endif %}">
+            <a href="{{ c.url }}">{{ c.name }}</a>
+            <span class="meta"><span class="nw">{{ exams_txt | replace: ' ', "</span> <span class='nw'>" }}</span>{% if c.current_exam %} ({% if l == 'en' %}now{% else %}hoje{% endif %} <span class="nw">{{ c.current_exam }}</span>){% endif %},
+              {% if c.status == 'active' %}{{ pr.cert_until[l] }} {{ c.expires | date: mfmt }}{% elsif c.status == 'expired' %}{{ pr.cert_expired[l] }} {{ c.expires | date: mfmt }}{% else %}{{ pr.cert_noexpire[l] }}{% endif %}</span>
+          </li>
+          {%- endfor %}
+        </ul>
+        {%- endfor %}
+        <p class="note">{{ pr.cert_footnote[l] }} <a href="{{ cv.links.transcript }}">learn.microsoft.com/users/mikionakamaru</a></p>
+        <h3 class="track">{{ pr.other[l] }}</h3>
+        <ul class="certs">
+          {%- for c in cv.other_credentials %}
+          <li>{{ c.name }}{% if c.since %} <span class="meta">{{ c.since[l] }}</span>{% endif %}</li>
+          {%- endfor %}
+        </ul>
+      </section>
+
+      <section>
+        <h2>{{ pr.stack[l] }}</h2>
+        {%- for g in cv.stack %}
+        <p class="stack"><strong>{{ g.group[l] }}:</strong> {{ g.items | join: ', ' }}</p>
+        {%- endfor %}
+      </section>
+
+      <section>
+        <h2>{{ pr.talks[l] }}</h2>
+        {%- for t in cv.talks %}
+        <div class="talk">
+          <p class="talk-title" lang="pt-BR"><a href="{{ t.page }}">{{ t.title }}</a></p>
+          <p class="meta">{{ t.event }}, {{ t.date[l] }}</p>
+        </div>
+        {%- endfor %}
+      </section>
+
+      <section>
+        <h2>{{ pr.education[l] }}</h2>
+        {%- for e in cv.education %}
+        <div class="edu">
+          <p class="edu-course">{{ e.course[l] }}</p>
+          <p class="meta">{{ e.school }}, {{ e.period[l] }}</p>
+        </div>
+        {%- endfor %}
+      </section>
+
+      <section>
+        <h2>{{ pr.languages[l] }}</h2>
+        {%- for x in cv.languages %}
+        <p class="lang">{{ x[l] }}</p>
+        {%- endfor %}
+      </section>
+    </aside>
+  </div>
+</main>
+</body>
+</html>

@@ -225,7 +225,7 @@
               {%- for c in track.items %}
               {%- if l == 'en' and c.exams_en %}{% assign exams_txt = c.exams_en %}{% else %}{% assign exams_txt = c.exams %}{% endif %}
               <li class="cert{% if c.status == 'expired' %} is-expired{% endif %}">
-                <span class="code">{{ exams_txt | replace: "-", "‑" }}</span>
+                <span class="code"><span class="nw">{{ exams_txt | replace: ' ', "</span> <span class='nw'>" }}</span></span>
                 <span class="cert-name">{% if c.url %}<a href="{{ c.url }}" target="_blank" rel="noopener">{{ c.name }}<span class="sr-only"> ({{ ui.cert_verify_one[l] }}) {{ ui.new_tab[l] }}</span></a>{% else %}{{ c.name }}{% endif %}</span>
                 <span class="cert-meta">
                   <span class="status status-{{ c.status }}">
@@ -235,6 +235,9 @@
                   </span>
                   <span class="cert-id">{{ ui.cert_id[l] }} {{ c.id }}</span>
                 </span>
+                {%- if c.current_exam %}
+                <span class="cert-note">{{ ui.cert_current_exam[l] | replace: '%old%', exams_txt | replace: '%new%', c.current_exam }}</span>
+                {%- endif %}
                 {%- if c.exam_note %}
                 <span class="cert-note">{{ c.exam_note[l] }}</span>
                 {%- endif %}

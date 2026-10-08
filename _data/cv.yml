@@ -12,11 +12,10 @@ meta:
   photo_og: /assets/cv/foto.png
   # Primeiro cargo de TI registrado na CTPS: Administrador de Banco de Dados, jun/2009.
   it_since: 2009
-  # PDF do CV por idioma. Deixe vazio enquanto não existir; o botão some sozinho.
-  # TODO: subir assets/cv/cv-mikio-nakamaru-pt.pdf e assets/cv/cv-mikio-nakamaru-en.pdf
+  # PDF do CV por idioma. Gerado pelo workflow "CV check" a partir de /cv/pdf/ e /cv/en/pdf/.
   pdf:
-    pt: ""
-    en: ""
+    pt: /assets/cv/cv-mikio-nakamaru-pt.pdf
+    en: /assets/cv/cv-mikio-nakamaru-en.pdf
 
 links:
   linkedin: https://www.linkedin.com/in/mikionakamaru/
@@ -123,6 +122,9 @@ ui:
   cert_verify_one:
     pt: ver credencial no Microsoft Learn
     en: view credential on Microsoft Learn
+  cert_current_exam:
+    pt: "Obtida pelas provas %old%. Hoje a prova dessa certificação é a %new%, e a renovação anual cobre o conteúdo dela."
+    en: "Earned through %old%. The current exam for this certification is %new%, and the yearly renewal covers its content."
   cert_id:
     pt: Nº
     en: No.
@@ -450,6 +452,8 @@ career:
 # Cada item é uma CERTIFICAÇÃO, não uma prova. Nome igual ao do transcript.
 # status: active (com expires), expired (com expires = data em que expirou) ou noexpire.
 # id = número da certificação no transcript. url = página de verificação da credencial no Microsoft Learn.
+# current_exam = prova que hoje dá essa certificação. A certificação foi obtida pelas provas antigas
+#   (exams) e mantida pela renovação anual da Microsoft, que cobre o conteúdo da prova atual.
 # exam_note = fato sobre a prova que gerou a certificação (data conferida na página oficial de provas aposentadas).
 transcript:
   checked: { pt: 07/10/2026, en: Oct 7, 2026 }
@@ -559,6 +563,7 @@ certifications:
       en: Microsoft 365 and endpoint
     items:
       - name: Microsoft 365 Administrator Expert
+        current_exam: MS-102
         url: https://learn.microsoft.com/api/credentials/share/en-us/mikionakamaru/E5A0C1B5E3937ECD?sharingId=F2D4EA9E91B79A7B
         exams: MS-100 e MS-101
         exams_en: MS-100 and MS-101
@@ -567,6 +572,7 @@ certifications:
         expires: 2027-08-08
         status: active
       - name: Endpoint Administrator Associate
+        current_exam: MD-102
         url: https://learn.microsoft.com/api/credentials/share/en-us/mikionakamaru/F2CAD47CF01F7D4D?sharingId=F2D4EA9E91B79A7B
         exams: MD-100 e MD-101
         exams_en: MD-100 and MD-101
@@ -588,6 +594,54 @@ other_credentials:
     since: { pt: desde dez/2021, en: since Dec 2021 }
   - name: ITIL 4 Foundation
     since: null
+
+# Formação: conferida nos diplomas e certificados (projeto "Pessoal").
+education:
+  - course:
+      pt: Especialização em Gestão de Tecnologia da Informação
+      en: Postgraduate specialization in IT Management
+    school: Faculdade Ideal (Faci Wyden), Belém
+    period: { pt: concluída em jan/2018, en: completed Jan 2018 }
+  - course:
+      pt: Pós-graduação em Informática em Educação
+      en: Postgraduate specialization in Computing in Education
+    school: Universidade da Amazônia (Unama), Belém
+    period: { pt: 2010 a 2012, en: 2010 to 2012 }
+  - course:
+      pt: Tecnólogo em Redes de Computadores
+      en: Associate degree in Computer Networks
+    school: Faculdade Ideal (Faci), Belém
+    period: { pt: concluído em fev/2010, en: completed Feb 2010 }
+
+languages:
+  - pt: Português, nativo
+    en: Portuguese, native
+  - pt: Inglês, profissional (leitura e escrita)
+    en: English, professional (reading and writing)
+
+# Textos só do PDF (A4).
+print:
+  doc_title:
+    pt: Currículo
+    en: Résumé
+  summary: { pt: Resumo, en: Summary }
+  experience: { pt: Experiência, en: Experience }
+  certifications: { pt: Certificações Microsoft, en: Microsoft certifications }
+  cert_until: { pt: até, en: until }
+  cert_expired: { pt: expirou em, en: expired }
+  cert_noexpire: { pt: não expira, en: no expiry }
+  cert_footnote:
+    pt: "Clique no nome pra ver a credencial no Microsoft Learn. Lista completa:"
+    en: "Click a name to open the credential on Microsoft Learn. Full list:"
+  other: { pt: Outras credenciais, en: Other credentials }
+  stack: { pt: Stack, en: Stack }
+  talks: { pt: Palestras, en: Talks }
+  education: { pt: Formação, en: Education }
+  languages: { pt: Idiomas, en: Languages }
+  online: { pt: Versão online, en: Online version }
+  page: { pt: Página, en: Page }
+  of: { pt: de, en: of }
+  updated: { pt: Atualizado em, en: Updated }
 
 talks:
   - event: MVP Conf Brasil 2026
