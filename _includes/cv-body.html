@@ -8,15 +8,16 @@
 {%- if l == 'en' -%}{%- assign url_here = cv.meta.url_en -%}{%- else -%}{%- assign url_here = cv.meta.url_pt -%}{%- endif -%}
 {%- assign since = cv.meta.it_since | append: '' -%}
 
-{%- comment -%} Conta provas e quantas são de certificações aposentadas, direto dos dados {%- endcomment -%}
-{%- assign exams = 0 -%}{%- assign retired = 0 -%}
+{%- comment -%} Conta certificações ativas e expiradas direto dos dados do transcript {%- endcomment -%}
+{%- assign active = 0 -%}{%- assign expired = 0 -%}
 {%- for track in cv.certifications -%}
   {%- for c in track.items -%}
-    {%- assign exams = exams | plus: 1 -%}
-    {%- if c.status == 'retired' -%}{%- assign retired = retired | plus: 1 -%}{%- endif -%}
+    {%- if c.status == 'expired' -%}{%- assign expired = expired | plus: 1 -%}{%- else -%}{%- assign active = active | plus: 1 -%}{%- endif -%}
   {%- endfor -%}
 {%- endfor -%}
-{%- assign exams_s = exams | append: '' -%}
+{%- assign active_s = active | append: '' -%}{%- assign expired_s = expired | append: '' -%}
+{%- assign exams_s = cv.transcript.exams_passed | append: '' -%}{%- assign first_exam_s = cv.transcript.first_exam_year | append: '' -%}
+{%- if l == 'en' -%}{%- assign dfmt = '%b %-d, %Y' -%}{%- else -%}{%- assign dfmt = '%d/%m/%Y' -%}{%- endif -%}
 
 {%- assign cv_logos = site.static_files | where_exp: "f", "f.path contains '/assets/cv/logos/'" -%}
 {%- capture desc -%}{{ cv.hero.role[l] }}. {{ cv.hero.lead[l] | strip_newlines | strip }}{%- endcapture -%}
@@ -104,11 +105,11 @@
           </p>
           <ul class="facts">
             {%- for f in cv.hero.facts %}
-            <li>{{ f[l] | replace: '%since%', since | replace: '%exams%', exams_s }}{% if f.ref %}<sup><a class="ref" href="#ev-{{ f.ref }}" aria-label="{% if l == 'en' %}Evidence{% else %}Evidência{% endif %} {{ f.ref }}">[{{ f.ref }}]</a></sup>{% endif %}</li>
+            <li>{{ f[l] | replace: '%since%', since | replace: '%active%', active_s }}{% if f.ref %}<sup><a class="ref" href="#ev-{{ f.ref }}" aria-label="{% if l == 'en' %}Evidence{% else %}Evidência{% endif %} {{ f.ref }}">[{{ f.ref }}]</a></sup>{% endif %}</li>
             {%- endfor %}
           </ul>
           <p class="actions">
-            <a class="btn btn-primary" href="{{ cv.links.linkedin }}" rel="me">{{ ui.btn_linkedin[l] }}</a>
+            <a class="btn btn-primary" href="{{ cv.links.linkedin }}" target="_blank" rel="me noopener">{{ ui.btn_linkedin[l] }}<span class="sr-only"> {{ ui.new_tab[l] }}</span></a>
             <a class="btn" href="mailto:{{ cv.links.email }}">{{ ui.btn_email[l] }}</a>
             {%- assign pdf = cv.meta.pdf[l] -%}
             {%- if pdf and pdf != '' %}
@@ -140,10 +141,17 @@
           {%- for e in cv.evidence %}
           <li id="ev-{{ e.n }}" class="ev">
             <span class="ev-n" aria-hidden="true">[{{ e.n }}]</span>
-            <h3><a href="{{ e.url }}">{{ e.title[l] }}</a></h3>
+            <h3><a href="{{ e.url }}" target="_blank" rel="noopener">{{ e.title[l] }}<span class="sr-only"> {{ ui.new_tab[l] }}</span></a></h3>
             <p>{{ e.text[l] }}</p>
             {%- if e.extra_url %}
-            <p class="ev-extra"><a href="{{ e.extra_url }}">{{ e.extra[l] }}</a></p>
+            <p class="ev-extra"><a href="{{ e.extra_url }}" target="_blank" rel="noopener">{{ e.extra[l] }}<span class="sr-only"> {{ ui.new_tab[l] }}</span></a></p>
+            {%- endif %}
+            {%- if e.links %}
+            <ul class="ev-links">
+              {%- for x in e.links %}
+              <li><a href="{{ x.url }}" target="_blank" rel="noopener">{{ x[l] }}<span class="sr-only"> {{ ui.new_tab[l] }}</span></a></li>
+              {%- endfor %}
+            </ul>
             {%- endif %}
             <p class="ev-host">{{ e.url | remove: 'https://' | split: '/' | first }}</p>
           </li>
@@ -208,47 +216,49 @@
     <section id="certifications" aria-labelledby="h-certs">
       <div class="wrap">
         <h2 id="h-certs">{{ ui.certs_title[l] }}</h2>
-        <p class="section-intro">
-          {%- if l == 'en' -%}
-          {{ exams }} Microsoft exams passed. Microsoft has since retired {{ retired }} of them, and they're marked below. Expiry dates for the rest live on the official transcript.<sup><a class="ref" href="#ev-1" aria-label="Evidence 1">[1]</a></sup>
-          {%- else -%}
-          {{ exams }} provas Microsoft aprovadas. A Microsoft já aposentou {{ retired }} delas, e elas estão marcadas abaixo. A validade das outras fica no transcript oficial.<sup><a class="ref" href="#ev-1" aria-label="Evidência 1">[1]</a></sup>
-          {%- endif -%}
-        </p>
-        <!-- TODO: confirmar no transcript a validade de cada certificação "Validade no transcript" e trocar o link geral pelo link individual (Credly/Learn), se houver. -->
+        <p class="section-intro">{{ ui.certs_intro[l] | replace: '%active%', active_s | replace: '%expired%', expired_s | replace: '%checked%', cv.transcript.checked[l] | replace: '%exams%', exams_s | replace: '%since_exam%', first_exam_s }}<sup><a class="ref" href="#ev-1" aria-label="{% if l == 'en' %}Evidence{% else %}Evidência{% endif %} 1">[1]</a></sup></p>
         <div class="cert-grid">
           {%- for track in cv.certifications %}
           <section class="cert-track" aria-labelledby="t-{{ forloop.index }}">
             <h3 id="t-{{ forloop.index }}">{{ track.track[l] }}</h3>
             <ul>
               {%- for c in track.items %}
-              <li class="cert{% if c.status == 'retired' %} is-retired{% endif %}">
-                <a class="code" href="{{ cv.links.transcript }}" aria-label="{{ c.code }}: {{ ui.certs_verify[l] }}">{{ c.code }}</a>
-                <span class="cert-name">{{ c.name }}</span>
-                <span class="status status-{{ c.status }}">
-                  {%- if c.status == 'retired' -%}
-                    {%- if c.retired_on -%}{{ ui.status_retired_on[l] }} {{ c.retired_on[l] }}{%- else -%}{{ ui.status_retired[l] }}{%- endif -%}
-                  {%- elsif c.status == 'noexpire' -%}{{ ui.status_noexpire[l] }}
-                  {%- else -%}{{ ui.status_check[l] }}{%- endif -%}
+              {%- if l == 'en' and c.exams_en %}{% assign exams_txt = c.exams_en %}{% else %}{% assign exams_txt = c.exams %}{% endif %}
+              <li class="cert{% if c.status == 'expired' %} is-expired{% endif %}">
+                <span class="code"><span class="nw">{{ exams_txt | replace: ' ', "</span> <span class='nw'>" }}</span></span>
+                <span class="cert-name">{% if c.url %}<a href="{{ c.url }}" target="_blank" rel="noopener">{{ c.name }}<span class="sr-only"> ({{ ui.cert_verify_one[l] }}) {{ ui.new_tab[l] }}</span></a>{% else %}{{ c.name }}{% endif %}</span>
+                <span class="cert-meta">
+                  <span class="status status-{{ c.status }}">
+                    {%- if c.status == 'active' -%}{{ ui.status_active[l] }} {{ c.expires | date: dfmt }}
+                    {%- elsif c.status == 'expired' -%}{{ ui.status_expired[l] }} {{ c.expires | date: dfmt }}
+                    {%- else -%}{{ ui.status_noexpire[l] }}{%- endif -%}
+                  </span>
+                  <span class="cert-id">{{ ui.cert_id[l] }} {{ c.id }}</span>
                 </span>
+                {%- if c.current_exam %}
+                <span class="cert-note">{{ ui.cert_current_exam[l] | replace: '%old%', exams_txt | replace: '%new%', c.current_exam }}</span>
+                {%- endif %}
+                {%- if c.exam_note %}
+                <span class="cert-note">{{ c.exam_note[l] }}</span>
+                {%- endif %}
               </li>
               {%- endfor %}
             </ul>
           </section>
           {%- endfor %}
           <section class="cert-track" aria-labelledby="t-other">
-            <h3 id="t-other">{% if l == 'en' %}Other credentials{% else %}Outras credenciais{% endif %}</h3>
+            <h3 id="t-other">{{ ui.other_creds[l] }}</h3>
             <ul>
               {%- for c in cv.other_credentials %}
               <li class="cert cert-other">
                 <span class="cert-name"><strong>{{ c.name }}</strong>{% if c.since %} {{ c.since[l] }}{% endif %}</span>
-                <span class="status status-{{ c.status }}">{% if c.status == 'noexpire' %}{{ ui.status_noexpire[l] }}{% else %}{{ ui.status_check[l] }}{% endif %}</span>
               </li>
               {%- endfor %}
             </ul>
+            <!-- TODO: MCT e ITIL 4 Foundation não estão no transcript do Learn. Sem link de verificação, ficam sem selo de situação. -->
           </section>
         </div>
-        <p class="verify"><a href="{{ cv.links.transcript }}">{{ ui.certs_verify[l] }}</a></p>
+        <p class="verify"><a href="{{ cv.links.transcript }}" target="_blank" rel="noopener">{{ ui.certs_verify[l] }}<span class="sr-only"> {{ ui.new_tab[l] }}</span></a></p>
       </div>
     </section>
 
@@ -262,13 +272,12 @@
             <h3 lang="pt-BR">{{ t.title }}{% if t.subtitle != '' %} <span class="sub">({{ t.subtitle }})</span>{% endif %}</h3>
             {%- if ui.in_portuguese[l] != '' %}<p class="talk-lang">{{ ui.in_portuguese[l] }}</p>{% endif %}
             <p>{{ t.text[l] }}</p>
-            {%- if t.demo or t.slides != '' or t.video != '' %}
             <p class="talk-links">
-              {%- if t.demo %}<a href="{{ t.demo }}">{% if l == 'en' %}Live demo page{% else %}Página da demo{% endif %}</a><sup><a class="ref" href="#ev-2" aria-label="{% if l == 'en' %}Evidence{% else %}Evidência{% endif %} 2">[2]</a></sup>{% endif %}
-              {%- if t.slides != '' %} <a href="{{ t.slides }}">{{ ui.talk_slides[l] }}</a>{% endif %}
-              {%- if t.video != '' %} <a href="{{ t.video }}">{{ ui.talk_video[l] }}</a>{% endif %}
+              {%- if t.page %}<span class="nowrap"><a href="{{ t.page }}" target="_blank" rel="noopener">{{ ui.talk_page[l] }}<span class="sr-only"> {{ ui.new_tab[l] }}</span></a><sup><a class="ref" href="#ev-2" aria-label="{% if l == 'en' %}Evidence{% else %}Evidência{% endif %} 2">[2]</a></sup>{% endif %}
+              {%- if t.repo %} <a href="{{ t.repo }}" target="_blank" rel="noopener">{{ ui.talk_repo[l] }}<span class="sr-only"> {{ ui.new_tab[l] }}</span></a>{% endif %}
+              {%- if t.slides != '' %} <a href="{{ t.slides }}" target="_blank" rel="noopener">{{ ui.talk_slides[l] }}<span class="sr-only"> {{ ui.new_tab[l] }}</span></a>{% endif %}
+              {%- if t.video != '' %} <a href="{{ t.video }}" target="_blank" rel="noopener">{{ ui.talk_video[l] }}<span class="sr-only"> {{ ui.new_tab[l] }}</span></a>{% endif %}
             </p>
-            {%- endif %}
             {%- if t.slides == '' and t.video == '' %}
             <!-- TODO: slides ou vídeo de "{{ t.title }}" ({{ t.event }}). Preencher talks[].slides / video em _data/cv.yml. -->
             {%- endif %}
@@ -294,9 +303,9 @@
         <h2 id="h-contact">{{ ui.contact_title[l] }}</h2>
         <p class="section-intro">{{ ui.contact_text[l] }}</p>
         <ul class="contact-list">
-          <li><span>LinkedIn</span> <a href="{{ cv.links.linkedin }}" rel="me">linkedin.com/in/mikionakamaru</a></li>
+          <li><span>LinkedIn</span> <a href="{{ cv.links.linkedin }}" target="_blank" rel="me noopener">linkedin.com/in/mikionakamaru<span class="sr-only"> {{ ui.new_tab[l] }}</span></a></li>
           <li><span>{{ ui.btn_email[l] }}</span> <a href="mailto:{{ cv.links.email }}">{{ cv.links.email }}</a></li>
-          <li><span>GitHub</span> <a href="{{ cv.links.github }}" rel="me">github.com/mikionakamaru</a></li>
+          <li><span>GitHub</span> <a href="{{ cv.links.github }}" target="_blank" rel="me noopener">github.com/mikionakamaru<span class="sr-only"> {{ ui.new_tab[l] }}</span></a></li>
         </ul>
       </div>
     </section>

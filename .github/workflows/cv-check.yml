@@ -65,8 +65,66 @@ jobs:
           git push
           echo "updated=true" >> "$GITHUB_OUTPUT"
 
-  build:
+  # Gera os PDFs A4 (pt e en) a partir de /cv/pdf/ e /cv/en/pdf/ quando algum insumo muda.
+  # O hash dos insumos fica em .github/cv-pdf.sha256 pra não commitar PDF igual de novo.
+  pdf:
     needs: photo
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Ver se os insumos do PDF mudaram
+        id: need
+        run: |
+          new=$(cat _data/cv.yml _includes/cv-print.html assets/cv/print.css .github/scripts/cv-pdf.py \
+                assets/cv/foto@2x.webp assets/cv/logos/* assets/cv/fonts/*.woff2 | sha256sum | cut -d' ' -f1)
+          old=$(cat .github/cv-pdf.sha256 2>/dev/null || true)
+          echo "hash=$new" >> "$GITHUB_OUTPUT"
+          if [ "$new" != "$old" ] || [ ! -f assets/cv/cv-mikio-nakamaru-pt.pdf ] || [ ! -f assets/cv/cv-mikio-nakamaru-en.pdf ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: ruby/setup-ruby@v1
+        if: steps.need.outputs.run == 'true'
+        with:
+          ruby-version: 3.4
+          bundler-cache: true
+
+      - uses: actions/setup-python@v6
+        if: steps.need.outputs.run == 'true'
+        with:
+          python-version: "3.12"
+
+      - name: Build e PDFs
+        if: steps.need.outputs.run == 'true'
+        run: |
+          bundle exec jekyll b -d _site
+          pip install --quiet playwright==1.56.0
+          (python3 -m http.server 4000 -d _site >/dev/null 2>&1 &)
+          sleep 2
+          python3 .github/scripts/cv-pdf.py http://127.0.0.1:4000 assets/cv chrome
+          echo "${{ steps.need.outputs.hash }}" > .github/cv-pdf.sha256
+        env:
+          JEKYLL_ENV: "production"
+
+      - name: Commitar PDFs
+        if: steps.need.outputs.run == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase --quiet
+          git add assets/cv/cv-mikio-nakamaru-pt.pdf assets/cv/cv-mikio-nakamaru-en.pdf .github/cv-pdf.sha256
+          git commit -m "cv: PDFs A4 gerados da página (pt e en)"
+          git push
+
+  build:
+    needs: pdf
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
