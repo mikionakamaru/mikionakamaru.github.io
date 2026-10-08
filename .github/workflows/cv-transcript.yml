@@ -1,0 +1,36 @@
+# Temporário: lê o transcript público do Microsoft Learn e mostra nas anotações. Some antes do merge.
+name: "CV transcript (temp)"
+on:
+  push:
+    branches: [cv-updates]
+permissions:
+  contents: read
+jobs:
+  read:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ler transcript
+        run: |
+          curl -fsSL "https://learn.microsoft.com/api/profiles/transcript/share/vnn42c6ool6ojrr?locale=en-us" -o t.json
+          python3 - <<'PY'
+          import json
+          d = json.load(open("t.json"))
+          def walk(o, path=""):
+              if isinstance(o, dict):
+                  for k, v in o.items(): walk(v, f"{path}.{k}")
+              elif isinstance(o, list):
+                  print(f"::notice::LIST {path} len={len(o)}")
+          walk(d)
+          cd = d.get("certificationData") or {}
+          for group in ("activeCertifications", "historicalCertifications"):
+              for c in cd.get(group) or []:
+                  keys = {k: c.get(k) for k in ("name","certificationNumber","status","dateEarned","expiration","renewalStatus") if k in c}
+                  print(f"::notice::{group} " + json.dumps(keys, ensure_ascii=False)[:900])
+          ex = (d.get("examData") or {}).get("passedExams") or []
+          for e in ex:
+              keys = {k: e.get(k) for k in ("examNumber","title","passedDate") if k in e}
+              print(f"::warning::exam " + json.dumps(keys, ensure_ascii=False)[:400])
+          for k in d:
+              if k not in ("certificationData","examData"):
+                  print(f"::notice::TOP {k} " + json.dumps(d[k], ensure_ascii=False)[:600])
+          PY
