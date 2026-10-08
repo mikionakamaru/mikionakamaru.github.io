@@ -447,32 +447,35 @@ sup { line-height: 0; }
 .cert-track h3 { margin-bottom: 0.4rem; }
 .cert {
   display: grid;
-  grid-template-columns: 4.6rem minmax(0, 1fr);
+  grid-template-columns: 7rem minmax(0, 1fr);
   gap: 0.1rem 0.75rem;
-  padding: 0.6rem 0;
+  padding: 0.65rem 0;
   border-top: 1px solid var(--line);
 }
 .cert:first-child { border-top: 0; }
-.cert .code { font-weight: 750; font-variant-numeric: tabular-nums; }
-.cert-name { font-size: 0.97rem; }
-.cert .status { grid-column: 2; justify-self: start; }
+.cert .code { grid-row: 1 / span 3; font-weight: 750; font-size: 0.93rem; font-variant-numeric: tabular-nums; padding-top: 0.05rem; }
+.cert-name { font-size: 0.97rem; font-weight: 550; }
+.cert-meta, .cert-note { grid-column: 2; }
+.cert-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.6rem; margin-top: 0.2rem; }
+.cert-id { font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.cert-note { font-size: 0.84rem; color: var(--muted); margin-top: 0.2rem; }
 .cert-other { grid-template-columns: minmax(0, 1fr); }
-.cert-other .status { grid-column: 1; }
-.is-retired .cert-name, .is-retired .code { color: var(--muted); }
-.is-retired .code { text-decoration-style: dotted; }
+.is-expired .cert-name, .is-expired .code { color: var(--muted); font-weight: 500; }
+@media (max-width: 26em) {
+  .cert { grid-template-columns: minmax(0, 1fr); }
+  .cert .code { grid-row: auto; }
+  .cert-meta, .cert-note { grid-column: 1; }
+}
 
 .status {
   display: inline-block;
-  margin-top: 0.25rem;
   padding: 0.05rem 0.5rem;
   border-radius: 4px;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--muted);
-  border: 1px solid var(--line);
 }
-.status-retired { background: var(--retired-bg); color: var(--retired-ink); border-color: transparent; }
-.status-noexpire { background: var(--ok-bg); color: var(--ok-ink); border-color: transparent; }
+.status-active, .status-noexpire { background: var(--ok-bg); color: var(--ok-ink); }
+.status-expired { background: var(--retired-bg); color: var(--retired-ink); }
 
 .verify { margin: 1.25rem 0 0; font-weight: 600; }
 
