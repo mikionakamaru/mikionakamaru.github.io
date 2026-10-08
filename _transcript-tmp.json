@@ -1,0 +1,217 @@
+{
+ "activeCertifications": [
+  {
+   "name": "Microsoft Certified: Identity and Access Administrator Associate",
+   "certificationNumber": "CG1E5F-077E43",
+   "status": "Active",
+   "dateEarned": "2022-01-27T02:32:48+00:00",
+   "expiration": "2027-01-27T23:59:59+00:00"
+  },
+  {
+   "name": "Microsoft 365 Certified: Endpoint Administrator Associate",
+   "certificationNumber": "F30924-32M33A",
+   "status": "Active",
+   "dateEarned": "2023-02-15T12:13:28+00:00",
+   "expiration": "2027-02-15T23:59:59+00:00"
+  },
+  {
+   "name": "Microsoft Certified: Security Operations Analyst Associate",
+   "certificationNumber": "488CA8-8C8C07",
+   "status": "Active",
+   "dateEarned": "2022-04-02T02:50:15+00:00",
+   "expiration": "2027-04-02T23:59:59+00:00"
+  },
+  {
+   "name": "Microsoft Certified: Windows Server Administrator Associate",
+   "certificationNumber": "AAP403-FD4578",
+   "status": "Active",
+   "dateEarned": "2023-07-11T22:45:35+00:00",
+   "expiration": "2027-07-11T23:59:59+00:00"
+  },
+  {
+   "name": "Microsoft 365 Certified: Administrator Expert",
+   "certificationNumber": "AEE300-CA4H80",
+   "status": "Active",
+   "dateEarned": "2022-08-08T00:35:26+00:00",
+   "expiration": "2027-08-08T23:59:59+00:00"
+  },
+  {
+   "name": "Microsoft Certified: Azure Network Engineer Associate",
+   "certificationNumber": "4F3268-C152DL",
+   "status": "Active",
+   "dateEarned": "2023-08-12T02:44:24+00:00",
+   "expiration": "2027-08-12T23:59:59+00:00"
+  },
+  {
+   "name": "Microsoft Certified: Azure Solutions Architect Expert",
+   "certificationNumber": "DC383C-CA507D",
+   "status": "Active",
+   "dateEarned": "2024-09-04T02:15:13+00:00",
+   "expiration": "2027-09-04T23:59:59+00:00"
+  },
+  {
+   "name": "Microsoft Certified: Azure Security Engineer Associate",
+   "certificationNumber": "W64081-0E5E72",
+   "status": "Active",
+   "dateEarned": "2022-09-09T01:52:51+00:00",
+   "expiration": "2027-09-09T23:59:59+00:00"
+  },
+  {
+   "name": "Microsoft Certified: Cybersecurity Architect Expert",
+   "certificationNumber": "2078B8-C31DCC",
+   "status": "Active",
+   "dateEarned": "2022-10-11T01:33:04+00:00",
+   "expiration": "2027-10-11T23:59:59+00:00"
+  },
+  {
+   "name": "Microsoft Certified: Azure Administrator Associate",
+   "certificationNumber": "RCE69A-1354E7",
+   "status": "Active",
+   "dateEarned": "2023-10-14T03:09:25+00:00",
+   "expiration": "2027-10-14T23:59:59+00:00"
+  },
+  {
+   "name": "Microsoft Certified: Security, Compliance, and Identity Fundamentals",
+   "certificationNumber": "D9C24H-14C72E",
+   "status": "Active",
+   "dateEarned": "2022-01-16T10:51:05+00:00"
+  },
+  {
+   "name": "Microsoft 365 Certified: Fundamentals",
+   "certificationNumber": "957A8N-9206B8",
+   "status": "Active",
+   "dateEarned": "2021-07-01T19:09:05+00:00"
+  },
+  {
+   "name": "Microsoft Certified: Azure Fundamentals",
+   "certificationNumber": "C83EA1-BF93AC",
+   "status": "Active",
+   "dateEarned": "2021-06-18T00:32:38+00:00"
+  }
+ ],
+ "historicalCertifications": [
+  {
+   "name": "Microsoft Certified: Information Protection and Compliance Administrator Associate",
+   "certificationNumber": "PDDC55-8CDE3B",
+   "status": "Expired",
+   "dateEarned": "2022-03-04T02:51:54+00:00",
+   "expiration": "2026-03-04T23:59:59+00:00"
+  },
+  {
+   "name": "Microsoft 365 Certified: Security Administrator Associate",
+   "certificationNumber": "FD8C56-DAM4E2",
+   "status": "Expired",
+   "dateEarned": "2021-11-27T02:16:42+00:00",
+   "expiration": "2024-11-27T23:59:59+00:00"
+  }
+ ],
+ "passedExams": [
+  {
+   "examTitle": "Designing Microsoft Azure Infrastructure Solutions",
+   "examNumber": "AZ-305",
+   "examDateTaken": "2024-09-04T02:15:13+00:00"
+  },
+  {
+   "examTitle": "Microsoft Azure Administrator",
+   "examNumber": "AZ-104",
+   "examDateTaken": "2023-10-14T03:09:25+00:00"
+  },
+  {
+   "examTitle": "Designing and Implementing Microsoft Azure Networking Solutions",
+   "examNumber": "AZ-700",
+   "examDateTaken": "2023-08-12T02:44:24+00:00"
+  },
+  {
+   "examTitle": "Configuring Windows Server Hybrid Advanced Services",
+   "examNumber": "AZ-801",
+   "examDateTaken": "2023-07-11T22:45:35+00:00"
+  },
+  {
+   "examTitle": "Windows Client",
+   "examNumber": "MD-100",
+   "examDateTaken": "2023-02-15T12:13:28+00:00"
+  },
+  {
+   "examTitle": "Managing Modern Desktops",
+   "examNumber": "MD-101",
+   "examDateTaken": "2023-02-13T16:29:23+00:00"
+  },
+  {
+   "examTitle": "Microsoft Cybersecurity Architect",
+   "examNumber": "SC-100",
+   "examDateTaken": "2022-10-11T01:33:04+00:00"
+  },
+  {
+   "examTitle": "Microsoft Azure Security Technologies",
+   "examNumber": "AZ-500",
+   "examDateTaken": "2022-09-09T01:52:51+00:00"
+  },
+  {
+   "examTitle": "Microsoft 365 Mobility and Security",
+   "examNumber": "MS-101",
+   "examDateTaken": "2022-08-08T00:35:26+00:00"
+  },
+  {
+   "examTitle": "Administering Windows Server Hybrid Core Infrastructure",
+   "examNumber": "AZ-800",
+   "examDateTaken": "2022-05-13T02:35:37+00:00"
+  },
+  {
+   "examTitle": "Microsoft Security Operations Analyst",
+   "examNumber": "SC-200",
+   "examDateTaken": "2022-04-02T02:50:15+00:00"
+  },
+  {
+   "examTitle": "Administering Information Protection and Compliance in Microsoft 365",
+   "examNumber": "SC-400",
+   "examDateTaken": "2022-03-04T02:51:54+00:00"
+  },
+  {
+   "examTitle": "Microsoft 365 Identity and Services",
+   "examNumber": "MS-100",
+   "examDateTaken": "2022-01-29T02:36:29+00:00"
+  },
+  {
+   "examTitle": "Microsoft Identity and Access Administrator",
+   "examNumber": "SC-300",
+   "examDateTaken": "2022-01-27T02:32:48+00:00"
+  },
+  {
+   "examTitle": "Microsoft Security, Compliance, and Identity Fundamentals",
+   "examNumber": "SC-900",
+   "examDateTaken": "2022-01-16T10:51:05+00:00"
+  },
+  {
+   "examTitle": "Microsoft 365 Security Administration",
+   "examNumber": "MS-500",
+   "examDateTaken": "2021-11-27T02:16:42+00:00"
+  },
+  {
+   "examTitle": "Microsoft 365 Fundamentals",
+   "examNumber": "MS-900",
+   "examDateTaken": "2021-07-01T19:09:05+00:00"
+  },
+  {
+   "examTitle": "Microsoft Azure Fundamentals",
+   "examNumber": "AZ-900",
+   "examDateTaken": "2021-06-18T00:32:38+00:00"
+  },
+  {
+   "examTitle": "Installation, Storage and Compute with Windows Server 2016",
+   "examNumber": "740",
+   "examDateTaken": "2020-04-20T15:09:37+00:00"
+  }
+ ],
+ "qualifications": [],
+ "otherTopKeys": [
+  "contactEmail",
+  "docsId",
+  "learningPathsCompleted",
+  "modulesCompleted",
+  "totalLearningPathsCompleted",
+  "totalModulesCompleted",
+  "totalTrainingMinutes",
+  "userName"
+ ],
+ "mct": {}
+}
