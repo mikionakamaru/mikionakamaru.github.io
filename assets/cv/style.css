@@ -215,7 +215,7 @@ main:focus { outline: none; }
 .menu-btn { display: none; padding: 0 0.7rem; font-size: 0.9rem; font-weight: 600; white-space: nowrap; }
 
 /* Celular: menu recolhido (só com JS; sem JS a lista quebra linha e fica visível) */
-@media (max-width: 52em) {
+@media (max-width: 60em) {
   .js .menu-btn { display: inline-block; order: 3; }
   .tools { order: 2; }
   .nav { order: 4; }

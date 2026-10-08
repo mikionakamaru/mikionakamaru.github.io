@@ -56,6 +56,9 @@ ui:
     - id: talks
       pt: Palestras
       en: Talks
+    - id: recommendations
+      pt: Recomendações
+      en: Recommendations
     - id: blog
       pt: Blog
       en: Blog
