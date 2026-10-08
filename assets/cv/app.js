@@ -89,7 +89,7 @@
   var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav a[data-section]'));
   var sections = Array.prototype.slice.call(document.querySelectorAll('main > section[id]'));
   /* evidence e stack não estão na nav: destacam o item anterior (Sobre) */
-  var navFor = { evidence: 'about', stack: 'about', recommendations: 'talks' };
+  var navFor = { evidence: 'about', stack: 'about' };
 
   function markActive(id) {
     if (id === activeId) return;

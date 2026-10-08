@@ -56,6 +56,9 @@ ui:
     - id: talks
       pt: Palestras
       en: Talks
+    - id: recommendations
+      pt: Recomendações
+      en: Recommendations
     - id: blog
       pt: Blog
       en: Blog
@@ -787,8 +790,7 @@ recommendations:
         - |-
           É um previlégio de ter como amigo, e a grande oportunidade de trabalhar com esse profissional, Mikio, muito competente, dedicado no que faz, um analista colaborativo, sempre disposto a ajudar aos parceiros de time, afim de um único objetivo, resultado. Atuamos juntos em uma Multinacional do ramo petrolífero, onde fazemos parte da mesa de atendimento sustentação de nível 3, seguindo as melhores práticas nas ferramentas : Microsoft Endpoint Manager (Intune), Microsoft Defender, Microsoft System Center Configuration Manager (SCCM), Office 365 and Infrastructure Operations. Um profissional fora da curva, sempre buscando conhecimento, a troca de informações com os colegas de time, te faz crescer cada vez mais, continue sempre assim, essa pessoa parceira, amigo para toda hora. Sucesso sempre !!!
     - name: Josias Alvarenga
-    photo: /assets/cv/recs/josias.jpg
-
+      photo: /assets/cv/recs/josias.jpg
       headline: Career Adviser Expert
       relation: managed
       date: 2023-12-08
