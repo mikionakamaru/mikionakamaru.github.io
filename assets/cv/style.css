@@ -542,3 +542,42 @@ sup { line-height: 0; }
 }
 
 .nw { white-space: nowrap; }
+
+/* Recomendações */
+.recs { display: grid; gap: 1rem; }
+@media (min-width: 52em) { .recs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.rec {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.rec blockquote { margin: 0; padding-left: 0.9rem; border-left: 3px solid var(--accent); }
+.rec blockquote p { margin: 0 0 0.6rem; font-size: 0.97rem; }
+.rec blockquote p:last-child { margin-bottom: 0; }
+.rec figcaption { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: 0.75rem; align-items: center; }
+.rec-avatar {
+  width: 2.5rem; height: 2.5rem; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--band); border: 1px solid var(--line);
+  font-size: 0.8rem; font-weight: 800; color: var(--ink);
+}
+.rec-who { display: grid; line-height: 1.35; }
+.rec-who strong { font-size: 0.95rem; }
+.rec-headline, .rec-rel { font-size: 0.83rem; color: var(--muted); }
+.recs-more { margin-top: 1rem; }
+.recs-more summary {
+  display: inline-flex; align-items: center; min-height: 2.75rem; padding: 0 1rem;
+  border: 1px solid var(--line); border-radius: 8px; background: var(--surface);
+  font-weight: 650; cursor: pointer; list-style: none;
+}
+.recs-more summary::-webkit-details-marker { display: none; }
+.recs-more summary::after { content: "+"; margin-left: 0.6rem; font-weight: 700; }
+.recs-more[open] summary::after { content: "−"; }
+.recs-more[open] summary { margin-bottom: 1rem; }
+@media print { #recommendations { display: none; } }

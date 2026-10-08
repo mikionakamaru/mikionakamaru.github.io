@@ -287,7 +287,63 @@
       </div>
     </section>
 
-    <section id="blog" aria-labelledby="h-blog">
+    <section id="recommendations" aria-labelledby="h-recs">
+      <div class="wrap">
+        <h2 id="h-recs">{{ ui.recs_title[l] }}</h2>
+        {%- assign recs = cv.recommendations.items -%}
+        {%- assign recs_feat = recs | where_exp: "r", "r.featured == true" -%}
+        {%- assign recs_rest = recs | where_exp: "r", "r.featured != true" -%}
+        {%- assign recs_n = recs | size | append: '' -%}{%- assign rest_n = recs_rest | size | append: '' %}
+        <p class="section-intro">{{ ui.recs_intro[l] | replace: '%n%', recs_n }} <a href="{{ cv.recommendations.linkedin }}" target="_blank" rel="noopener">{{ ui.recs_source[l] }}<span class="sr-only"> {{ ui.new_tab[l] }}</span></a></p>
+        <div class="recs">
+          {%- for r in recs_feat %}
+          {%- capture rel_key %}rel_{{ r.relation }}{% endcapture -%}
+              <figure class="rec">
+                <blockquote lang="pt-BR">
+                  {%- for para in r.text %}
+                  <p>{{ para }}</p>
+                  {%- endfor %}
+                </blockquote>
+                <figcaption>
+                  <span class="rec-avatar" aria-hidden="true">{{ r.name | split: ' ' | first | slice: 0 }}{{ r.name | split: ' ' | last | slice: 0 }}</span>
+                  <span class="rec-who">
+                    <strong>{{ r.name }}</strong>
+                    <span class="rec-headline">{{ r.headline }}</span>
+                    <span class="rec-rel">{{ ui[rel_key][l] }}, <time datetime="{{ r.date | date: '%Y-%m-%d' }}">{{ r.date | date: dfmt }}</time></span>
+                  </span>
+                </figcaption>
+              </figure>
+          {%- endfor %}
+        </div>
+        {%- if recs_rest.size > 0 %}
+        <details class="recs-more">
+          <summary>{{ ui.recs_more[l] | replace: '%n%', rest_n }}</summary>
+          <div class="recs">
+            {%- for r in recs_rest %}
+            {%- capture rel_key %}rel_{{ r.relation }}{% endcapture -%}
+              <figure class="rec">
+                <blockquote lang="pt-BR">
+                  {%- for para in r.text %}
+                  <p>{{ para }}</p>
+                  {%- endfor %}
+                </blockquote>
+                <figcaption>
+                  <span class="rec-avatar" aria-hidden="true">{{ r.name | split: ' ' | first | slice: 0 }}{{ r.name | split: ' ' | last | slice: 0 }}</span>
+                  <span class="rec-who">
+                    <strong>{{ r.name }}</strong>
+                    <span class="rec-headline">{{ r.headline }}</span>
+                    <span class="rec-rel">{{ ui[rel_key][l] }}, <time datetime="{{ r.date | date: '%Y-%m-%d' }}">{{ r.date | date: dfmt }}</time></span>
+                  </span>
+                </figcaption>
+              </figure>
+            {%- endfor %}
+          </div>
+        </details>
+        {%- endif %}
+      </div>
+    </section>
+
+    <section id="blog" class="band" aria-labelledby="h-blog">
       <div class="wrap">
         <h2 id="h-blog">{{ ui.blog_title[l] }}</h2>
         <div class="posts" data-feed="{{ '/feed.xml' | relative_url }}" data-locale="{{ page.lang }}" aria-live="polite">
@@ -298,7 +354,7 @@
       </div>
     </section>
 
-    <section id="contact" class="band contact" aria-labelledby="h-contact">
+    <section id="contact" class="contact" aria-labelledby="h-contact">
       <div class="wrap">
         <h2 id="h-contact">{{ ui.contact_title[l] }}</h2>
         <p class="section-intro">{{ ui.contact_text[l] }}</p>

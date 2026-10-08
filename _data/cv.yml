@@ -131,6 +131,24 @@ ui:
   other_creds:
     pt: Outras credenciais
     en: Other credentials
+  recs_title:
+    pt: Recomendações
+    en: Recommendations
+  recs_intro:
+    pt: "%n% recomendações recebidas no LinkedIn, de colegas, gestores, clientes e professores. O texto está do jeito que foi escrito, sem edição."
+    en: "%n% recommendations received on LinkedIn from colleagues, managers, clients and teachers. They're shown exactly as written, in Portuguese."
+  recs_more:
+    pt: "Ver as outras %n%"
+    en: "Show the other %n%"
+  recs_source:
+    pt: Ver no LinkedIn
+    en: View on LinkedIn
+  rel_same_team: { pt: trabalhou com Mikio no mesmo time, en: worked with Mikio on the same team }
+  rel_managed: { pt: foi gestor direto do Mikio, en: managed Mikio directly }
+  rel_client: { pt: foi cliente do Mikio, en: was Mikio's client }
+  rel_mentor: { pt: foi mentor do Mikio, en: was Mikio's mentor }
+  rel_studied: { pt: estudou com Mikio, en: studied with Mikio }
+  rel_other_team: { pt: trabalhou com Mikio em times diferentes, en: worked with Mikio on a different team }
   talks_title:
     pt: Palestras e eventos
     en: Talks and events
@@ -752,3 +770,121 @@ talks:
     # TODO: link dos slides e/ou do vídeo do TDC
     slides: ""
     video: ""
+
+# Recomendações do LinkedIn, texto original sem edição (inclusive grafia).
+# Transcritas dos prints enviados por Mikio em 08/10/2026. Sem foto: iniciais no lugar.
+# relation: same_team | managed | client | mentor | studied | other_team
+# featured: aparece aberta; as outras ficam em "ver todas".
+recommendations:
+  linkedin: https://www.linkedin.com/in/mikionakamaru/details/recommendations/
+  items:
+    - name: André Luiz Vieira de Jesus Silveira
+      headline: IT Infrastructure and Security Analyst
+      relation: same_team
+      date: 2024-09-04
+      featured: true
+      text:
+        - |-
+          É um previlégio de ter como amigo, e a grande oportunidade de trabalhar com esse profissional, Mikio, muito competente, dedicado no que faz, um analista colaborativo, sempre disposto a ajudar aos parceiros de time, afim de um único objetivo, resultado. Atuamos juntos em uma Multinacional do ramo petrolífero, onde fazemos parte da mesa de atendimento sustentação de nível 3, seguindo as melhores práticas nas ferramentas : Microsoft Endpoint Manager (Intune), Microsoft Defender, Microsoft System Center Configuration Manager (SCCM), Office 365 and Infrastructure Operations. Um profissional fora da curva, sempre buscando conhecimento, a troca de informações com os colegas de time, te faz crescer cada vez mais, continue sempre assim, essa pessoa parceira, amigo para toda hora. Sucesso sempre !!!
+    - name: Josias Alvarenga
+      headline: Career Adviser Expert
+      relation: managed
+      date: 2023-12-08
+      featured: true
+      text:
+        - |-
+          Acompanho o Mikio como seu orientador de carreira há pouco mais de 1 ano e pude verificar seu enorme crescimento nas áreas de Infraestrutura e Segurança. Mikio já possuía conhecimento nestas áreas, mas continua se aprimorando e obtendo várias certificações da Microsoft, especialmente em Azure e Security, além de Oracle Cloud e ITIL 4. Uma forte característica é o compartilhamento de conhecimento e suporte no desenvolvimento dos analistas júnior. Mikio sempre está disposto a ensinar e repassar tudo o que aprende. Além disso, trabalhou em um de nossos grandes clientes prestando suporte técnico de terceiro nível (N3) atuando com Intune, Defender e AIP. É uma pessoa extremamente organizada e focada em seu desenvolvimento, não somente técnico, como em habilidades de liderança, relacionamento e comunicação.
+    - name: Karina Grazielle Longo Demarchi
+      headline: RH Generalista | DHO | HR Business Partner | Gente e Gestão
+      relation: other_team
+      date: 2023-11-01
+      featured: true
+      text:
+        - |-
+          Mikio sempre foi atento aos detalhes das entregas. Juntos RH, marketing e tecnologia, desenvolvemos um projeto de comunicação, a intranet da empresa, disseminando regras e trazendo o onbording para todos ainda que distantes, estávamos disseminando a informação ao nosso cliente interno. Construímos nossas expectativas e debatemos o que daria certo, de forma cirúrgica ele trouxe as sugestões que melhor se enquadravam ao portal. Em menos de 2 meses concluímos com êxito! Mikio se destaca pelas habilidades comunicação, estudos e negociação em diversos níveis hierárquicos.
+    - name: Sergio Sant'Ana Júnior
+      headline: Modern Workplace | Microsoft 365 | Intune | Entra ID | Defender XDR
+      relation: client
+      date: 2023-11-29
+      featured: true
+      text:
+        - |-
+          Mikio é um profissional altamente competente e uma pessoa incrível. Demonstrou profundos conhecimentos em soluções em nuvem, respaldados por inúmeras certificações da Microsoft. Além disso, destaco a valiosa contribuição de Mikio como meu mentor durante o processo de elaboração do meu currículo. Sua orientação e esclarecimento de dúvidas foram fundamentais, proporcionando uma significativa melhoria na construção de um currículo adequado. Mikio também compartilhou seu expertise, ensinando-me a utilizar eficazmente os recursos do LinkedIn.
+        # TODO: o print termina em "Microsoft Azure" sem ponto. Conferir se o texto continua no LinkedIn.
+        - |-
+          Recomendo Mikio entusiasticamente, não apenas pela sua paciência e dedicação, mas também por sua excelência como mentor, tanto na plataforma LinkedIn quanto no universo Microsoft Azure
+    - name: Debora Oliveira
+      headline: Cloud Engineers | SCCM | Zabbix
+      relation: same_team
+      date: 2024-02-19
+      text:
+        - |-
+          Sua capacidade de manter a calma sob pressão o tornam um colega de confiança em situações desafiadoras. Sua natureza comunicativa e habilidades interpessoais também o tornam fácil de trabalhar e colaborar.
+        - |-
+          Em resumo, Mikio Nakamaru é um colega de trabalho excepcional que seria uma excelente adição a qualquer equipe.
+    - name: Leonardo Ormanes Tamer
+      headline: Senior DevSecOps Engineer
+      relation: mentor
+      date: 2023-11-10
+      text:
+        - |-
+          Primeiramente gostaria de agradecer por este convite, pela sua grandeza em recomendar uma pessoa que tive a honra de participar de sua formação profissional.
+        - |-
+          Tive o prazer de, não só dividir a sala de aula com o Mikio, mas também de supervisioná-lo em seu primeiro estágio, onde pude constatar a qualidade técnica e pessoal deste profissional.
+        - |-
+          Ao Mikio desejo crescimento e sucesso em sua jornada. Se precisar, pode contar com meus préstimos.
+        - |-
+          Recomendo o Mikio para qualquer cargo que o mesmo esteja almejando.
+    - name: Isadora Van Kemil
+      headline: Scrum master da empresa Banco da Amazônia
+      relation: studied
+      date: 2023-11-01
+      text:
+        - |-
+          A pós graduação foi de grande valia a todos os participantes, devido todos ja atuarmos no mercado de trabalho e assim podendo levar uma experiência a mais no apredizado das aulas. Mikio sempre esforçado e atento ao conteúdo. Sucesso!
+    - name: Aline Silva
+      headline: Analista de Modern Workplace na Avanade
+      relation: same_team
+      date: 2023-10-27
+      text:
+        - |-
+          O Mikio é um profissional extremamente competente, muito prestativo e parceiro.Sempre disposto a ajudar e colaborar com todos, estou tendo a oportunidade de atuar ao seu lado, ele tem uma ótima comunicação, é assertivo, empático e muito integro.
+    - name: Paulo Sérgio P de O Cruz
+      headline: Analista de TI Modern Workplace Engineering na Avanade
+      relation: same_team
+      date: 2023-10-27
+      text:
+        - |-
+          “Caro Mikio, Quero lhe agradecer por toda a ajuda e apoio que você me proporciona no dia a dia. Sua disposição em compartilhar seus conhecimentos e estar sempre lá quando preciso realmente fazem toda a diferença. Seja para esclarecer dúvidas, oferecer sugestões valiosas ou simplesmente ser um ouvinte compreensivo, sua presença torna o ambiente de trabalho muito mais positivo e produtivo. Sua generosidade em compartilhar seu tempo e experiência não passa despercebida e é profundamente apreciada. Saiba que valorizo muito a nossa amizade e a colaboração que construímos. Espero que possamos continuar a trabalhar juntos de maneira tão eficiente e amigável no futuro. Mais uma vez, obrigado por tudo o que você faz. No que precisar espero poder conseguir lhe ajudar da mesma forma.”
+    - name: Renato Igor Cavalcante da Silva
+      headline: Business Analyst III at Senior Sistemas
+      relation: same_team
+      date: 2021-03-31
+      text:
+        - |-
+          Não só pela amizade e parceria, mas por acompanhar nos últimos 12 anos o crescimento desse excelente e impressionante profissional, que a cada obstáculo que apareceu, foi se reinventando e fazendo melhor do que a expectativa que se tinha!
+        - |-
+          Tenho imensa satisfação de poder ter acompanhado uma parte da trajetória do Mikio, e além disso, ter a troca de conhecimento da minha área de sistemas, com a área dele, que acabou crescendo de uma forma exponencial!
+    - name: Ytalo Sampaio
+      headline: Serviços Gerenciados, Cloud & Infraestrutura | Operações Críticas 24x7
+      relation: managed
+      date: 2021-03-31
+      text:
+        - |-
+          Mikio é um profissional altamente competente em tudo o que faz. Executa suas atividades de maneira muito organizada e com excelência.
+        - |-
+          Está sempre atento às tecnologias do mercado e se aperfeiçoando com cursos.
+    - name: Adriano Esley
+      headline: DevOps Monitoring Senior | Observabilidade Multi-Cloud
+      relation: other_team
+      date: 2020-06-10
+      text:
+        - |-
+          Possui sólido conhecimento em análise de Software ERP e análise do negócio, ótimo profissional.
+    - name: Adriano Esley
+      headline: DevOps Monitoring Senior | Observabilidade Multi-Cloud
+      relation: same_team
+      date: 2019-05-25
+      text:
+        - |-
+          "Determinado e pró-ativo, busca sempre a melhor opção para o cliente/empresa, dedicado e comprometido, sabe trabalhar em equipe. Um excelente profissional."
