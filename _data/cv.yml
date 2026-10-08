@@ -336,24 +336,39 @@ career:
         en: Cybersecurity Specialist (contractor)
     points:
       - pt: >-
-          Opero Sentinel, Defender XDR, Defender for Cloud, Purview e Entra ID de vários
+          Opero Defender XDR, Defender for Cloud, Sentinel, Purview e Entra ID de vários
           clientes ao mesmo tempo, via Azure Lighthouse. São empresas de saúde, financeiro,
           indústria e governo.
         en: >-
-          I run Sentinel, Defender XDR, Defender for Cloud, Purview and Entra ID for several
+          I run Defender XDR, Defender for Cloud, Sentinel, Purview and Entra ID for several
           clients at once through Azure Lighthouse. They're in healthcare, finance,
           manufacturing and government.
       - pt: >-
+          Avalio a maturidade de segurança de cada cliente e desenho a arquitetura em Zero
+          Trust, usando NIST, MITRE ATT&CK e o Cloud Adoption Framework como régua.
+        en: >-
+          I assess each client's security maturity and design the architecture around Zero
+          Trust, using NIST, MITRE ATT&CK and the Cloud Adoption Framework as the yardstick.
+      - pt: >-
+          Investigo incidentes e faço threat hunting em KQL. O que se repete vira automação
+          em PowerShell ou playbook em Logic Apps.
+        en: >-
+          I investigate incidents and hunt threats in KQL. Anything that repeats becomes a
+          PowerShell script or a Logic Apps playbook.
+      - pt: >-
           Implantei o Sentinel numa holding financeira com várias empresas: conectores de
-          fontes diferentes, regras de detecção, workbooks e playbooks em Logic Apps.
+          fontes diferentes, regras de detecção, workbooks e playbooks.
         en: >-
           Rolled out Sentinel for a financial holding with several companies under it:
-          connectors from different sources, detection rules, workbooks and Logic Apps playbooks.
+          connectors from different sources, detection rules, workbooks and playbooks.
       - pt: >-
-          Conduzo workshops MCI de Cloud Security em ambientes com Azure, AWS e Google Cloud.
+          Conduzo workshops MCI da Microsoft (Threat Protection e Cloud Security), inclusive
+          em ambientes com Azure, AWS e Google Cloud, e escrevo a documentação técnica e a
+          executiva de cada entrega.
         en: >-
-          I lead MCI Cloud Security workshops for environments spread across Azure, AWS and
-          Google Cloud.
+          I lead Microsoft MCI workshops (Threat Protection and Cloud Security), including
+          environments spread across Azure, AWS and Google Cloud, and write the technical
+          and executive documentation for each delivery.
   - company: Avanade
     slug: avanade
     initials: AV
@@ -365,10 +380,19 @@ career:
     points:
       - pt: >-
           Cuidei de um parque com mais de 70 mil dispositivos (Windows, Linux, Android e iOS)
-          em Intune e Configuration Manager.
+          em Intune e Configuration Manager: aplicações, conformidade, configuração e
+          atualização.
         en: >-
-          Managed a fleet of more than 70,000 devices (Windows, Linux, Android and iOS) in
-          Intune and Configuration Manager.
+          Managed more than 70,000 devices (Windows, Linux, Android and iOS) in Intune and
+          Configuration Manager: apps, compliance, configuration and updates.
+      - pt: >-
+          Implantei e administrei Defender for Endpoint, Defender for Office 365, Defender
+          for Cloud, Sentinel, Entra ID e Defender Vulnerability Management, com investigação
+          de incidente, hardening e gestão de vulnerabilidade.
+        en: >-
+          Deployed and ran Defender for Endpoint, Defender for Office 365, Defender for
+          Cloud, Sentinel, Entra ID and Defender Vulnerability Management, covering incident
+          investigation, hardening and vulnerability management.
       - pt: >-
           Revisei 69 regras analíticas do Sentinel antes da mudança de nomenclatura de conta
           da Microsoft (jul/2026). 17 estavam ok e 52 precisaram de ajuste no KQL.
@@ -381,6 +405,14 @@ career:
         en: >-
           At a large energy company, deployed Defender for Endpoint on Linux and migrated
           SCEP certificates through Intune to meet KDC Strong authentication.
+      - pt: >-
+          Conduzi workshops MCI de Threat Protection pra bancos e indústria e sustentei
+          Microsoft 365 e Azure (Exchange Online, SharePoint, Teams, Azure Monitor, Log
+          Analytics, Azure Arc, AD e VMware), com automação em PowerShell.
+        en: >-
+          Led MCI Threat Protection workshops for banks and manufacturers, and kept Microsoft
+          365 and Azure running (Exchange Online, SharePoint, Teams, Azure Monitor, Log
+          Analytics, Azure Arc, AD and VMware), with PowerShell automation.
   - company: WorkDB Data Business
     slug: workdb
     initials: WDB
@@ -392,15 +424,27 @@ career:
       - pt: Analista de Suporte de TI Pleno (jun/2020 a nov/2021)
         en: IT Support Analyst (Jun 2020 to Nov 2021)
     points:
-      - pt: Comecei no SOC N1, monitorando com Zabbix, Grafana e Elastic.
-        en: Started in a tier 1 SOC, monitoring with Zabbix, Grafana and Elastic.
       - pt: >-
-          Liderei a implantação interna do Intune e virei a referência da empresa na
-          plataforma. Depois passei pra segurança: Entra ID (AD Connect, ADFS, MIM),
-          compliance e migração de ambientes on-premises pro Azure.
+          Entrei numa consultoria atendendo clientes de vários setores: Windows e Linux,
+          Microsoft 365, Azure, AD, firewall, backup, SQL Server, MySQL e Oracle. Também
+          fazia monitoramento no SOC N1 com Zabbix, Grafana e Elastic.
         en: >-
-          Led the company's own Intune rollout and became the go-to person for it. Then
-          moved into security: Entra ID (AD Connect, ADFS, MIM), compliance policies and
+          Joined a consultancy serving clients across industries: Windows and Linux,
+          Microsoft 365, Azure, AD, firewalls, backups, SQL Server, MySQL and Oracle. I also
+          monitored in a tier 1 SOC with Zabbix, Grafana and Elastic.
+      - pt: >-
+          Vi espaço pra empresa crescer em Microsoft. Tirei a MS-900 e a AZ-900, liderei a
+          implantação interna do Intune e virei a referência da casa na plataforma.
+        en: >-
+          I saw room for the company to grow in Microsoft. Passed MS-900 and AZ-900, led the
+          internal Intune rollout and became the in-house go-to person for the platform.
+      - pt: >-
+          Promovido pra segurança, tocava projetos de Intune, SCCM e Entra ID (AD Connect,
+          ADFS, MIM), gestão de vulnerabilidade, análise de log, resposta a incidente e
+          migração de ambiente on-premises pro Azure.
+        en: >-
+          Promoted into security, I ran projects on Intune, SCCM and Entra ID (AD Connect,
+          ADFS, MIM), vulnerability management, log analysis, incident response and
           on-prem to Azure migrations.
   - company: Secretaria de Estado de Educação do Pará (SEDUC/PA)
     slug: seduc-pa
@@ -412,11 +456,17 @@ career:
         en: IT Support Analyst
     points:
       - pt: >-
-          Suporte num ambiente com muito usuário e muita estação, quase tudo em Linux.
-          Entrei por processo seletivo.
+          Entrei por processo seletivo (PSS) pra dar suporte num ambiente com muito usuário
+          e muito equipamento.
         en: >-
-          Support for a large pool of users and workstations, mostly on Linux. Hired through
-          a public selection process.
+          Hired through a public selection process to support a large pool of users and
+          equipment.
+      - pt: >-
+          Quase tudo era Linux: administração de estação, instalação de sistema e software,
+          impressora, rede e manutenção. Windows quando precisava.
+        en: >-
+          Mostly Linux: workstation administration, OS and software installs, printers,
+          networking and maintenance. Windows when needed.
   - company: SENAR Pará
     slug: senar-para
     initials: SN
@@ -428,14 +478,27 @@ career:
       - pt: Analista de Suporte de TI (jan/2014 a ago/2014)
         en: IT Support Analyst (Jan 2014 to Aug 2014)
     points:
-      - pt: Entrei como analista de suporte e virei supervisor em menos de um ano.
-        en: Joined as a support analyst and was promoted to supervisor within a year.
       - pt: >-
-          Liderava a equipe de suporte, acompanhava indicadores e ajudava em licitação,
-          contrato e avaliação de fornecedor.
+          Comecei sustentando a infraestrutura: servidores Windows e Linux, rede cabeada e
+          wireless, firewall, MikroTik, switches, banco de dados, servidor de arquivo e
+          impressão e certificado digital.
         en: >-
-          Ran the support team, tracked its metrics, and helped with procurement, contracts
-          and vendor reviews.
+          Started out keeping the infrastructure running: Windows and Linux servers, wired
+          and wireless networks, firewall, MikroTik, switches, databases, file and print
+          servers and digital certificates.
+      - pt: >-
+          Fui promovido a supervisor em menos de um ano. Liderava a equipe de suporte,
+          definia prioridade, acompanhava indicador e melhorava processo.
+        en: >-
+          Promoted to supervisor in under a year. I led the support team, set priorities,
+          tracked metrics and fixed processes.
+      - pt: >-
+          Fazia análise técnica de contrato, apoiava licitação, avaliava fornecedor e montava
+          proposta de modernização. Foi aí que comecei a pós em Gestão de TI.
+        en: >-
+          I did technical contract reviews, supported procurement, assessed vendors and put
+          together modernization proposals. That's when I started my postgraduate degree in
+          IT management.
   - company: Casa do Sorveteiro
     slug: casa-do-sorveteiro
     initials: CS
@@ -445,8 +508,16 @@ career:
       - pt: Analista de Sistemas
         en: Systems Analyst
     points:
-      - pt: Infraestrutura, Active Directory, backup, rede e suporte ao ERP WinThor.
-        en: Infrastructure, Active Directory, backups, networking and support for the WinThor ERP.
+      - pt: >-
+          Administrava e dava suporte ao ERP WinThor, usado nas rotinas de negócio da empresa.
+        en: >-
+          Ran and supported the WinThor ERP behind the company's daily operations.
+      - pt: >-
+          Cuidava da infraestrutura: Active Directory, backup, manutenção e rede. Também passei
+          cabo e instalei os pontos de acesso Wi-Fi.
+        en: >-
+          Looked after the infrastructure: Active Directory, backups, maintenance and
+          networking. I also pulled cabling and installed the Wi-Fi access points.
 
 # Fonte: transcript oficial do Microsoft Learn, lido em 07/10/2026 (link em links.transcript).
 # Cada item é uma CERTIFICAÇÃO, não uma prova. Nome igual ao do transcript.

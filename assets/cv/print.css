@@ -83,7 +83,10 @@ h2 {
 .about { color: var(--ink); }
 
 /* Experiência */
-.job { break-inside: avoid; padding-bottom: 3.4mm; }
+.job { padding-bottom: 3.4mm; }
+.job-head, .roles { break-after: avoid; break-inside: avoid; }
+.points li { break-inside: avoid; }
+.points { orphans: 2; widows: 2; }
 .job + .job { padding-top: 3.2mm; border-top: 1px solid var(--line); }
 .job-head { display: grid; grid-template-columns: 8.5mm minmax(0, 1fr); gap: 2.6mm; align-items: center; }
 .logo { width: 8.5mm; height: 8.5mm; border-radius: 50%; border: 1px solid var(--line); object-fit: cover; background: #fff; display: block; }
