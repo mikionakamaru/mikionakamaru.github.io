@@ -118,9 +118,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase --quiet
           git add assets/cv/cv-mikio-nakamaru-pt.pdf assets/cv/cv-mikio-nakamaru-en.pdf .github/cv-pdf.sha256
           git commit -m "cv: PDFs A4 gerados da página (pt e en)"
+          git pull --rebase --quiet
           git push
 
   build:
