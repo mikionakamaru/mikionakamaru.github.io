@@ -109,7 +109,7 @@
             {%- endfor %}
           </ul>
           <p class="actions">
-            <a class="btn btn-primary" href="{{ cv.links.linkedin }}" rel="me">{{ ui.btn_linkedin[l] }}</a>
+            <a class="btn btn-primary" href="{{ cv.links.linkedin }}" target="_blank" rel="me noopener">{{ ui.btn_linkedin[l] }}<span class="sr-only"> {{ ui.new_tab[l] }}</span></a>
             <a class="btn" href="mailto:{{ cv.links.email }}">{{ ui.btn_email[l] }}</a>
             {%- assign pdf = cv.meta.pdf[l] -%}
             {%- if pdf and pdf != '' %}
@@ -141,10 +141,17 @@
           {%- for e in cv.evidence %}
           <li id="ev-{{ e.n }}" class="ev">
             <span class="ev-n" aria-hidden="true">[{{ e.n }}]</span>
-            <h3><a href="{{ e.url }}">{{ e.title[l] }}</a></h3>
+            <h3><a href="{{ e.url }}" target="_blank" rel="noopener">{{ e.title[l] }}<span class="sr-only"> {{ ui.new_tab[l] }}</span></a></h3>
             <p>{{ e.text[l] }}</p>
             {%- if e.extra_url %}
-            <p class="ev-extra"><a href="{{ e.extra_url }}">{{ e.extra[l] }}</a></p>
+            <p class="ev-extra"><a href="{{ e.extra_url }}" target="_blank" rel="noopener">{{ e.extra[l] }}<span class="sr-only"> {{ ui.new_tab[l] }}</span></a></p>
+            {%- endif %}
+            {%- if e.links %}
+            <ul class="ev-links">
+              {%- for x in e.links %}
+              <li><a href="{{ x.url }}" target="_blank" rel="noopener">{{ x[l] }}<span class="sr-only"> {{ ui.new_tab[l] }}</span></a></li>
+              {%- endfor %}
+            </ul>
             {%- endif %}
             <p class="ev-host">{{ e.url | remove: 'https://' | split: '/' | first }}</p>
           </li>
@@ -219,7 +226,7 @@
               {%- if l == 'en' and c.exams_en %}{% assign exams_txt = c.exams_en %}{% else %}{% assign exams_txt = c.exams %}{% endif %}
               <li class="cert{% if c.status == 'expired' %} is-expired{% endif %}">
                 <span class="code">{{ exams_txt | replace: "-", "‑" }}</span>
-                <span class="cert-name">{{ c.name }}</span>
+                <span class="cert-name">{% if c.url %}<a href="{{ c.url }}" target="_blank" rel="noopener">{{ c.name }}<span class="sr-only"> ({{ ui.cert_verify_one[l] }}) {{ ui.new_tab[l] }}</span></a>{% else %}{{ c.name }}{% endif %}</span>
                 <span class="cert-meta">
                   <span class="status status-{{ c.status }}">
                     {%- if c.status == 'active' -%}{{ ui.status_active[l] }} {{ c.expires | date: dfmt }}
@@ -248,7 +255,7 @@
             <!-- TODO: MCT e ITIL 4 Foundation não estão no transcript do Learn. Sem link de verificação, ficam sem selo de situação. -->
           </section>
         </div>
-        <p class="verify"><a href="{{ cv.links.transcript }}">{{ ui.certs_verify[l] }}</a></p>
+        <p class="verify"><a href="{{ cv.links.transcript }}" target="_blank" rel="noopener">{{ ui.certs_verify[l] }}<span class="sr-only"> {{ ui.new_tab[l] }}</span></a></p>
       </div>
     </section>
 
@@ -262,13 +269,12 @@
             <h3 lang="pt-BR">{{ t.title }}{% if t.subtitle != '' %} <span class="sub">({{ t.subtitle }})</span>{% endif %}</h3>
             {%- if ui.in_portuguese[l] != '' %}<p class="talk-lang">{{ ui.in_portuguese[l] }}</p>{% endif %}
             <p>{{ t.text[l] }}</p>
-            {%- if t.demo or t.slides != '' or t.video != '' %}
             <p class="talk-links">
-              {%- if t.demo %}<a href="{{ t.demo }}">{% if l == 'en' %}Live demo page{% else %}Página da demo{% endif %}</a><sup><a class="ref" href="#ev-2" aria-label="{% if l == 'en' %}Evidence{% else %}Evidência{% endif %} 2">[2]</a></sup>{% endif %}
-              {%- if t.slides != '' %} <a href="{{ t.slides }}">{{ ui.talk_slides[l] }}</a>{% endif %}
-              {%- if t.video != '' %} <a href="{{ t.video }}">{{ ui.talk_video[l] }}</a>{% endif %}
+              {%- if t.page %}<span class="nowrap"><a href="{{ t.page }}" target="_blank" rel="noopener">{{ ui.talk_page[l] }}<span class="sr-only"> {{ ui.new_tab[l] }}</span></a><sup><a class="ref" href="#ev-2" aria-label="{% if l == 'en' %}Evidence{% else %}Evidência{% endif %} 2">[2]</a></sup>{% endif %}
+              {%- if t.repo %} <a href="{{ t.repo }}" target="_blank" rel="noopener">{{ ui.talk_repo[l] }}<span class="sr-only"> {{ ui.new_tab[l] }}</span></a>{% endif %}
+              {%- if t.slides != '' %} <a href="{{ t.slides }}" target="_blank" rel="noopener">{{ ui.talk_slides[l] }}<span class="sr-only"> {{ ui.new_tab[l] }}</span></a>{% endif %}
+              {%- if t.video != '' %} <a href="{{ t.video }}" target="_blank" rel="noopener">{{ ui.talk_video[l] }}<span class="sr-only"> {{ ui.new_tab[l] }}</span></a>{% endif %}
             </p>
-            {%- endif %}
             {%- if t.slides == '' and t.video == '' %}
             <!-- TODO: slides ou vídeo de "{{ t.title }}" ({{ t.event }}). Preencher talks[].slides / video em _data/cv.yml. -->
             {%- endif %}
@@ -294,9 +300,9 @@
         <h2 id="h-contact">{{ ui.contact_title[l] }}</h2>
         <p class="section-intro">{{ ui.contact_text[l] }}</p>
         <ul class="contact-list">
-          <li><span>LinkedIn</span> <a href="{{ cv.links.linkedin }}" rel="me">linkedin.com/in/mikionakamaru</a></li>
+          <li><span>LinkedIn</span> <a href="{{ cv.links.linkedin }}" target="_blank" rel="me noopener">linkedin.com/in/mikionakamaru<span class="sr-only"> {{ ui.new_tab[l] }}</span></a></li>
           <li><span>{{ ui.btn_email[l] }}</span> <a href="mailto:{{ cv.links.email }}">{{ cv.links.email }}</a></li>
-          <li><span>GitHub</span> <a href="{{ cv.links.github }}" rel="me">github.com/mikionakamaru</a></li>
+          <li><span>GitHub</span> <a href="{{ cv.links.github }}" target="_blank" rel="me noopener">github.com/mikionakamaru<span class="sr-only"> {{ ui.new_tab[l] }}</span></a></li>
         </ul>
       </div>
     </section>

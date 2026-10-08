@@ -23,7 +23,6 @@ links:
   email: mikionakamaru@gmail.com
   github: https://github.com/mikionakamaru
   transcript: https://learn.microsoft.com/en-us/users/mikionakamaru/transcript/vnn42c6ool6ojrr
-  jornada365: https://jornada365.cloud/
   blog: /
 
 ui:
@@ -121,6 +120,9 @@ ui:
   cert_exams:
     pt: Prova
     en: Exam
+  cert_verify_one:
+    pt: ver credencial no Microsoft Learn
+    en: view credential on Microsoft Learn
   cert_id:
     pt: Nº
     en: No.
@@ -130,6 +132,15 @@ ui:
   talks_title:
     pt: Palestras e eventos
     en: Talks and events
+  talk_page:
+    pt: Página da palestra
+    en: Talk page
+  talk_repo:
+    pt: Código no GitHub
+    en: Source on GitHub
+  new_tab:
+    pt: (abre em nova aba)
+    en: (opens in a new tab)
   talk_slides:
     pt: Slides
     en: Slides
@@ -203,14 +214,11 @@ about:
       That infrastructure background pays off every day. When an alert fires, I know how
       the machine, the network and the identity behind it actually work.
   - pt: >-
-      Também dou treinamento como MCT, conduzo workshops do programa MCI da Microsoft
-      (Threat Protection e Cloud Security) e ajudei a fundar a
-      <a href="https://jornada365.cloud/">Jornada 365</a>, comunidade de Microsoft 365
-      em português.
+      Também dou treinamento como MCT e conduzo workshops do programa MCI da Microsoft
+      (Threat Protection e Cloud Security).
     en: >-
-      I also teach as an MCT, run workshops for Microsoft's MCI program (Threat Protection
-      and Cloud Security), and co-founded <a href="https://jornada365.cloud/">Jornada 365</a>,
-      a Portuguese-language Microsoft 365 community.
+      I also teach as an MCT and run workshops for Microsoft's MCI program (Threat Protection
+      and Cloud Security).
 
 evidence:
   - n: 1
@@ -222,17 +230,24 @@ evidence:
       pt: Todas as provas e certificações, com data e situação atual, direto da Microsoft.
       en: Every exam and certification, with dates and current status, straight from Microsoft.
   - n: 2
-    url: https://mikionakamaru.github.io/ragciso/
+    url: https://mikionakamaru.github.io/carreira-em-y/
     title:
-      pt: Demo da palestra no TDC São Carlos
-      en: Live demo from my TDC São Carlos talk
+      pt: Páginas das minhas palestras
+      en: Pages from my talks
     text:
       pt: >-
-        A página do QR code que mostrei sem explicar nada no início de "Seu RAG tem mais
-        acesso que o CISO". Quem escaneou caiu num aviso de quishing. Nenhum dado é coletado.
+        Nas duas palestras eu abri com um QR code na tela, sem explicar nada. Quem escaneou
+        caiu num aviso de quishing ligado ao tema da palestra. Nenhum dado é coletado.
       en: >-
-        The page behind the QR code I put on screen, without a word, at the start of my
-        RAG talk. Whoever scanned it landed on a quishing warning. No data is collected.
+        I opened both talks with a QR code on screen and no explanation. Whoever scanned it
+        landed on a quishing warning tied to the talk's topic. No data is collected.
+    links:
+      - url: https://mikionakamaru.github.io/carreira-em-y/
+        pt: MVP Conf 2026, carreira em Y
+        en: MVP Conf 2026, the career fork
+      - url: https://mikionakamaru.github.io/ragciso/
+        pt: TDC São Carlos 2026, RAG e CISO
+        en: TDC São Carlos 2026, RAG vs. CISO
   - n: 3
     url: https://github.com/mikionakamaru/Consultas-KQL-MicrosoftDefender-e-Sentinel
     title:
@@ -434,7 +449,7 @@ career:
 # Fonte: transcript oficial do Microsoft Learn, lido em 07/10/2026 (link em links.transcript).
 # Cada item é uma CERTIFICAÇÃO, não uma prova. Nome igual ao do transcript.
 # status: active (com expires), expired (com expires = data em que expirou) ou noexpire.
-# id = número da certificação no transcript, pra quem quiser conferir.
+# id = número da certificação no transcript. url = página de verificação da credencial no Microsoft Learn.
 # exam_note = fato sobre a prova que gerou a certificação (data conferida na página oficial de provas aposentadas).
 transcript:
   checked: { pt: 07/10/2026, en: Oct 7, 2026 }
@@ -447,24 +462,28 @@ certifications:
       en: Security and identity
     items:
       - name: Cybersecurity Architect Expert
+        url: https://learn.microsoft.com/api/credentials/share/en-us/mikionakamaru/36FB7E027227D9E?sharingId=F2D4EA9E91B79A7B
         exams: SC-100
         id: 2078B8-C31DCC
         earned: 2022-10-11
         expires: 2027-10-11
         status: active
       - name: Security Operations Analyst Associate
+        url: https://learn.microsoft.com/api/credentials/share/en-us/mikionakamaru/B927BCADDCF7C397?sharingId=F2D4EA9E91B79A7B
         exams: SC-200
         id: 488CA8-8C8C07
         earned: 2022-04-02
         expires: 2027-04-02
         status: active
       - name: Identity and Access Administrator Associate
+        url: https://learn.microsoft.com/api/credentials/share/en-us/mikionakamaru/2BB9011A0A5B9C2C?sharingId=F2D4EA9E91B79A7B
         exams: SC-300
         id: CG1E5F-077E43
         earned: 2022-01-27
         expires: 2027-01-27
         status: active
       - name: Azure Security Engineer Associate
+        url: https://learn.microsoft.com/api/credentials/share/en-us/mikionakamaru/B48ACC1FA705D818?sharingId=F2D4EA9E91B79A7B
         exams: AZ-500
         id: W64081-0E5E72
         earned: 2022-09-09
@@ -474,17 +493,20 @@ certifications:
           pt: A prova AZ-500 foi aposentada em 31/08/2026. A certificação continua valendo até a data acima.
           en: The AZ-500 exam was retired on Aug 31, 2026. The certification stays valid until the date above.
       - name: Security, Compliance, and Identity Fundamentals
+        url: https://learn.microsoft.com/api/credentials/share/en-us/mikionakamaru/42F4DCEF87F1F66E?sharingId=F2D4EA9E91B79A7B
         exams: SC-900
         id: D9C24H-14C72E
         earned: 2022-01-16
         status: noexpire
       - name: Information Protection and Compliance Administrator Associate
+        url: https://learn.microsoft.com/api/credentials/share/en-us/mikionakamaru/55B321797B11B52C?sharingId=F2D4EA9E91B79A7B
         exams: SC-400
         id: PDDC55-8CDE3B
         earned: 2022-03-04
         expires: 2026-03-04
         status: expired
       - name: Microsoft 365 Security Administrator Associate
+        url: https://learn.microsoft.com/api/credentials/share/en-us/mikionakamaru/F91DD4596597739A?sharingId=F2D4EA9E91B79A7B
         exams: MS-500
         id: FD8C56-DAM4E2
         earned: 2021-11-27
@@ -495,24 +517,28 @@ certifications:
       en: Azure
     items:
       - name: Azure Solutions Architect Expert
+        url: https://learn.microsoft.com/api/credentials/share/en-us/mikionakamaru/70A814286D48C425?sharingId=F2D4EA9E91B79A7B
         exams: AZ-305
         id: DC383C-CA507D
         earned: 2024-09-04
         expires: 2027-09-04
         status: active
       - name: Azure Administrator Associate
+        url: https://learn.microsoft.com/api/credentials/share/en-us/mikionakamaru/BDA5375251758AC6?sharingId=F2D4EA9E91B79A7B
         exams: AZ-104
         id: RCE69A-1354E7
         earned: 2023-10-14
         expires: 2027-10-14
         status: active
       - name: Azure Network Engineer Associate
+        url: https://learn.microsoft.com/api/credentials/share/en-us/mikionakamaru/4CD7897B7D44264E?sharingId=F2D4EA9E91B79A7B
         exams: AZ-700
         id: 4F3268-C152DL
         earned: 2023-08-12
         expires: 2027-08-12
         status: active
       - name: Windows Server Administrator Associate
+        url: https://learn.microsoft.com/api/credentials/share/en-us/mikionakamaru/612D3BF29D3ACBF8?sharingId=F2D4EA9E91B79A7B
         exams: AZ-800 e AZ-801
         exams_en: AZ-800 and AZ-801
         id: AAP403-FD4578
@@ -523,6 +549,7 @@ certifications:
           pt: As provas AZ-800 e AZ-801 foram aposentadas em 30/09/2026. A certificação continua valendo até a data acima.
           en: The AZ-800 and AZ-801 exams were retired on Sep 30, 2026. The certification stays valid until the date above.
       - name: Azure Fundamentals
+        url: https://learn.microsoft.com/api/credentials/share/en-us/mikionakamaru/96B9F9ED141716CD?sharingId=F2D4EA9E91B79A7B
         exams: AZ-900
         id: C83EA1-BF93AC
         earned: 2021-06-18
@@ -532,6 +559,7 @@ certifications:
       en: Microsoft 365 and endpoint
     items:
       - name: Microsoft 365 Administrator Expert
+        url: https://learn.microsoft.com/api/credentials/share/en-us/mikionakamaru/E5A0C1B5E3937ECD?sharingId=F2D4EA9E91B79A7B
         exams: MS-100 e MS-101
         exams_en: MS-100 and MS-101
         id: AEE300-CA4H80
@@ -539,6 +567,7 @@ certifications:
         expires: 2027-08-08
         status: active
       - name: Endpoint Administrator Associate
+        url: https://learn.microsoft.com/api/credentials/share/en-us/mikionakamaru/F2CAD47CF01F7D4D?sharingId=F2D4EA9E91B79A7B
         exams: MD-100 e MD-101
         exams_en: MD-100 and MD-101
         id: F30924-32M33A
@@ -546,6 +575,7 @@ certifications:
         expires: 2027-02-15
         status: active
       - name: Microsoft 365 Fundamentals
+        url: https://learn.microsoft.com/api/credentials/share/en-us/mikionakamaru/11553C03AF34EC8A?sharingId=F2D4EA9E91B79A7B
         exams: MS-900
         id: 957A8N-9206B8
         earned: 2021-07-01
@@ -573,6 +603,8 @@ talks:
         Spoke to people starting out in security about the career fork: hands-on,
         specialist or manager, employee or contractor, and which certifications actually
         paid off for me.
+    page: https://mikionakamaru.github.io/carreira-em-y/
+    repo: https://github.com/mikionakamaru/carreira-em-y
     # TODO: link dos slides e/ou do vídeo da MVP Conf
     slides: ""
     video: ""
@@ -590,7 +622,8 @@ talks:
         Spoke about RAG systems running on an app identity and seeing more data than any
         approved person in the company. Same day, I joined a panel on AI and security in
         corporate life and mentored at the career hub.
-    demo: https://mikionakamaru.github.io/ragciso/
+    page: https://mikionakamaru.github.io/ragciso/
+    repo: https://github.com/mikionakamaru/ragciso
     # TODO: link dos slides e/ou do vídeo do TDC
     slides: ""
     video: ""

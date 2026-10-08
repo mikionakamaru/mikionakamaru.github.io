@@ -78,6 +78,14 @@ body {
 
 img { max-width: 100%; height: auto; display: block; }
 
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0);
+  white-space: nowrap; border: 0;
+}
+
 a { color: var(--accent); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
 a:hover { color: var(--accent-hover); text-decoration-thickness: 2px; }
 
@@ -366,6 +374,8 @@ sup { line-height: 0; }
 .ev h3 a:hover { text-decoration-color: currentColor; }
 .ev p { margin: 0.5rem 0 0; color: var(--muted); font-size: 0.97rem; }
 .ev .ev-extra a { font-weight: 550; }
+.ev-links { margin-top: 0.5rem; display: grid; gap: 0.25rem; }
+.ev-links a { font-weight: 550; font-size: 0.97rem; }
 .ev .ev-host { font-size: 0.85rem; color: var(--muted); opacity: 0.9; }
 
 /* Stack */
@@ -410,7 +420,7 @@ sup { line-height: 0; }
   border: 2px solid var(--line);
   background: var(--surface);
 }
-.job-mark img { object-fit: contain; padding: 6px; }
+.job-mark img { object-fit: cover; padding: 0; background: #fff; }
 .initials {
   display: grid;
   place-items: center;
@@ -455,6 +465,9 @@ sup { line-height: 0; }
 .cert:first-child { border-top: 0; }
 .cert .code { grid-row: 1 / span 3; font-weight: 750; font-size: 0.93rem; font-variant-numeric: tabular-nums; padding-top: 0.05rem; }
 .cert-name { font-size: 0.97rem; font-weight: 550; }
+.cert-name a { color: var(--ink); text-decoration-color: var(--line); }
+.cert-name a:hover { color: var(--accent); text-decoration-color: currentColor; }
+.is-expired .cert-name a { color: var(--muted); }
 .cert-meta, .cert-note { grid-column: 2; }
 .cert-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.6rem; margin-top: 0.2rem; }
 .cert-id { font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
@@ -501,6 +514,7 @@ sup { line-height: 0; }
 .talk h3 .sub { font-weight: 500; color: var(--muted); }
 .talk p { margin: 0.6rem 0 0; }
 .talk .talk-lang { color: var(--muted); font-size: 0.9rem; margin-top: 0.3rem; }
+.talk-links .nowrap { white-space: nowrap; }
 .talk-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; font-weight: 600; }
 
 /* Blog */
