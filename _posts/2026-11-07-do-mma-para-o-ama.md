@@ -5,6 +5,9 @@ date: 2026-11-07 14:40:00 -0300
 categories: [Na prática, Sentinel]
 tags: [mma, ama, sentinel, kql, defender for endpoint, dcr]
 media_subpath: /assets/img/posts/do-mma-para-o-ama
+image:
+  path: capa.webp
+  alt: "Dois servidores em desenho animado numa pista de corrida passando um bastão: um antigo e desgastado, outro moderno e azul, com uma lupa conferindo a passagem."
 ---
 
 Chega o chamado: "o MMA ainda precisa existir?". Uma linha. A resposta não cabe em uma.
