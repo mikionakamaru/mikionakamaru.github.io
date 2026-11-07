@@ -1,0 +1,133 @@
+{%- comment -%}
+  Página de projetos (/projetos/ e /projetos/en/). Dados em _data/projetos.yml, textos em _data/cv.yml (ui).
+  Mesmo visual do /cv/ (assets/cv/style.css). Sem nome de cliente.
+{%- endcomment -%}
+{%- assign cv = site.data.cv -%}
+{%- assign ui = cv.ui -%}
+{%- if page.lang == 'en' -%}{%- assign l = 'en' -%}{%- assign url_here = '/projetos/en/' -%}{%- assign url_other = '/projetos/' -%}{%- assign url_cv = cv.meta.url_en -%}
+{%- else -%}{%- assign l = 'pt' -%}{%- assign url_here = '/projetos/' -%}{%- assign url_other = '/projetos/en/' -%}{%- assign url_cv = cv.meta.url_pt -%}{%- endif -%}
+{%- assign items = site.data.projetos.items | sort: 'ano' | reverse -%}
+{%- assign n = items | size | append: '' -%}
+{%- assign all_tags = '' | split: '' -%}
+{%- for p in items -%}{%- assign all_tags = all_tags | concat: p.tags -%}{%- endfor -%}
+{%- assign all_tags = all_tags | uniq | sort_natural -%}
+<!doctype html>
+<html lang="{{ page.lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ ui.projects_page_title[l] }} | {{ cv.meta.name }}</title>
+  <meta name="description" content="{{ ui.projects_page_intro[l] | escape }}">
+  <link rel="canonical" href="{{ site.url }}{{ url_here }}">
+  <link rel="alternate" hreflang="pt-BR" href="{{ site.url }}/projetos/">
+  <link rel="alternate" hreflang="en" href="{{ site.url }}/projetos/en/">
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}/projetos/">
+  <meta property="og:title" content="{{ ui.projects_page_title[l] }} | {{ cv.meta.name }}">
+  <meta property="og:description" content="{{ ui.projects_page_intro[l] | escape }}">
+  <meta property="og:url" content="{{ site.url }}{{ url_here }}">
+  <meta property="og:image" content="{{ site.url }}{{ cv.meta.photo_og }}">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('cv-theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') {
+        t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+  <link rel="stylesheet" href="{{ '/assets/cv/style.css' | relative_url }}">
+  <script src="{{ '/assets/cv/app.js' | relative_url }}" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">{{ ui.skip[l] }}</a>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="{{ url_cv | relative_url }}">{{ cv.meta.name }}</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="cv-nav">{{ ui.menu[l] }}</button>
+      <nav id="cv-nav" class="nav" aria-label="{{ ui.nav_label[l] }}">
+        <ul>
+          {%- for item in ui.nav %}
+          {%- if item.id == 'projects' %}
+          <li><a href="{{ url_here | relative_url }}" aria-current="true">{{ item[l] }}</a></li>
+          {%- else %}
+          <li><a href="{{ url_cv | relative_url }}#{{ item.id }}">{{ item[l] }}</a></li>
+          {%- endif %}
+          {%- endfor %}
+        </ul>
+      </nav>
+      <div class="tools">
+        <p class="lang">
+          {%- if l == 'pt' -%}
+          <span aria-current="true">PT</span><span class="sep" aria-hidden="true">|</span><a href="{{ url_other | relative_url }}" hreflang="en" lang="en" data-lang-switch title="{{ ui.lang_label.pt }}">EN</a>
+          {%- else -%}
+          <a href="{{ url_other | relative_url }}" hreflang="pt-BR" lang="pt-BR" data-lang-switch title="{{ ui.lang_label.en }}">PT</a><span class="sep" aria-hidden="true">|</span><span aria-current="true">EN</span>
+          {%- endif -%}
+        </p>
+        <button class="theme-btn" type="button" data-to-dark="{{ ui.theme_to_dark[l] }}" data-to-light="{{ ui.theme_to_light[l] }}" aria-label="{{ ui.theme_to_dark[l] }}">
+          <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="proj-page wrap">
+      <h1 class="proj-h1">{{ ui.projects_page_title[l] }}</h1>
+      <p class="section-intro">{{ ui.projects_page_intro[l] }}</p>
+
+      <div class="proj-filter" role="group" aria-label="{{ ui.projects_filter[l] }}">
+        <button type="button" class="proj-chip" data-tag="" aria-pressed="true">{{ ui.projects_all_tags[l] }}</button>
+        {%- for tg in all_tags %}
+        <button type="button" class="proj-chip" data-tag="{{ tg | slugify }}" aria-pressed="false">{{ tg }}</button>
+        {%- endfor %}
+      </div>
+      <p class="proj-count" aria-live="polite" data-tpl="{{ ui.projects_count[l] }}">{{ ui.projects_count[l] | replace: '%n%', n }}</p>
+
+      <ul class="proj-list">
+        {%- for p in items %}
+        {%- capture slugs %}{% for tg in p.tags %} {{ tg | slugify }}{% endfor %}{% endcapture %}
+        <li class="proj-card proj-card-full" id="{{ p.id }}" data-tags="{{ slugs | strip }}">
+          <p class="proj-meta"><span>{{ p.setor[l] }}</span> <span>{{ p.periodo[l] }}</span></p>
+          <h2>{{ p.titulo[l] }}</h2>
+          <p class="proj-company">{{ p.empresa }}</p>
+          <p class="proj-text">{{ p.resumo[l] }}</p>
+          <ul class="proj-tags">{% for tg in p.tags %}<li>{{ tg }}</li>{% endfor %}</ul>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>© {{ site.time | date: '%Y' }} {{ cv.meta.name }}</p>
+      <p><a href="{{ url_cv | relative_url }}">{{ ui.projects_back[l] }}</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var chips = document.querySelectorAll('.proj-chip');
+      var cards = document.querySelectorAll('.proj-list > .proj-card');
+      var count = document.querySelector('.proj-count');
+      chips.forEach(function (c) {
+        c.addEventListener('click', function () {
+          var tag = c.dataset.tag, shown = 0;
+          chips.forEach(function (o) { o.setAttribute('aria-pressed', o === c ? 'true' : 'false'); });
+          cards.forEach(function (card) {
+            var ok = !tag || (' ' + card.dataset.tags + ' ').indexOf(' ' + tag + ' ') > -1;
+            card.hidden = !ok;
+            if (ok) shown++;
+          });
+          count.textContent = count.dataset.tpl.replace('%n%', shown);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

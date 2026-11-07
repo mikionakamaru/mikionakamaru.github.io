@@ -77,6 +77,19 @@
         </article>
         {%- endfor %}
       </section>
+
+      <section>
+        <h2>{{ pr.projects[l] }}</h2>
+        {%- if l == 'en' -%}{%- assign url_proj = '/projetos/en/' -%}{%- else -%}{%- assign url_proj = '/projetos/' -%}{%- endif -%}
+        {%- assign feat = site.data.projetos.items | where_exp: "p", "p.destaque == true" %}
+        {%- for p in feat limit: 4 %}
+        <div class="talk">
+          <p class="talk-title">{{ p.titulo[l] }}</p>
+          <p class="meta">{{ p.setor[l] }}, {{ p.periodo[l] }} · {{ p.empresa }}</p>
+        </div>
+        {%- endfor %}
+        <p class="note">{{ pr.projects_more[l] }} <a href="{{ site.url }}{{ url_proj }}">{{ site.url | remove: 'https://' }}{{ url_proj }}</a></p>
+      </section>
     </div>
 
     <aside class="side">

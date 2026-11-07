@@ -1,0 +1,115 @@
+# Projetos do site (/projetos/ e /projetos/en/). Gerado a partir da base privada (cv-base).
+# Sem nome de cliente. Projetos de empregador oculto não entram.
+# destaque: true = aparece no bloco "Projetos em destaque" do /cv/ (máximo 4).
+items:
+  - id: financeiro-sentinel-2026
+    empresa: SGA TI em Nuvem
+    periodo: { pt: mai a jun/2026, en: May to Jun 2026 }
+    ano: 2026
+    setor: { pt: Financeiro, en: Financial services }
+    titulo:
+      pt: Implantação do Microsoft Sentinel numa holding com várias empresas
+      en: Microsoft Sentinel rollout for a multi-company holding
+    resumo:
+      pt: Desenhei a arquitetura, integrei conectores de ambientes distintos e criei regras de detecção, workbooks e automações de resposta com Logic Apps. Estruturei casos de uso de detecção e threat hunting em KQL.
+      en: Designed the architecture, connected data sources from different environments and built detection rules, workbooks and Logic Apps response automations. Set up detection use cases and KQL threat hunting.
+    tags: [Sentinel, SIEM, SOAR, KQL, Logic Apps]
+    destaque: true
+
+  - id: multissetor-mci-cloud-security-2026
+    empresa: SGA TI em Nuvem
+    periodo: { pt: 2026, en: 2026 }
+    ano: 2026
+    setor: { pt: 4 clientes de setores diferentes, en: 4 clients across industries }
+    titulo:
+      pt: Workshops MCI de Cloud Security em ambientes multicloud
+      en: MCI Cloud Security workshops in multicloud environments
+    resumo:
+      pt: Conduzi engajamentos do programa Microsoft Customer Investment com Defender for Cloud, Defender XDR e Security Exposure Management em Azure, AWS e Google Cloud. Cada cliente saiu com a visão da postura e um plano de evolução.
+      en: Ran Microsoft Customer Investment engagements with Defender for Cloud, Defender XDR and Security Exposure Management across Azure, AWS and Google Cloud. Each client left with a posture view and a roadmap.
+    tags: [Defender for Cloud, CSPM, Multicloud, Defender XDR, Workshop]
+    destaque: true
+
+  - id: educacao-sentinel-conformidade-regras-2025
+    empresa: Avanade
+    periodo: { pt: dez/2025, en: Dec 2025 }
+    ano: 2025
+    setor: { pt: Educação, en: Education }
+    titulo:
+      pt: Conformidade de 69 regras analíticas do Sentinel
+      en: Compliance review of 69 Sentinel analytics rules
+    resumo:
+      pt: Revisei 69 regras antes da mudança da Microsoft na entidade de conta (jul/2026). 17 estavam conformes e 52 precisaram de ajuste no KQL. Padronizei AccountName, UPNSuffix e NormalizedAccountName pra alertas e automações seguirem funcionando.
+      en: Reviewed 69 rules ahead of Microsoft's account entity change (Jul 2026). 17 were compliant and 52 needed KQL changes. Standardized AccountName, UPNSuffix and NormalizedAccountName so alerts and automations kept working.
+    tags: [Sentinel, KQL, SIEM, Assessment]
+    destaque: true
+
+  - id: financeiro-automotivo-mci-threat-protection-2025
+    empresa: Avanade
+    periodo: { pt: out/2025, en: Oct 2025 }
+    ano: 2025
+    setor: { pt: Financeiro e automotivo, en: Financial and automotive }
+    titulo:
+      pt: MCI Threat Protection em dois clientes
+      en: MCI Threat Protection for two clients
+    resumo:
+      pt: Implantei os módulos obrigatórios (Defender XDR, Entra ID Protection, Conditional Access) e os opcionais, com Sentinel, Defender for Office 365 e demonstrações do Security Copilot. Fiz simulações de ataque e apresentei o plano de mitigação.
+      en: Deployed the required modules (Defender XDR, Entra ID Protection, Conditional Access) and the optional ones, including Sentinel, Defender for Office 365 and Security Copilot demos. Ran attack simulations and presented the mitigation plan.
+    tags: [Defender XDR, Entra ID, Sentinel, Workshop]
+    destaque: false
+
+  - id: energia-scep-intune-2025
+    empresa: Avanade
+    periodo: { pt: set/2025, en: Sep 2025 }
+    ano: 2025
+    setor: { pt: Energia, en: Energy }
+    titulo:
+      pt: Migração de certificados SCEP via Intune pra autenticação forte
+      en: SCEP certificate migration via Intune for strong authentication
+    resumo:
+      pt: Liderei a parte técnica da troca dos certificados de usuário SCEP pra atender ao KDC Strong dos controladores de domínio. Migração em ondas, com grupos de implantação e monitoramento dos eventos ID 39.
+      en: Led the technical side of replacing SCEP user certificates to meet the domain controllers' KDC Strong requirement. Phased rollout with deployment groups and Event ID 39 monitoring.
+    tags: [Intune, PKI, SCEP, Entra ID]
+    destaque: false
+
+  - id: financeiro-intune-mam-assessment-2025
+    empresa: Avanade
+    periodo: { pt: jan/2025, en: Jan 2025 }
+    ano: 2025
+    setor: { pt: Financeiro, en: Financial services }
+    titulo:
+      pt: Assessment de App Protection Policies no Intune
+      en: Intune App Protection Policies assessment
+    resumo:
+      pt: Revisei as políticas MAM de Android e iOS (proteção de dados, requisitos de acesso, lançamento condicional) e recomendei ajustes em copiar e colar, PIN e backup, sem travar o uso.
+      en: Reviewed Android and iOS MAM policies (data protection, access requirements, conditional launch) and recommended changes to copy and paste, PIN and backup rules without blocking daily use.
+    tags: [Intune, MAM, Assessment]
+    destaque: false
+
+  - id: energia-defender-xdr-assessment-2024
+    empresa: Avanade
+    periodo: { pt: jun/2024, en: Jun 2024 }
+    ano: 2024
+    setor: { pt: Energia, en: Energy }
+    titulo:
+      pt: Assessment de Defender XDR
+      en: Defender XDR assessment
+    resumo:
+      pt: Avaliei AIR e ASR no Defender for Endpoint, Secure Score, proteção de contas prioritárias e sensores do Defender for Identity. Automatizei a remoção de dispositivos não conformes e recomendei MFA pra todos os usuários.
+      en: Assessed AIR and ASR in Defender for Endpoint, Secure Score, priority account protection and Defender for Identity sensors. Automated cleanup of non-compliant devices and recommended MFA for every user.
+    tags: [Defender XDR, Defender for Endpoint, Entra ID, Assessment]
+    destaque: false
+
+  - id: energia-defender-linux-edr-2023
+    empresa: Avanade
+    periodo: { pt: set a nov/2023, en: Sep to Nov 2023 }
+    ano: 2023
+    setor: { pt: Energia, en: Energy }
+    titulo:
+      pt: Defender for Endpoint em Linux de infraestrutura crítica
+      en: Defender for Endpoint on critical Linux infrastructure
+    resumo:
+      pt: Configurei e ajustei as políticas pra Linux, montei a gestão de alertas, integrei com as outras ferramentas de segurança e deixei documentação e treinamento pra operação.
+      en: Configured and tuned Linux policies, set up alert handling, integrated with the other security tools and left documentation and training for the operations team.
+    tags: [Defender for Endpoint, EDR, Linux]
+    destaque: true

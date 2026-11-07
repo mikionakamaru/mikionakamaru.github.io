@@ -343,14 +343,23 @@
       </div>
     </section>
 
-    <section id="blog" class="band" aria-labelledby="h-blog">
+    <section id="projects" class="band" aria-labelledby="h-projects">
       <div class="wrap">
-        <h2 id="h-blog">{{ ui.blog_title[l] }}</h2>
-        <div class="posts" data-feed="{{ '/feed.xml' | relative_url }}" data-locale="{{ page.lang }}" aria-live="polite">
-          <p class="posts-status" hidden>{{ ui.blog_loading[l] }}</p>
-          <ol class="post-list" hidden></ol>
-        </div>
-        <p><a class="more" href="{{ cv.links.blog | relative_url }}">{{ ui.blog_all[l] }}</a></p>
+        <h2 id="h-projects">{{ ui.projects_title[l] }}</h2>
+        <p class="section-intro">{{ ui.projects_intro[l] }}</p>
+        {%- if l == 'en' -%}{%- assign url_proj = '/projetos/en/' -%}{%- else -%}{%- assign url_proj = '/projetos/' -%}{%- endif -%}
+        {%- assign feat = site.data.projetos.items | where_exp: "p", "p.destaque == true" %}
+        <ul class="proj-grid">
+          {%- for p in feat limit: 4 %}
+          <li class="proj-card">
+            <p class="proj-meta"><span>{{ p.setor[l] }}</span> <span>{{ p.periodo[l] }}</span></p>
+            <h3>{{ p.titulo[l] }}</h3>
+            <p class="proj-company">{{ p.empresa }}</p>
+            <ul class="proj-tags">{% for tg in p.tags %}<li>{{ tg }}</li>{% endfor %}</ul>
+          </li>
+          {%- endfor %}
+        </ul>
+        <p><a class="more" href="{{ url_proj | relative_url }}">{{ ui.projects_all[l] }} →</a></p>
       </div>
     </section>
 
@@ -370,7 +379,7 @@
   <footer class="footer">
     <div class="wrap">
       <p>© {{ site.time | date: '%Y' }} {{ cv.meta.name }}</p>
-      <p><a href="{{ '/' | relative_url }}">{{ ui.footer_blog[l] }}</a></p>
+      <p><a href="{% if l == 'en' %}{{ '/projetos/en/' | relative_url }}{% else %}{{ '/projetos/' | relative_url }}{% endif %}">{{ ui.footer_projects[l] }}</a></p>
     </div>
   </footer>
 </body>

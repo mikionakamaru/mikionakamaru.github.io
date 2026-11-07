@@ -59,9 +59,9 @@ ui:
     - id: recommendations
       pt: Recomendações
       en: Recommendations
-    - id: blog
-      pt: Blog
-      en: Blog
+    - id: projects
+      pt: Projetos
+      en: Projects
     - id: contact
       pt: Contato
       en: Contact
@@ -170,24 +170,42 @@ ui:
   talk_video:
     pt: Vídeo
     en: Video
-  blog_title:
-    pt: Últimos posts
-    en: Latest posts
-  blog_all:
-    pt: Ver todos os posts
-    en: See all posts
-  blog_loading:
-    pt: Carregando posts do blog…
-    en: Loading blog posts…
+  projects_title:
+    pt: Projetos em destaque
+    en: Featured projects
+  projects_intro:
+    pt: Alguns projetos recentes. Os clientes aparecem por setor, nunca pelo nome.
+    en: A few recent projects. Clients are described by industry, never by name.
+  projects_all:
+    pt: Ver todos os projetos
+    en: See all projects
+  projects_page_title:
+    pt: Projetos
+    en: Projects
+  projects_page_intro:
+    pt: Projetos de segurança Microsoft que conduzi, do mais recente pro mais antigo. Os clientes aparecem por setor e porte, nunca pelo nome.
+    en: Microsoft security projects I led, newest first. Clients are described by industry and size, never by name.
+  projects_filter:
+    pt: Filtrar por tema
+    en: Filter by topic
+  projects_all_tags:
+    pt: Todos
+    en: All
+  projects_count:
+    pt: "%n% projetos"
+    en: "%n% projects"
+  projects_back:
+    pt: Voltar pro currículo
+    en: Back to the CV
   contact_title:
     pt: Contato
     en: Contact
   contact_text:
     pt: O jeito mais rápido é o LinkedIn. Pra proposta de trabalho ou convite pra palestra, e-mail também funciona.
     en: LinkedIn is the fastest way to reach me. For job offers or speaking invites, email works too.
-  footer_blog:
-    pt: Voltar pro blog
-    en: Back to the blog
+  footer_projects:
+    pt: Todos os projetos
+    en: All projects
   in_portuguese:
     pt: ""
     en: "(talk in Portuguese)"
@@ -713,6 +731,12 @@ languages:
 
 # Textos só do PDF (A4).
 print:
+  projects:
+    pt: Projetos em destaque
+    en: Featured projects
+  projects_more:
+    pt: Todos os projetos em
+    en: All projects at
   doc_title:
     pt: Currículo
     en: Résumé
