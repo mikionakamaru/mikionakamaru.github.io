@@ -348,7 +348,7 @@
         <h2 id="h-projects">{{ ui.projects_title[l] }}</h2>
         <p class="section-intro">{{ ui.projects_intro[l] }}</p>
         {%- if l == 'en' -%}{%- assign url_proj = '/projetos/en/' -%}{%- else -%}{%- assign url_proj = '/projetos/' -%}{%- endif -%}
-        {%- assign feat = site.data.projetos.items | where_exp: "p", "p.destaque == true" %}
+        {%- assign feat = site.data.projetos.items | where_exp: "p", "p.destaque == true" | sort: "ordem" | reverse %}
         <ul class="proj-grid">
           {%- for p in feat limit: 4 %}
           <li class="proj-card">

@@ -6,7 +6,7 @@
 {%- assign ui = cv.ui -%}
 {%- if page.lang == 'en' -%}{%- assign l = 'en' -%}{%- assign url_here = '/projetos/en/' -%}{%- assign url_other = '/projetos/' -%}{%- assign url_cv = cv.meta.url_en -%}
 {%- else -%}{%- assign l = 'pt' -%}{%- assign url_here = '/projetos/' -%}{%- assign url_other = '/projetos/en/' -%}{%- assign url_cv = cv.meta.url_pt -%}{%- endif -%}
-{%- assign items = site.data.projetos.items | sort: 'ano' | reverse -%}
+{%- assign items = site.data.projetos.items | sort: 'ordem' | reverse -%}
 {%- assign n = items | size | append: '' -%}
 {%- assign all_tags = '' | split: '' -%}
 {%- for p in items -%}{%- assign all_tags = all_tags | concat: p.tags -%}{%- endfor -%}

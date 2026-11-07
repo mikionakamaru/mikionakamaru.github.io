@@ -81,7 +81,7 @@
       <section>
         <h2>{{ pr.projects[l] }}</h2>
         {%- if l == 'en' -%}{%- assign url_proj = '/projetos/en/' -%}{%- else -%}{%- assign url_proj = '/projetos/' -%}{%- endif -%}
-        {%- assign feat = site.data.projetos.items | where_exp: "p", "p.destaque == true" %}
+        {%- assign feat = site.data.projetos.items | where_exp: "p", "p.destaque == true" | sort: "ordem" | reverse %}
         {%- for p in feat limit: 4 %}
         <div class="talk">
           <p class="talk-title">{{ p.titulo[l] }}</p>
