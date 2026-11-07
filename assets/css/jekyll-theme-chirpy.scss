@@ -194,6 +194,15 @@ div.highlighter-rouge.kusto-dark pre { color: #dcdcdc; }
 .kq-string { color: #d69d85; }  /* textos */
 .kq-comment { color: #608b4e; } /* comentários */
 
+/* botão copiar dos blocos KQL (criados pelo kql-highlight.js) */
+div.highlighter-rouge .kql-copy {
+  border: 1px solid transparent; border-radius: 6px; background: transparent;
+  color: #71e4d1; height: 2rem; width: 2.25rem; margin-right: 0.25rem; cursor: pointer;
+}
+div.highlighter-rouge .kql-copy:hover { background: rgb(128 128 128 / 30%); }
+div.highlighter-rouge .code-header span[data-label-text]::after { content: attr(data-label-text); margin-left: 0.25rem; }
+div.highlighter-rouge pre.highlight { margin: 0; padding: 0.9rem 1rem; overflow-x: auto; }
+
 /* tabelas */
 .post-content .table-wrapper > table thead th {
   background: rgb(156 122 210 / 16%);

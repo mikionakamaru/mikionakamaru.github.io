@@ -72,7 +72,37 @@
   function next(toks, i) { for (var j = i + 1; j < toks.length; j++) if (toks[j].t !== 'ws') return j; return -1; }
   function prevSig(toks, i) { for (var j = i - 1; j >= 0; j--) if (toks[j].t !== 'ws') return toks[j]; return null; }
 
+  /* Bloco de linguagem que o Rouge não conhece chega como <pre><code class="language-kql">,
+     sem a moldura do Chirpy. Aqui ele ganha a mesma moldura (barra com bolinhas, rótulo e copiar). */
+  function wrap(code) {
+    var pre = code.parentElement;
+    var box = document.createElement('div');
+    box.className = 'language-kql highlighter-rouge kusto-dark';
+    box.innerHTML =
+      '<div class="code-header"><span data-label-text="KQL"><i class="fas fa-code fa-fw small"></i></span>' +
+      '<button type="button" class="kql-copy" aria-label="Copiar"><i class="far fa-clipboard"></i></button></div>' +
+      '<div class="highlight"><pre class="highlight"><code></code></pre></div>';
+    pre.parentElement.replaceChild(box, pre);
+    var target = box.querySelector('code');
+    target.textContent = code.textContent;
+    var btn = box.querySelector('.kql-copy');
+    btn.addEventListener('click', function () {
+      var txt = target.textContent;
+      (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(function () {
+        btn.innerHTML = '<i class="fas fa-check"></i>';
+        setTimeout(function () { btn.innerHTML = '<i class="far fa-clipboard"></i>'; }, 2000);
+      }, function () {});
+    });
+    return target;
+  }
+
   function run() {
+    document.querySelectorAll('pre > code.language-kql, pre > code.language-kusto').forEach(function (code) {
+      if (code.closest('.highlighter-rouge')) return;
+      var target = wrap(code);
+      target.innerHTML = paint(target.textContent);
+      target.dataset.kql = '1';
+    });
     document.querySelectorAll('div.language-kql, div.language-kusto').forEach(function (box) {
       var pre = box.querySelector('td.rouge-code pre') || box.querySelector('pre code') || box.querySelector('pre');
       if (!pre || pre.dataset.kql) return;
