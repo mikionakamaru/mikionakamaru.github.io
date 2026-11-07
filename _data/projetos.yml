@@ -136,3 +136,18 @@ items:
       en: Threat hunting for a critical PHP remote code execution flaw. Correlated firewall logs in the SIEM with EDR telemetry, ruled out false positives and checked whether the environment could actually see the attack before drawing a conclusion. Delivered an executive report and action plan.
     tags: [Threat Hunting, KQL, Sentinel, Defender XDR]
     destaque: false
+
+  - id: industria-mma-ama-diagnostico-2026
+    ordem: "2026-10"   # AAAA-MM do fim do projeto, pra ordenar
+    empresa: Consultoria
+    periodo: { pt: 2026, en: 2026 }
+    ano: 2026
+    setor: { pt: Indústria, en: Industry }
+    titulo:
+      pt: "Antes de desligar um agente legado: como mapear o que ainda depende dele"
+      en: "Before retiring a legacy agent: mapping what still depends on it"
+    resumo:
+      pt: Diagnóstico da aposentadoria de um agente legado de monitoramento. Inventariei os dispositivos, cruzei dados do SIEM, do Resource Graph e do EDR para ver onde o agente ainda era necessário e o que o substitui, e entreguei um relatório interativo com plano de ação, procedimentos de remediação e exportação para Excel.
+      en: Diagnosis for retiring a legacy monitoring agent. Inventoried the devices, correlated SIEM, Resource Graph and EDR data to see where the agent was still needed and what replaces it, and delivered an interactive report with an action plan, remediation procedures and Excel export.
+    tags: [Sentinel, KQL, Defender for Endpoint, Relatório executivo]
+    destaque: false
