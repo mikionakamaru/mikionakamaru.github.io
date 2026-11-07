@@ -74,12 +74,12 @@
 
   /* Bloco de linguagem que o Rouge não conhece chega como <pre><code class="language-kql">,
      sem a moldura do Chirpy. Aqui ele ganha a mesma moldura (barra com bolinhas, rótulo e copiar). */
-  function wrap(code) {
+  function wrap(code, lang) {
     var pre = code.parentElement;
     var box = document.createElement('div');
-    box.className = 'language-kql highlighter-rouge kusto-dark';
+    box.className = 'language-' + lang + ' highlighter-rouge' + (lang === 'kql' || lang === 'kusto' ? ' kusto-dark' : '');
     box.innerHTML =
-      '<div class="code-header"><span data-label-text="KQL"><i class="fas fa-code fa-fw small"></i></span>' +
+      '<div class="code-header"><span data-label-text="' + lang.toUpperCase() + '"><i class="fas fa-code fa-fw small"></i></span>' +
       '<button type="button" class="kql-copy" aria-label="Copiar"><i class="far fa-clipboard"></i></button></div>' +
       '<div class="highlight"><pre class="highlight"><code></code></pre></div>';
     pre.parentElement.replaceChild(box, pre);
@@ -97,11 +97,16 @@
   }
 
   function run() {
-    document.querySelectorAll('pre > code.language-kql, pre > code.language-kusto').forEach(function (code) {
+    /* qualquer linguagem que o Rouge não conhece (kql, spl...) ganha a moldura; só o KQL ganha as cores */
+    document.querySelectorAll('pre > code[class*="language-"]').forEach(function (code) {
       if (code.closest('.highlighter-rouge')) return;
-      var target = wrap(code);
-      target.innerHTML = paint(target.textContent);
-      target.dataset.kql = '1';
+      var m = /language-([\w-]+)/.exec(code.className);
+      var lang = m ? m[1].toLowerCase() : 'text';
+      var target = wrap(code, lang);
+      if (lang === 'kql' || lang === 'kusto') {
+        target.innerHTML = paint(target.textContent);
+        target.dataset.kql = '1';
+      }
     });
     document.querySelectorAll('div.language-kql, div.language-kusto').forEach(function (box) {
       var pre = box.querySelector('td.rouge-code pre') || box.querySelector('pre code') || box.querySelector('pre');
