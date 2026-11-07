@@ -656,3 +656,4 @@ sup { line-height: 0; }
 .proj-detail .proj-text { font-size: 1rem; line-height: 1.6; }
 body.proj-lock { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { .proj-drawer, .proj-scrim { transition: none; } }
+.proj-detail[hidden], .proj-drawer[hidden], .proj-scrim[hidden] { display: none; }
