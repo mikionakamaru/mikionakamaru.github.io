@@ -15,7 +15,8 @@ Se você responder "não, a Microsoft aposentou", está certo e provavelmente va
 
 Um ambiente típico de médio ou grande porte, com Sentinel e um parque misto: servidores novos, servidores velhos, máquinas que foram instaladas por três equipes diferentes. Alguém pergunta se dá pra desinstalar o Microsoft Monitoring Agent (MMA, também chamado de Log Analytics agent) e trocar tudo pelo Azure Monitor Agent (AMA).
 
-O contexto oficial ajuda a dar urgência. Segundo a Microsoft, o agente foi aposentado em 31 de agosto de 2024, e depois de 2 de março de 2026 o envio de dados por ele pode parar a qualquer momento, sem aviso ([Microsoft Learn](https://learn.microsoft.com/en-au/azure/azure-monitor/agents/azure-monitor-agent-migration)). Ou seja: não é uma decisão de "se", é de "como, sem quebrar nada".
+O contexto oficial ajuda a dar urgência. Segundo a Microsoft, o agente foi aposentado em 31 de agosto de 2024, e depois de 2 de março de 2026 o envio de dados por ele pode parar a qualquer momento, sem aviso ([Microsoft Learn](https://learn.microsoft.com/en-au/azure/azure-monitor/agents/azure-monitor-agent-migration)). > Não é uma decisão de "se", é de "como, sem quebrar nada". Depois de 2 de março de 2026 o MMA pode parar de mandar dados sem aviso.
+{: .prompt-warning }
 
 ## O que muda quando os dois agentes convivem
 
@@ -55,7 +56,10 @@ Exemplo do resultado (dados inventados):
 | srv-db-02 | MMA | há 3 min |
 | srv-web-03 | AMA | há 1 min |
 
-Aqui o `srv-db-02` nem começou. Heartbeat dos dois agentes só prova que ambos estão vivos. **Não prova que o AMA está coletando o que o MMA coletava.** Isso vem a seguir.
+Aqui o `srv-db-02` nem começou.
+
+> Heartbeat dos dois agentes só prova que ambos estão vivos. **Não prova que o AMA está coletando o que o MMA coletava.** Isso vem a seguir.
+{: .prompt-tip }
 
 ### 2. De onde vem o log de segurança?
 
@@ -122,7 +126,10 @@ Aqui está a confusão mais cara que eu vejo. Existem dois conectores do Sentine
 
 Pela descrição da própria Microsoft, o Security Events via AMA é a opção quando dá pra instalar o agente em cada servidor, e o Forwarded Events serve quando isso não é prático ([Microsoft Tech Community](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/windows-events-how-to-collect-them-in-sentinel-and-which-way-is/ba-p/3997342)). Os dados dos dois caem em tabelas diferentes, e as regras de detecção consultam uma ou outra.
 
-Então a pergunta antes de remover o MMA de um servidor é: **o que ele coletava, e qual DCR cobre isso hoje?** Se o MMA alimentava `SecurityEvent` e a DCR da máquina só tem Forwarded Events, desligar o MMA apaga o log Security daquele servidor, em silêncio, até alguma regra parar de disparar.
+Então a pergunta antes de remover o MMA de um servidor é: **o que ele coletava, e qual DCR cobre isso hoje?**
+
+> Se o MMA alimentava `SecurityEvent` e a DCR da máquina só tem Forwarded Events, desligar o MMA apaga o log Security daquele servidor. Em silêncio. Até alguma regra parar de disparar e ninguém perceber.
+{: .prompt-danger }
 
 ## Perguntas que costumam aparecer
 
@@ -132,7 +139,10 @@ Então a pergunta antes de remover o MMA de um servidor é: **o que ele coletava
 
 **"Tem ferramenta pra ajudar?"** Tem. A Microsoft mantém a AMA Migration Helper workbook, que inventaria os agentes e acompanha o progresso, e uma ferramenta de descoberta e remoção do MMA em escala ([Microsoft Learn](https://learn.microsoft.com/en-au/azure/azure-monitor/agents/azure-monitor-agent-migration)).
 
-**"E se o servidor também for gerenciado pelo SCOM?"** Aí o MMA fica nele. A aposentadoria não vale para o agente conectado exclusivamente ao SCOM local.
+**"E se o servidor também for gerenciado pelo SCOM?"** Aí o MMA fica nele.
+
+> A aposentadoria não vale para o agente conectado exclusivamente ao SCOM local.
+{: .prompt-info }
 
 ## Antes de dizer que pode remover
 

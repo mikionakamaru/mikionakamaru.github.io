@@ -1,0 +1,204 @@
+---
+---
+
+/* prettier-ignore */
+@use 'main {%- if jekyll.environment == 'production' -%} .bundle {%- endif -%} ';
+
+/* ===== Marca do Mikio (paleta dos relatórios) =====
+   teal #71E4D1 · roxo #9C7AD2 · azul #4BB1EA · amarelo #F6F183 · coral #F97066
+   Montserrat no texto, JetBrains Mono no código. */
+
+:root {
+  --mn-teal: #71e4d1;
+  --mn-purple: #9c7ad2;
+  --mn-blue: #4bb1ea;
+  --mn-yellow: #f6f183;
+  --mn-coral: #f97066;
+  --mn-gradient: linear-gradient(90deg, #71e4d1 0%, #9c7ad2 50%, #4bb1ea 100%);
+}
+
+html,
+body,
+h1, h2, h3, h4, h5, h6,
+.post-content,
+#sidebar,
+#topbar {
+  font-family: 'Montserrat', 'Source Sans Pro', system-ui, sans-serif;
+}
+
+code,
+pre,
+kbd,
+.highlight {
+  font-family: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace !important;
+}
+
+/* ---------- tema escuro ---------- */
+html[data-mode='dark'] {
+  --main-bg: #0e1013;
+  --mask-bg: #0e1013;
+  --main-border-color: #23272e;
+  --text-color: #d9dde3;
+  --text-muted-color: #9aa3ad;
+  --heading-color: #ffffff;
+  --link-color: #71e4d1;
+  --link-underline-color: rgb(113 228 209 / 35%);
+  --label-color: #9c7ad2;
+  --blockquote-border-color: #9c7ad2;
+  --sidebar-bg: #000000;
+  --sidebar-border-color: #1c1f24;
+  --sidebar-muted-color: #8b939c;
+  --sidebar-active-color: #71e4d1;
+  --sidebar-hover-bg: rgb(113 228 209 / 8%);
+  --site-title-color: #ffffff;
+  --site-subtitle-color: #9aa3ad;
+  --topbar-bg: rgb(14 16 19 / 70%);
+  --card-bg: #15181c;
+  --card-hover-bg: #1a1e23;
+  --card-header-bg: #15181c;
+  --inline-code-bg: rgb(156 122 210 / 18%);
+  --highlighter-rouge-color: #e5d8ff;
+  --highlight-bg-color: #0a0c0f;
+  --code-header-text-color: #71e4d1;
+  --code-header-icon-color: #71e4d1;
+  --code-header-muted-color: #3a3f47;
+  --tag-hover: rgb(156 122 210 / 25%);
+  --toc-highlight: #71e4d1;
+  --tb-odd-bg: #12151a;
+  --tb-even-bg: #0e1013;
+  --tb-border-color: #23272e;
+
+  --prompt-tip-bg: rgb(113 228 209 / 10%);
+  --prompt-tip-icon-color: #71e4d1;
+  --prompt-info-bg: rgb(75 177 234 / 10%);
+  --prompt-info-icon-color: #4bb1ea;
+  --prompt-warning-bg: rgb(246 241 131 / 9%);
+  --prompt-warning-icon-color: #f6f183;
+  --prompt-danger-bg: rgb(249 112 102 / 11%);
+  --prompt-danger-icon-color: #f97066;
+}
+
+/* ---------- tema claro ---------- */
+html:not([data-mode='dark']) {
+  --link-color: #1b6f9f;
+  --link-underline-color: rgb(27 111 159 / 30%);
+  --sidebar-active-color: #1b6f9f;
+  --label-color: #6a4aa8;
+  --blockquote-border-color: #9c7ad2;
+  --toc-highlight: #1b6f9f;
+  --highlight-bg-color: #0e1013;
+  --code-header-text-color: #71e4d1;
+  --code-header-icon-color: #71e4d1;
+  --code-header-muted-color: #3a3f47;
+  --inline-code-bg: rgb(156 122 210 / 14%);
+  --highlighter-rouge-color: #4a2f86;
+  --prompt-tip-bg: rgb(113 228 209 / 18%);
+  --prompt-tip-icon-color: #138a77;
+  --prompt-info-bg: rgb(75 177 234 / 14%);
+  --prompt-info-icon-color: #1b6f9f;
+  --prompt-warning-bg: rgb(246 241 131 / 35%);
+  --prompt-warning-icon-color: #8a6d00;
+  --prompt-danger-bg: rgb(249 112 102 / 14%);
+  --prompt-danger-icon-color: #b42318;
+}
+
+/* faixa de degradê no topo da barra lateral e embaixo da barra superior */
+#sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--mn-gradient);
+  z-index: 2;
+}
+#topbar-wrapper {
+  border-bottom: 1px solid transparent;
+  border-image: var(--mn-gradient) 1;
+}
+#sidebar #avatar {
+  box-shadow: 0 0 0 2px #000, 0 0 0 4px #71e4d1;
+}
+#sidebar .site-title { font-weight: 800; letter-spacing: -0.01em; }
+
+/* categorias fora do menu (só Sobre, Arquivo e Tags) */
+#sidebar .nav-item:has(> a[href$="/categories/"]) { display: none; }
+
+/* título do post e títulos de seção */
+.post h1,
+article header h1 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.post-content h2 {
+  font-weight: 800;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid transparent;
+  border-image: var(--mn-gradient) 1;
+}
+.post-content h3 { font-weight: 700; color: var(--heading-color); }
+.post-content strong { color: var(--heading-color); }
+
+/* cards da página inicial */
+#post-list .card-wrapper .card {
+  border: 1px solid var(--main-border-color);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+#post-list .card-wrapper:hover .card {
+  border-color: #71e4d1;
+  transform: translateY(-2px);
+}
+#post-list .card-title { font-weight: 700; }
+
+/* ---------- blocos de código como terminal ---------- */
+div.highlighter-rouge,
+figure.highlight {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #23272e;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 28%);
+  background: #0a0c0f;
+}
+div.highlighter-rouge .code-header {
+  background: #15181d;
+  border-bottom: 1px solid #23272e;
+  margin: 0;
+}
+div.highlighter-rouge .code-header::before {
+  background-color: #ff5f56 !important;
+  box-shadow: 1.3rem 0 0 #ffbd2e, 2.6rem 0 0 #27c93f !important;
+}
+div.highlighter-rouge .code-header span {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+}
+div.highlighter-rouge .highlight,
+div.highlighter-rouge pre {
+  background: #0a0c0f !important;
+  color: #e6e8eb;
+}
+div.highlighter-rouge td.rouge-gutter { background: #0a0c0f; color: #4b525c; }
+
+/* cores do KQL (assets/js/kql-highlight.js) */
+.kql-k { color: #c3a6ff; font-weight: 600; }
+.kql-f { color: #4bb1ea; }
+.kql-s { color: #f6f183; }
+.kql-n { color: #71e4d1; }
+.kql-o { color: #f97066; }
+.kql-c { color: #6b7886; font-style: italic; }
+
+/* tabelas */
+.post-content .table-wrapper > table thead th {
+  background: rgb(156 122 210 / 16%);
+  font-weight: 700;
+}
+
+/* caixas de destaque (prompts) com borda colorida */
+.post-content blockquote[class^='prompt-'] {
+  border-left: 4px solid var(--prompt-tip-icon-color);
+  border-radius: 10px;
+}
+.post-content blockquote.prompt-info { border-left-color: var(--prompt-info-icon-color); }
+.post-content blockquote.prompt-warning { border-left-color: var(--prompt-warning-icon-color); }
+.post-content blockquote.prompt-danger { border-left-color: var(--prompt-danger-icon-color); }
