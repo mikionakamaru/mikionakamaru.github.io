@@ -50,6 +50,20 @@ jobs:
         env:
           JEKYLL_ENV: "production"
 
+      # Gera os PDFs do currículo a partir da página já construída, direto no _site.
+      # Assim o PDF publicado sempre reflete o cv.yml do mesmo deploy.
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: PDFs do currículo (pt e en)
+        run: |
+          pip install --quiet playwright==1.56.0
+          (python3 -m http.server 4000 -d "_site${{ steps.pages.outputs.base_path }}" >/dev/null 2>&1 &)
+          sleep 2
+          python3 .github/scripts/cv-pdf.py http://127.0.0.1:4000 "_site${{ steps.pages.outputs.base_path }}/assets/cv" chrome
+
       - name: Test site
         run: |
           bundle exec htmlproofer _site \
