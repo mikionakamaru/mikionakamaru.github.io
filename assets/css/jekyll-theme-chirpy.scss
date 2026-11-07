@@ -34,7 +34,7 @@ kbd,
 }
 
 /* ---------- tema escuro ---------- */
-html[data-mode='dark'] {
+html[data-bs-theme='dark'] {
   --main-bg: #0e1013;
   --mask-bg: #0e1013;
   --main-border-color: #23272e;
@@ -79,7 +79,7 @@ html[data-mode='dark'] {
 }
 
 /* ---------- tema claro ---------- */
-html:not([data-mode='dark']) {
+html[data-bs-theme='light'] {
   --link-color: #1b6f9f;
   --link-underline-color: rgb(27 111 159 / 30%);
   --sidebar-active-color: #1b6f9f;
