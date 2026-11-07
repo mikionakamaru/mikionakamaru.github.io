@@ -125,14 +125,14 @@ items:
   - id: farma-php2shell-hunting-2026
     ordem: "2026-11"   # AAAA-MM do fim do projeto, pra ordenar
     empresa: Consultoria
-    periodo: { pt: nov/2026, en: Nov 2026 }
+    periodo: { pt: 2026, en: 2026 }
     ano: 2026
-    setor: { pt: Farmacêutico, en: Pharmaceutical }
+    setor: { pt: Indústria, en: Industry }
     titulo:
-      pt: "Zero alertas não é zero ataque: threat hunting de PHP2Shell"
-      en: "Zero alerts is not zero attacks: PHP2Shell threat hunting"
+      pt: "Zero alertas não é zero ataque: threat hunting de uma falha crítica do PHP"
+      en: "Zero alerts is not zero attacks: threat hunting for a critical PHP flaw"
     resumo:
-      pt: Threat hunting da vulnerabilidade crítica PHP2Shell (CVE-2026-109618/109619), motivado por um alerta externo de possível exposição de acesso. Cruzei logs de firewall Palo Alto no Sentinel e no Splunk com a telemetria do Defender XDR em mais de 30 consultas KQL e SPL e descartei a exploração nos ativos monitorados. No caminho, achei as lacunas que mudaram o peso da conclusão (borda sem as assinaturas do ataque, DMZ sem EDR e sem inspeção de HTTPS) e entreguei relatório executivo e plano de ação, aprovados pelo cliente.
-      en: Threat hunting for the critical PHP2Shell vulnerability (CVE-2026-109618/109619), triggered by an external alert about possible access exposure. Correlated Palo Alto firewall logs in Sentinel and Splunk with Defender XDR telemetry across 30+ KQL and SPL queries and ruled out exploitation on monitored assets. Along the way, found the gaps that changed the weight of that conclusion (edge firewalls without the attack signatures, a DMZ with no EDR and no HTTPS inspection) and delivered an executive report and action plan, approved by the client.
-    tags: [Threat Hunting, Sentinel, Splunk, Defender XDR, KQL, Palo Alto]
+      pt: Threat hunting de uma vulnerabilidade crítica do PHP com execução remota de código. Cruzei logs de firewall no SIEM com a telemetria do EDR, descartei os falsos positivos e conferi se o ambiente tinha como enxergar o ataque antes de concluir. Entreguei relatório executivo e plano de ação.
+      en: Threat hunting for a critical PHP remote code execution flaw. Correlated firewall logs in the SIEM with EDR telemetry, ruled out false positives and checked whether the environment could actually see the attack before drawing a conclusion. Delivered an executive report and action plan.
+    tags: [Threat Hunting, KQL, Sentinel, Defender XDR]
     destaque: false
