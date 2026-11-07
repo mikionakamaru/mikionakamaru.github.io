@@ -151,3 +151,4 @@ items:
       en: Diagnosis for retiring the Microsoft Monitoring Agent (MMA), replaced by the Azure Monitor Agent (AMA). Inventoried the devices, correlated SIEM, Resource Graph and EDR data to see where MMA was still needed and what replaces it, and delivered an interactive report with an action plan, remediation procedures and Excel export.
     tags: [MMA, AMA, Sentinel, KQL, Defender for Endpoint]
     destaque: false
+    artigo: /posts/do-mma-para-o-ama/

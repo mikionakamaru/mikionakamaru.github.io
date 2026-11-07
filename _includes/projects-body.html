@@ -132,6 +132,7 @@
       <p class="proj-company">{{ p.empresa }}</p>
       <p class="proj-text">{{ p.resumo[l] }}</p>
       <ul class="proj-tags">{% for tg in p.tags %}<li>{{ tg }}</li>{% endfor %}</ul>
+      {% if p.artigo %}<p><a class="more" href="{{ p.artigo | relative_url }}">{% if l == 'en' %}Read the article →{% else %}Ler o artigo →{% endif %}</a></p>{% endif %}
     </div>
     {%- endfor %}
   </aside>

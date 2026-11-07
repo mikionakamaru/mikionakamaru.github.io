@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="t d">
+<title id="t">Servidor com MMA e AMA enviando dados ao workspace do Sentinel</title>
+<desc id="d">Durante a migração, um servidor tem os dois agentes. O MMA envia direto ao workspace pela configuração antiga. O AMA envia pelo que a regra de coleta (DCR) mandar coletar.</desc>
+<rect width="900" height="360" rx="14" fill="#14181f"/>
+<g font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#e8eaee">
+<rect x="30" y="110" width="190" height="140" rx="10" fill="#222833" stroke="#4a5568"/>
+<text x="125" y="140" text-anchor="middle" font-weight="700">Servidor Windows</text>
+<rect x="50" y="160" width="150" height="34" rx="6" fill="#5b4a2e" stroke="#c9a44c"/>
+<text x="125" y="182" text-anchor="middle">MMA (antigo)</text>
+<rect x="50" y="202" width="150" height="34" rx="6" fill="#1f4a63" stroke="#4bb1ea"/>
+<text x="125" y="224" text-anchor="middle">AMA (novo)</text>
+<rect x="380" y="60" width="200" height="56" rx="8" fill="#222833" stroke="#4a5568"/>
+<text x="480" y="84" text-anchor="middle" font-weight="700">Configuração do</text>
+<text x="480" y="104" text-anchor="middle" font-weight="700">workspace (legado)</text>
+<rect x="380" y="244" width="200" height="56" rx="8" fill="#222833" stroke="#4a5568"/>
+<text x="480" y="268" text-anchor="middle" font-weight="700">Regra de coleta</text>
+<text x="480" y="288" text-anchor="middle" font-weight="700">(DCR) associada</text>
+<rect x="690" y="110" width="190" height="140" rx="10" fill="#222833" stroke="#71e4d1"/>
+<text x="785" y="170" text-anchor="middle" font-weight="700">Workspace</text>
+<text x="785" y="192" text-anchor="middle" font-weight="700">do Sentinel</text>
+<text x="785" y="218" text-anchor="middle" font-size="13" fill="#9aa3b2">SecurityEvent, WindowsEvent</text>
+</g>
+<g stroke-width="2.5" fill="none" stroke-linecap="round">
+<path d="M200 177 C290 177 300 88 380 88" stroke="#c9a44c"/>
+<path d="M580 88 C650 88 640 150 690 150" stroke="#c9a44c"/>
+<path d="M200 219 C290 219 300 272 380 272" stroke="#4bb1ea"/>
+<path d="M580 272 C650 272 640 210 690 210" stroke="#4bb1ea"/>
+</g>
+<g font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#ffd77a">
+<text x="300" y="140" text-anchor="middle">o mesmo evento</text>
+</g>
+<g font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#8fd3ff">
+<text x="300" y="248" text-anchor="middle">pode chegar duas vezes</text>
+</g>
+<text x="450" y="337" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#9aa3b2">Diagrama de referência, não representa nenhum ambiente real.</text>
+</svg>
