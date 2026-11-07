@@ -492,10 +492,10 @@ career:
     slug: senar-para
     initials: SN
     start: { pt: jan/2014, en: Jan 2014 }
-    end: { pt: mar/2017, en: Mar 2017 }
+    end: { pt: jan/2017, en: Jan 2017 }
     roles:
-      - pt: Supervisor de TI (ago/2014 a mar/2017)
-        en: IT Supervisor (Aug 2014 to Mar 2017)
+      - pt: Supervisor de TI (ago/2014 a jan/2017)
+        en: IT Supervisor (Aug 2014 to Jan 2017)
       - pt: Analista de Suporte de TI (jan/2014 a ago/2014)
         en: IT Support Analyst (Jan 2014 to Aug 2014)
     points:
