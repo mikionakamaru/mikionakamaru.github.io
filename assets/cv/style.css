@@ -657,3 +657,4 @@ sup { line-height: 0; }
 body.proj-lock { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { .proj-drawer, .proj-scrim { transition: none; } }
 .proj-detail[hidden], .proj-drawer[hidden], .proj-scrim[hidden] { display: none; }
+.rec-photo { object-fit: cover; padding: 0; background: var(--band); }

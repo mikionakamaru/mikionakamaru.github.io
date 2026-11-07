@@ -305,7 +305,7 @@
                   {%- endfor %}
                 </blockquote>
                 <figcaption>
-                  <span class="rec-avatar" aria-hidden="true">{{ r.name | split: ' ' | first | slice: 0 }}{{ r.name | split: ' ' | last | slice: 0 }}</span>
+                  {% if r.photo %}<img class="rec-avatar rec-photo" src="{{ r.photo | relative_url }}" width="40" height="40" alt="" loading="lazy" decoding="async">{% else %}<span class="rec-avatar" aria-hidden="true">{{ r.name | split: ' ' | first | slice: 0 }}{{ r.name | split: ' ' | last | slice: 0 }}</span>{% endif %}
                   <span class="rec-who">
                     <strong>{{ r.name }}</strong>
                     <span class="rec-headline">{{ r.headline }}</span>
@@ -328,7 +328,7 @@
                   {%- endfor %}
                 </blockquote>
                 <figcaption>
-                  <span class="rec-avatar" aria-hidden="true">{{ r.name | split: ' ' | first | slice: 0 }}{{ r.name | split: ' ' | last | slice: 0 }}</span>
+                  {% if r.photo %}<img class="rec-avatar rec-photo" src="{{ r.photo | relative_url }}" width="40" height="40" alt="" loading="lazy" decoding="async">{% else %}<span class="rec-avatar" aria-hidden="true">{{ r.name | split: ' ' | first | slice: 0 }}{{ r.name | split: ' ' | last | slice: 0 }}</span>{% endif %}
                   <span class="rec-who">
                     <strong>{{ r.name }}</strong>
                     <span class="rec-headline">{{ r.headline }}</span>
