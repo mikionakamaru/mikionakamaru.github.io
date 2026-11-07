@@ -174,8 +174,8 @@ ui:
     pt: Projetos em destaque
     en: Featured projects
   projects_intro:
-    pt: Alguns projetos recentes. Os clientes aparecem por setor, nunca pelo nome.
-    en: A few recent projects. Clients are described by industry, never by name.
+    pt: Alguns projetos recentes. Os clientes aparecem por setor.
+    en: A few recent projects. Clients are described by industry.
   projects_all:
     pt: Ver todos os projetos
     en: See all projects
@@ -194,6 +194,30 @@ ui:
   projects_count:
     pt: "%n% projetos"
     en: "%n% projects"
+  projects_col_project:
+    pt: Projeto
+    en: Project
+  projects_col_sector:
+    pt: Setor
+    en: Industry
+  projects_col_company:
+    pt: Empresa
+    en: Company
+  projects_col_period:
+    pt: Período
+    en: Period
+  projects_col_tags:
+    pt: Temas
+    en: Topics
+  projects_details:
+    pt: Detalhes do projeto
+    en: Project details
+  projects_close:
+    pt: Fechar
+    en: Close
+  projects_hint:
+    pt: Clique num projeto pra ver os detalhes.
+    en: Click a project to see the details.
   projects_back:
     pt: Voltar pro currículo
     en: Back to the CV

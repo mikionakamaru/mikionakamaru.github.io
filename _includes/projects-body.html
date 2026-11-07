@@ -88,20 +88,53 @@
       </div>
       <p class="proj-count" aria-live="polite" data-tpl="{{ ui.projects_count[l] }}">{{ ui.projects_count[l] | replace: '%n%', n }}</p>
 
-      <ul class="proj-list">
-        {%- for p in items %}
-        {%- capture slugs %}{% for tg in p.tags %} {{ tg | slugify }}{% endfor %}{% endcapture %}
-        <li class="proj-card proj-card-full" id="{{ p.id }}" data-tags="{{ slugs | strip }}">
-          <p class="proj-meta"><span>{{ p.setor[l] }}</span> <span>{{ p.periodo[l] }}</span></p>
-          <h2>{{ p.titulo[l] }}</h2>
-          <p class="proj-company">{{ p.empresa }}</p>
-          <p class="proj-text">{{ p.resumo[l] }}</p>
-          <ul class="proj-tags">{% for tg in p.tags %}<li>{{ tg }}</li>{% endfor %}</ul>
-        </li>
-        {%- endfor %}
-      </ul>
+      <p class="proj-hint">{{ ui.projects_hint[l] }}</p>
+      <div class="proj-table-wrap">
+        <table class="proj-table">
+          <thead>
+            <tr>
+              <th scope="col">{{ ui.projects_col_project[l] }}</th>
+              <th scope="col">{{ ui.projects_col_sector[l] }}</th>
+              <th scope="col" class="col-company">{{ ui.projects_col_company[l] }}</th>
+              <th scope="col" class="col-period">{{ ui.projects_col_period[l] }}</th>
+              <th scope="col" class="col-tags">{{ ui.projects_col_tags[l] }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for p in items %}
+            {%- capture slugs %}{% for tg in p.tags %} {{ tg | slugify }}{% endfor %}{% endcapture %}
+            <tr class="proj-row" data-tags="{{ slugs | strip }}" data-id="{{ p.id }}">
+              <th scope="row"><button type="button" class="proj-open" data-id="{{ p.id }}" aria-haspopup="dialog">{{ p.titulo[l] }}</button></th>
+              <td>{{ p.setor[l] }}</td>
+              <td class="col-company">{{ p.empresa }}</td>
+              <td class="col-period">{{ p.periodo[l] }}</td>
+              <td class="col-tags"><ul class="proj-tags">{% for tg in p.tags limit: 3 %}<li>{{ tg }}</li>{% endfor %}{% if p.tags.size > 3 %}<li>+{{ p.tags.size | minus: 3 }}</li>{% endif %}</ul></td>
+            </tr>
+            {%- endfor %}
+          </tbody>
+        </table>
+      </div>
     </div>
   </main>
+
+  <div class="proj-scrim" hidden></div>
+  <aside class="proj-drawer" role="dialog" aria-modal="true" aria-labelledby="proj-drawer-title" hidden tabindex="-1">
+    <div class="proj-drawer-head">
+      <p class="proj-drawer-kicker">{{ ui.projects_details[l] }}</p>
+      <button type="button" class="proj-close" aria-label="{{ ui.projects_close[l] }}">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    {%- for p in items %}
+    <div class="proj-detail" data-id="{{ p.id }}" hidden>
+      <p class="proj-meta"><span>{{ p.setor[l] }}</span> <span>{{ p.periodo[l] }}</span></p>
+      <h2 class="proj-detail-title">{{ p.titulo[l] }}</h2>
+      <p class="proj-company">{{ p.empresa }}</p>
+      <p class="proj-text">{{ p.resumo[l] }}</p>
+      <ul class="proj-tags">{% for tg in p.tags %}<li>{{ tg }}</li>{% endfor %}</ul>
+    </div>
+    {%- endfor %}
+  </aside>
 
   <footer class="footer">
     <div class="wrap">
@@ -113,20 +146,75 @@
   <script>
     (function () {
       var chips = document.querySelectorAll('.proj-chip');
-      var cards = document.querySelectorAll('.proj-list > .proj-card');
+      var rows = document.querySelectorAll('.proj-row');
       var count = document.querySelector('.proj-count');
       chips.forEach(function (c) {
         c.addEventListener('click', function () {
           var tag = c.dataset.tag, shown = 0;
           chips.forEach(function (o) { o.setAttribute('aria-pressed', o === c ? 'true' : 'false'); });
-          cards.forEach(function (card) {
-            var ok = !tag || (' ' + card.dataset.tags + ' ').indexOf(' ' + tag + ' ') > -1;
-            card.hidden = !ok;
+          rows.forEach(function (r) {
+            var ok = !tag || (' ' + r.dataset.tags + ' ').indexOf(' ' + tag + ' ') > -1;
+            r.hidden = !ok;
             if (ok) shown++;
           });
           count.textContent = count.dataset.tpl.replace('%n%', shown);
         });
       });
+
+      /* Gaveta lateral com os detalhes */
+      var drawer = document.querySelector('.proj-drawer');
+      var scrim = document.querySelector('.proj-scrim');
+      var closeBtn = drawer.querySelector('.proj-close');
+      var details = drawer.querySelectorAll('.proj-detail');
+      var opener = null;
+
+      function open(id, btn) {
+        opener = btn;
+        details.forEach(function (d) {
+          var on = d.dataset.id === id;
+          d.hidden = !on;
+          var h = d.querySelector('.proj-detail-title');
+          if (on) h.id = 'proj-drawer-title'; else h.removeAttribute('id');
+        });
+        rows.forEach(function (r) { r.classList.toggle('is-active', r.dataset.id === id); });
+        drawer.hidden = false; scrim.hidden = false;
+        requestAnimationFrame(function () { drawer.classList.add('is-open'); scrim.classList.add('is-open'); });
+        document.body.classList.add('proj-lock');
+        closeBtn.focus();
+        if (history.replaceState) history.replaceState(null, '', '#' + id);
+      }
+      function close() {
+        drawer.classList.remove('is-open'); scrim.classList.remove('is-open');
+        document.body.classList.remove('proj-lock');
+        rows.forEach(function (r) { r.classList.remove('is-active'); });
+        setTimeout(function () { drawer.hidden = true; scrim.hidden = true; }, 200);
+        if (history.replaceState) history.replaceState(null, '', location.pathname);
+        if (opener) opener.focus();
+      }
+      document.querySelectorAll('.proj-open').forEach(function (b) {
+        b.addEventListener('click', function () { open(b.dataset.id, b); });
+      });
+      rows.forEach(function (r) {
+        r.addEventListener('click', function (e) {
+          if (e.target.closest('button')) return;
+          open(r.dataset.id, r.querySelector('.proj-open'));
+        });
+      });
+      closeBtn.addEventListener('click', close);
+      scrim.addEventListener('click', close);
+      document.addEventListener('keydown', function (e) {
+        if (drawer.hidden) return;
+        if (e.key === 'Escape') { close(); return; }
+        if (e.key === 'Tab') {
+          var f = drawer.querySelectorAll('button, a[href]');
+          var first = f[0], last = f[f.length - 1];
+          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+      });
+      /* Link direto: /projetos/#<id> abre a gaveta */
+      var h = location.hash.replace('#', '');
+      if (h) { var b = document.querySelector('.proj-open[data-id="' + h + '"]'); if (b) open(h, b); }
     })();
   </script>
 </body>
