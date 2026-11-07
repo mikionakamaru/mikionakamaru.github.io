@@ -147,8 +147,8 @@ items:
       pt: "Do MMA para o AMA: como mapear o que ainda depende do agente antigo antes de desligá-lo"
       en: "From MMA to AMA: mapping what still depends on the old agent before retiring it"
     resumo:
-      pt: Diagnóstico da aposentadoria do Microsoft Monitoring Agent (MMA), substituído pelo Azure Monitor Agent (AMA). Inventariei os dispositivos, cruzei dados do SIEM, do Resource Graph e do EDR para ver onde o MMA ainda era necessário e o que o substitui, e entreguei um relatório interativo com plano de ação, procedimentos de remediação e exportação para Excel.
-      en: Diagnosis for retiring the Microsoft Monitoring Agent (MMA), replaced by the Azure Monitor Agent (AMA). Inventoried the devices, correlated SIEM, Resource Graph and EDR data to see where MMA was still needed and what replaces it, and delivered an interactive report with an action plan, remediation procedures and Excel export.
-    tags: [MMA, AMA, Sentinel, KQL, Defender for Endpoint]
+      pt: Diagnóstico da aposentadoria do Microsoft Monitoring Agent (MMA), substituído pelo Azure Monitor Agent (AMA), num ambiente com Sentinel e Defender for Endpoint. Cruzei Heartbeat, regras de coleta (DCR), Azure Resource Graph e Advanced Hunting para mostrar onde o MMA ainda era necessário e o que o substitui. Entreguei um relatório HTML interativo com plano de ação, procedimentos de remediação e exportação para Excel.
+      en: Diagnosis for retiring the Microsoft Monitoring Agent (MMA), replaced by the Azure Monitor Agent (AMA), in an environment running Sentinel and Defender for Endpoint. Correlated Heartbeat, data collection rules (DCR), Azure Resource Graph and Advanced Hunting to show where MMA was still needed and what replaces it. Delivered an interactive HTML report with an action plan, remediation procedures and Excel export.
+    tags: [MMA, AMA, DCR, Sentinel, KQL, Defender for Endpoint]
     destaque: false
     artigo: /posts/do-mma-para-o-ama/
