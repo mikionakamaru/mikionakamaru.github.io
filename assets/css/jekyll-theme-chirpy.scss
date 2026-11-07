@@ -180,13 +180,19 @@ div.highlighter-rouge pre {
 }
 div.highlighter-rouge td.rouge-gutter { background: #0a0c0f; color: #4b525c; }
 
-/* cores do KQL (assets/js/kql-highlight.js) */
-.kql-k { color: #c3a6ff; font-weight: 600; }
-.kql-f { color: #4bb1ea; }
-.kql-s { color: #f6f183; }
-.kql-n { color: #71e4d1; }
-.kql-o { color: #f97066; }
-.kql-c { color: #6b7886; font-style: italic; }
+/* cores do KQL = editor do Advanced Hunting (tema kusto-dark do monaco-kusto) */
+div.highlighter-rouge.kusto-dark .highlight,
+div.highlighter-rouge.kusto-dark pre,
+div.highlighter-rouge.kusto-dark td.rouge-gutter { background: #1b1a19 !important; }
+div.highlighter-rouge.kusto-dark pre { color: #dcdcdc; }
+.kq-op { color: #4ec9b0; }      /* operadores de consulta: where, extend, summarize */
+.kq-kw { color: #569cd6; }      /* palavras-chave: by, and, has, in */
+.kq-fn { color: #569cd6; }      /* funções: ago(), count(), extract() */
+.kq-table { color: #d7ba7d; }   /* tabelas: DeviceProcessEvents, SecurityEvent */
+.kq-col { color: #db7093; }     /* colunas: TimeGenerated, DeviceName */
+.kq-var { color: #92caf4; }     /* variáveis de let */
+.kq-string { color: #d69d85; }  /* textos */
+.kq-comment { color: #608b4e; } /* comentários */
 
 /* tabelas */
 .post-content .table-wrapper > table thead th {
