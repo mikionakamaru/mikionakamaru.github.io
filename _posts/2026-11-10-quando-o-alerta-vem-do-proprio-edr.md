@@ -1,7 +1,7 @@
 ---
 title: "Quando o alerta vem do próprio EDR: revisão de uma regra do Sentinel que casava texto aleatório"
 description: "Método pra descobrir o que uma regra de linha de comando realmente casou, provar que foi o próprio Defender e refazer a regra sem perder detecção."
-date: 2026-11-09 18:00:00 -0300
+date: 2026-11-10 09:00:00 -0300
 categories: [Na prática, Sentinel]
 tags: [sentinel, kql, defender for endpoint, defender xdr, mitre att&ck, detection engineering]
 media_subpath: /assets/img/posts/quando-o-alerta-vem-do-proprio-edr
