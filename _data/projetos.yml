@@ -152,3 +152,18 @@ items:
     tags: [MMA, AMA, DCR, Sentinel, KQL, Defender for Endpoint]
     destaque: false
     artigo: /posts/do-mma-para-o-ama/
+
+  - id: farma-sentinel-nishang-falso-positivo-2026
+    ordem: "2026-10"   # AAAA-MM do fim do projeto, pra ordenar
+    empresa: Consultoria
+    periodo: { pt: 2026, en: 2026 }
+    ano: 2026
+    setor: { pt: Indústria, en: Industry }
+    titulo:
+      pt: "Quando o alerta vem do próprio EDR: revisão de uma regra do Sentinel que casava texto aleatório"
+      en: "When the alert comes from the EDR itself: reviewing a Sentinel rule that matched random text"
+    resumo:
+      pt: Analisei em segundo nível um alerta de alta severidade de uma regra que buscava cmdlets do Nishang em linhas de comando. Decodifiquei o parâmetro em base64 que disparou o alerta e mostrei que era o próprio Defender for Endpoint fazendo descoberta de dispositivos. Redesenhei a regra pra buscar termo inteiro, exigir PowerShell e ler os comandos do AMSI, com teste positivo antes de publicar.
+      en: I performed a tier-2 analysis of a high-severity alert from a rule that looked for Nishang cmdlets in command lines. I decoded the base64 parameter that triggered it and showed it was Defender for Endpoint itself running device discovery. I redesigned the rule to match whole terms, require PowerShell and read AMSI commands, with a positive test before publishing.
+    tags: [Sentinel, KQL, Defender for Endpoint, Defender XDR, MITRE ATT&CK]
+    destaque: false
