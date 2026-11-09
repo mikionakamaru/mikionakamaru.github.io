@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400" font-family="Montserrat, Arial, sans-serif">
+  <rect width="900" height="400" rx="14" fill="#0e1013"/>
+  <text x="30" y="40" fill="#e6e6e6" font-size="17" font-weight="700">Como um cmdlet que nunca rodou aparece na linha de comando</text>
+
+  <g font-size="13" fill="#e6e6e6">
+    <rect x="30" y="70" width="150" height="56" rx="8" fill="#16191f" stroke="#4BB1EA" stroke-width="1.5"/>
+    <text x="105" y="94" text-anchor="middle" font-weight="700">MsSense.exe</text>
+    <text x="105" y="113" text-anchor="middle" fill="#a8b0bb" font-size="11">sensor do EDR</text>
+
+    <rect x="230" y="70" width="150" height="56" rx="8" fill="#16191f" stroke="#4BB1EA" stroke-width="1.5"/>
+    <text x="305" y="94" text-anchor="middle" font-weight="700">SenseIR.exe</text>
+    <text x="305" y="113" text-anchor="middle" fill="#a8b0bb" font-size="11">resposta / scripts</text>
+
+    <rect x="430" y="70" width="190" height="56" rx="8" fill="#16191f" stroke="#9C7AD2" stroke-width="1.5"/>
+    <text x="525" y="94" text-anchor="middle" font-weight="700">powershell.exe</text>
+    <text x="525" y="113" text-anchor="middle" fill="#a8b0bb" font-size="11">-ExecutionPolicy Bypass</text>
+
+    <rect x="670" y="70" width="200" height="56" rx="8" fill="#16191f" stroke="#71E4D1" stroke-width="1.5"/>
+    <text x="770" y="94" text-anchor="middle" font-weight="700">PSScript_{GUID}.ps1</text>
+    <text x="770" y="113" text-anchor="middle" fill="#a8b0bb" font-size="11">descoberta de dispositivos</text>
+  </g>
+  <g stroke="#a8b0bb" stroke-width="1.5" fill="none" marker-end="url(#seta)">
+    <path d="M180 98 H226"/><path d="M380 98 H426"/><path d="M620 98 H666"/>
+  </g>
+  <defs><marker id="seta" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#a8b0bb"/></marker></defs>
+
+  <text x="30" y="170" fill="#e6e6e6" font-size="13" font-weight="700">O parâmetro que vai junto (base64 de um gzip com JSON de varredura)</text>
+  <rect x="30" y="182" width="840" height="44" rx="6" fill="#1B1A19" stroke="#2a2d33"/>
+  <text x="44" y="209" font-family="Consolas, monospace" font-size="13" fill="#cfd3d8">-ParamsAsBase64 H4sIAAAAAAAE...9qTzR2vLp0kWmEoQ8hJ3sXwG<tspan fill="#F97066" font-weight="700">FAKEdc</tspan>N7yXbU4rK1pQe... -IsCompressed True</text>
+
+  <g font-size="13">
+    <rect x="30" y="250" width="410" height="120" rx="8" fill="#16191f" stroke="#F97066" stroke-width="1.5"/>
+    <text x="50" y="278" fill="#F97066" font-weight="700">contains "FakeDC"  →  dispara</text>
+    <text x="50" y="304" fill="#cfd3d8" font-size="12">Procura o texto em qualquer lugar,</text>
+    <text x="50" y="322" fill="#cfd3d8" font-size="12">sem diferenciar maiúscula de minúscula.</text>
+    <text x="50" y="340" fill="#cfd3d8" font-size="12">Seis letras aleatórias no meio do base64</text>
+    <text x="50" y="358" fill="#cfd3d8" font-size="12">viram um "cmdlet do Nishang".</text>
+
+    <rect x="460" y="250" width="410" height="120" rx="8" fill="#16191f" stroke="#71E4D1" stroke-width="1.5"/>
+    <text x="480" y="278" fill="#71E4D1" font-weight="700">has "FakeDC"  →  não dispara</text>
+    <text x="480" y="304" fill="#cfd3d8" font-size="12">Compara termos inteiros, separados por</text>
+    <text x="480" y="322" fill="#cfd3d8" font-size="12">caracteres que não são letra nem número.</text>
+    <text x="480" y="340" fill="#cfd3d8" font-size="12">"...hJ3sXwGFAKEdcN7yXbU4..." é um termo só,</text>
+    <text x="480" y="358" fill="#cfd3d8" font-size="12">e ele não é "FakeDC".</text>
+  </g>
+</svg>

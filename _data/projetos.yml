@@ -167,3 +167,4 @@ items:
       en: I performed a tier-2 analysis of a high-severity alert from a rule that looked for Nishang cmdlets in command lines. I decoded the base64 parameter that triggered it and showed it was Defender for Endpoint itself running device discovery. I redesigned the rule to match whole terms, require PowerShell and read AMSI commands, with a positive test before publishing.
     tags: [Sentinel, KQL, Defender for Endpoint, Defender XDR, MITRE ATT&CK]
     destaque: false
+    artigo: /posts/quando-o-alerta-vem-do-proprio-edr/
