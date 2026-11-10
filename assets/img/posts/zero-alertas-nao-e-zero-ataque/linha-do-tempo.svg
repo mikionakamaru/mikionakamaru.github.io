@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" width="900" height="340" font-family="Montserrat, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Linha do tempo de uma CVE crítica</title>
+  <desc id="d">No caso do PHP2Shell, a primeira exploração foi vista quatro dias antes da divulgação. A janela de busca começa ali, não no patch. Entre o patch e a assinatura instalada no seu firewall existe um intervalo que precisa ser conferido.</desc>
+  <rect width="900" height="340" rx="14" fill="#0e1013"/>
+  <text x="30" y="40" fill="#e6e6e6" font-size="17" font-weight="700">Onde começa a janela de busca</text>
+
+  <rect x="90" y="158" width="740" height="14" rx="3" fill="#71E4D1" opacity="0.18"/>
+  <text x="460" y="196" fill="#71E4D1" font-size="12" text-anchor="middle">janela de busca: da primeira exploração conhecida até hoje</text>
+  <rect x="420" y="158" width="190" height="14" fill="#F97066" opacity="0.35"/>
+  <text x="515" y="216" fill="#F97066" font-size="12" text-anchor="middle">intervalo até a assinatura chegar no SEU firewall</text>
+
+  <line x1="60" y1="165" x2="860" y2="165" stroke="#a8b0bb" stroke-width="2"/>
+
+  <g font-size="12" fill="#a8b0bb" text-anchor="middle">
+    <text x="90" y="148">D-4</text><text x="330" y="148">D0</text><text x="420" y="148">D0 + horas</text><text x="610" y="148">?</text><text x="830" y="148">hoje</text>
+  </g>
+  <circle cx="90" cy="165" r="7" fill="#F97066"/>
+  <circle cx="330" cy="165" r="7" fill="#F6F183"/>
+  <circle cx="420" cy="165" r="7" fill="#9C7AD2"/>
+  <circle cx="610" cy="165" r="7" fill="#4BB1EA"/>
+  <circle cx="830" cy="165" r="7" fill="#71E4D1"/>
+
+  <g font-size="12" fill="#e6e6e6" text-anchor="middle">
+    <line x1="90" y1="135" x2="90" y2="112" stroke="#F97066"/>
+    <rect x="10" y="62" width="170" height="50" rx="8" fill="#16191f" stroke="#F97066"/>
+    <text x="95" y="83">1ª exploração vista</text><text x="95" y="101" fill="#a8b0bb" font-size="11">(honeypot de provedor)</text>
+
+    <line x1="330" y1="135" x2="330" y2="112" stroke="#F6F183"/>
+    <rect x="240" y="62" width="180" height="50" rx="8" fill="#16191f" stroke="#F6F183"/>
+    <text x="330" y="83">divulgação e patch</text><text x="330" y="101" fill="#a8b0bb" font-size="11">exploits públicos em horas</text>
+
+    <line x1="420" y1="232" x2="420" y2="252" stroke="#9C7AD2"/>
+    <rect x="320" y="252" width="200" height="50" rx="8" fill="#16191f" stroke="#9C7AD2"/>
+    <text x="420" y="273">assinatura liberada</text><text x="420" y="291" fill="#a8b0bb" font-size="11">pelo fabricante do firewall</text>
+
+    <line x1="610" y1="232" x2="610" y2="252" stroke="#4BB1EA"/>
+    <rect x="530" y="252" width="200" height="50" rx="8" fill="#16191f" stroke="#4BB1EA"/>
+    <text x="630" y="273">assinatura instalada</text><text x="630" y="291" fill="#a8b0bb" font-size="11">em cada firewall (confira)</text>
+
+    <line x1="830" y1="135" x2="830" y2="112" stroke="#71E4D1"/>
+    <rect x="730" y="62" width="160" height="50" rx="8" fill="#16191f" stroke="#71E4D1"/>
+    <text x="810" y="83">sua análise</text><text x="810" y="101" fill="#a8b0bb" font-size="11">com o limite escrito</text>
+  </g>
+</svg>

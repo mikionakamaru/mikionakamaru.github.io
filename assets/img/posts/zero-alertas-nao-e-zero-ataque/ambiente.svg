@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520" font-family="Montserrat, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Ambiente típico de referência</title>
+  <desc id="d">Internet chega ao firewall de borda, que publica servidores web na DMZ e o portal de VPN. Logs do firewall vão ao SIEM e os servidores com agente mandam telemetria ao EDR. Três perguntas marcam onde a visibilidade costuma falhar.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#a8b0bb"/></marker>
+    <marker id="c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#F97066"/></marker>
+  </defs>
+  <rect width="900" height="520" rx="14" fill="#0e1013"/>
+  <text x="30" y="40" fill="#e6e6e6" font-size="17" font-weight="700">Ambiente típico: onde a visibilidade costuma furar</text>
+
+  <g font-size="13" fill="#e6e6e6" text-anchor="middle">
+    <rect x="330" y="66" width="240" height="56" rx="8" fill="#16191f" stroke="#a8b0bb" stroke-width="1.5"/>
+    <text x="450" y="90" font-weight="700">Internet</text>
+    <text x="450" y="109" fill="#a8b0bb" font-size="11">scanners, botnets, exploits públicos</text>
+
+    <rect x="250" y="170" width="400" height="70" rx="8" fill="#16191f" stroke="#F97066" stroke-width="1.8"/>
+    <text x="450" y="196" font-weight="700">Firewall de borda (NGFW)</text>
+    <text x="450" y="216" fill="#a8b0bb" font-size="11">IPS por assinatura, NAT para os serviços publicados</text>
+    <circle cx="640" cy="172" r="13" fill="#F97066"/><text x="640" y="177" fill="#0e1013" font-weight="700">1</text>
+
+    <rect x="60" y="300" width="230" height="80" rx="8" fill="#16191f" stroke="#9C7AD2" stroke-width="1.5"/>
+    <text x="175" y="326" font-weight="700">Portal de VPN</text>
+    <text x="175" y="346" fill="#a8b0bb" font-size="11">confira no aviso do fabricante</text>
+    <text x="175" y="362" fill="#a8b0bb" font-size="11">se ele é afetado</text>
+
+    <rect x="335" y="300" width="230" height="80" rx="8" fill="#16191f" stroke="#F97066" stroke-width="1.8"/>
+    <text x="450" y="326" font-weight="700">Servidores web (DMZ)</text>
+    <text x="450" y="346" fill="#a8b0bb" font-size="11">HTTPS chega cifrado</text>
+    <text x="450" y="362" fill="#a8b0bb" font-size="11">tem EDR? tem PHP?</text>
+    <circle cx="555" cy="302" r="13" fill="#F97066"/><text x="555" y="307" fill="#0e1013" font-weight="700">2</text>
+    <circle cx="345" cy="302" r="13" fill="#F97066"/><text x="345" y="307" fill="#0e1013" font-weight="700">3</text>
+
+    <rect x="610" y="300" width="230" height="80" rx="8" fill="#16191f" stroke="#4BB1EA" stroke-width="1.5"/>
+    <text x="725" y="326" font-weight="700">Rede interna</text>
+    <text x="725" y="346" fill="#a8b0bb" font-size="11">servidores com EDR</text>
+    <text x="725" y="362" fill="#a8b0bb" font-size="11">sem NAT pra internet</text>
+
+    <rect x="200" y="430" width="230" height="56" rx="8" fill="#16191f" stroke="#71E4D1" stroke-width="1.5"/>
+    <text x="315" y="454" font-weight="700">SIEM</text>
+    <text x="315" y="473" fill="#a8b0bb" font-size="11">logs de ameaça e tráfego do firewall</text>
+
+    <rect x="470" y="430" width="230" height="56" rx="8" fill="#16191f" stroke="#71E4D1" stroke-width="1.5"/>
+    <text x="585" y="454" font-weight="700">EDR</text>
+    <text x="585" y="473" fill="#a8b0bb" font-size="11">processos, arquivos, rede</text>
+  </g>
+
+  <g stroke-width="1.6" fill="none">
+    <line x1="450" y1="122" x2="450" y2="166" stroke="#a8b0bb" marker-end="url(#a)"/>
+    <line x1="330" y1="240" x2="210" y2="296" stroke="#a8b0bb" marker-end="url(#a)"/>
+    <line x1="450" y1="240" x2="450" y2="296" stroke="#F97066" marker-end="url(#c)"/>
+    <line x1="280" y1="240" x2="280" y2="426" stroke="#71E4D1" stroke-dasharray="4 4" marker-end="url(#a)"/>
+    <line x1="725" y1="380" x2="640" y2="426" stroke="#71E4D1" stroke-dasharray="4 4" marker-end="url(#a)"/>
+  </g>
+
+  <g font-size="12" fill="#e6e6e6">
+    <text x="680" y="196"><tspan fill="#F97066" font-weight="700">1</tspan> a assinatura está instalada?</text>
+    <text x="680" y="216"><tspan fill="#F97066" font-weight="700">2</tspan> o HTTPS é inspecionado?</text>
+    <text x="680" y="236"><tspan fill="#F97066" font-weight="700">3</tspan> o servidor tem EDR?</text>
+  </g>
+</svg>
