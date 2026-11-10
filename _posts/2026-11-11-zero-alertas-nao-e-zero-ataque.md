@@ -5,6 +5,9 @@ date: 2026-11-11 09:00:00 -0300
 categories: [Na prática, Threat Hunting]
 tags: [threat-hunting, vulnerabilidade, kql, sentinel, defender xdr, firewall, palo alto]
 media_subpath: /assets/img/posts/zero-alertas-nao-e-zero-ataque
+image:
+  path: capa.webp
+  alt: "Sala de monitoração escura com um monitor mostrando um painel com o número zero e uma linha verde reta, enquanto ao fundo um rack de servidores tem uma luz vermelha piscando."
 ---
 
 Sai uma CVE crítica, o fabricante soltou o patch ontem e a pergunta chega antes do café: "a gente foi afetado?". Você roda a consulta das assinaturas, volta vazia, e dá aquele alívio. Pois é. **Zero resultado é a resposta mais perigosa que um hunting pode devolver**, porque ela parece boa notícia e quase nunca vem com a letra miúda.
