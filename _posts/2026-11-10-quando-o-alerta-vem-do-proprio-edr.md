@@ -5,6 +5,9 @@ date: 2026-11-10 09:00:00 -0300
 categories: [Na prática, Sentinel]
 tags: [sentinel, kql, defender for endpoint, defender xdr, mitre att&ck, detection engineering]
 media_subpath: /assets/img/posts/quando-o-alerta-vem-do-proprio-edr
+image:
+  path: capa.webp
+  alt: "Ilustração de um cão de guarda com colete e distintivo latindo furioso para o próprio reflexo num espelho, em fundo escuro com luzes verde-água e roxas."
 ---
 
 Severidade alta. PowerShell com `-ExecutionPolicy Bypass`, rodando como SYSTEM, numa estação comum. E a regra jurando que achou um cmdlet do Nishang. Todo mundo já viu esse filme, e quase sempre o vilão é alguém da própria TI. Às vezes é pior: o vilão é o EDR.
