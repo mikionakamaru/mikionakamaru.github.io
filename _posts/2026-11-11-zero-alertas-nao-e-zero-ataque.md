@@ -1,7 +1,7 @@
 ---
 title: "Zero alertas não é zero ataque: como checar se uma CVE crítica te pegou"
 description: "Método pra caçar exploração de uma CVE crítica com firewall, SIEM e EDR, e a pergunta que vem antes de dizer que está limpo."
-date: 2026-11-10 20:00:00 -0300
+date: 2026-11-11 09:00:00 -0300
 categories: [Na prática, Threat Hunting]
 tags: [threat-hunting, vulnerabilidade, kql, sentinel, defender xdr, firewall, palo alto]
 media_subpath: /assets/img/posts/zero-alertas-nao-e-zero-ataque
