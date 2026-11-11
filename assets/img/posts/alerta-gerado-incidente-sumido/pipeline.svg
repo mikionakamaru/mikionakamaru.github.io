@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" width="900" height="360" font-family="Montserrat, Segoe UI, sans-serif">
+  <rect width="900" height="360" rx="14" fill="#0e1013"/>
+  <text x="450" y="38" text-anchor="middle" fill="#e8eaed" font-size="18" font-weight="700">Onde o alerta pode morrer: uma tabela por etapa</text>
+  <defs>
+    <marker id="seta" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#71E4D1"/></marker>
+  </defs>
+  <g font-size="13" text-anchor="middle">
+    <rect x="20" y="90" width="150" height="110" rx="10" fill="#15181d" stroke="#4BB1EA" stroke-width="2"/>
+    <text x="95" y="122" fill="#4BB1EA" font-weight="700">1. Dado chegou</text>
+    <text x="95" y="150" fill="#cfd3d8">tabela de origem</text>
+    <text x="95" y="172" fill="#F6F183" font-family="Consolas, monospace" font-size="12">DeviceFileEvents</text>
+
+    <rect x="195" y="90" width="150" height="110" rx="10" fill="#15181d" stroke="#4BB1EA" stroke-width="2"/>
+    <text x="270" y="122" fill="#4BB1EA" font-weight="700">2. Regra rodou</text>
+    <text x="270" y="150" fill="#cfd3d8">sucesso, falha, alerta?</text>
+    <text x="270" y="172" fill="#F6F183" font-family="Consolas, monospace" font-size="12">SentinelHealth</text>
+
+    <rect x="370" y="90" width="150" height="110" rx="10" fill="#15181d" stroke="#4BB1EA" stroke-width="2"/>
+    <text x="445" y="122" fill="#4BB1EA" font-weight="700">3. Alerta gerado</text>
+    <text x="445" y="150" fill="#cfd3d8">lado Sentinel</text>
+    <text x="445" y="172" fill="#F6F183" font-family="Consolas, monospace" font-size="12">SecurityAlert</text>
+
+    <rect x="545" y="90" width="150" height="110" rx="10" fill="#15181d" stroke="#F97066" stroke-width="3"/>
+    <text x="620" y="122" fill="#F97066" font-weight="700">4. Defender ingeriu</text>
+    <text x="620" y="150" fill="#cfd3d8">lado XDR</text>
+    <text x="620" y="172" fill="#F6F183" font-family="Consolas, monospace" font-size="12">AlertInfo</text>
+
+    <rect x="720" y="90" width="160" height="110" rx="10" fill="#15181d" stroke="#9C7AD2" stroke-width="2"/>
+    <text x="800" y="122" fill="#9C7AD2" font-weight="700">5. Incidente</text>
+    <text x="800" y="150" fill="#cfd3d8">fila do SOC</text>
+    <text x="800" y="172" fill="#F6F183" font-family="Consolas, monospace" font-size="12">SecurityIncident</text>
+  </g>
+  <g stroke="#71E4D1" stroke-width="2" marker-end="url(#seta)">
+    <line x1="172" y1="145" x2="192" y2="145"/>
+    <line x1="347" y1="145" x2="367" y2="145"/>
+    <line x1="522" y1="145" x2="542" y2="145"/>
+    <line x1="697" y1="145" x2="717" y2="145"/>
+  </g>
+  <text x="620" y="236" text-anchor="middle" fill="#F97066" font-size="14" font-weight="700">tem no 3 e não tem no 4?</text>
+  <text x="620" y="258" text-anchor="middle" fill="#cfd3d8" font-size="13">a perda é na entrega pro Defender</text>
+  <g font-size="12" fill="#9aa0a6">
+    <text x="20" y="305">Coleta, consulta e execução são problema do Sentinel (1 a 3).</text>
+    <text x="20" y="327">Tuning, correlação e criação de incidente moram no Defender (4 e 5).</text>
+    <text x="20" y="349">Diagrama de referência, sem dados de ambiente real.</text>
+  </g>
+</svg>
