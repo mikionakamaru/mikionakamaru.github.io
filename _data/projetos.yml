@@ -150,6 +150,7 @@ items:
       pt: Threat hunting de uma vulnerabilidade crítica do PHP com execução remota de código. Cruzei logs de firewall no SIEM com a telemetria do EDR, descartei os falsos positivos e conferi se o ambiente tinha como enxergar o ataque antes de concluir. Entreguei relatório executivo e plano de ação.
       en: Threat hunting for a critical PHP remote code execution flaw. Correlated firewall logs in the SIEM with EDR telemetry, ruled out false positives and checked whether the environment could actually see the attack before drawing a conclusion. Delivered an executive report and action plan.
     tags: [Threat Hunting, KQL, Sentinel, Defender XDR]
+    artigo: /posts/zero-alertas-nao-e-zero-ataque/
     destaque: false
 
   - id: industria-mma-ama-diagnostico-2026
