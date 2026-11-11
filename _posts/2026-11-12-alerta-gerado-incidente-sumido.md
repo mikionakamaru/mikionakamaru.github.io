@@ -5,6 +5,9 @@ date: 2026-11-12 09:00:00 -0300
 categories: [Na prática, Sentinel]
 tags: [sentinel, defender xdr, kql, portal unificado, detection engineering]
 media_subpath: /assets/img/posts/alerta-gerado-incidente-sumido
+image:
+  path: capa.webp
+  alt: "Ilustração de um robô carteiro confuso segurando um envelope com sino ao lado de uma caixa de correio vazia, com uma esteira quebrada entre dois prédios, em fundo escuro com luzes verde-água e roxas."
 ---
 
 Você roda o teste, a consulta da regra devolve o evento bonitinho, e a fila de incidentes continua vazia. Alguém fala "deve ser a query". Não é a query. Quase nunca é a query, mas é sempre por ela que a gente começa, porque é a única parte que dá pra abrir e ler.
