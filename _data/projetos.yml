@@ -122,6 +122,21 @@ items:
     tags: [Defender for Endpoint, EDR, Linux]
     destaque: true
 
+  - id: farma-sentinel-alerta-sem-incidente-2026
+    ordem: "2026-11"   # AAAA-MM do fim do projeto, pra ordenar
+    empresa: Consultoria
+    periodo: { pt: 2026, en: 2026 }
+    ano: 2026
+    setor: { pt: Indústria, en: Industry }
+    titulo:
+      pt: "Alerta gerado, incidente sumido: onde o alerta do Sentinel morre no portal unificado"
+      en: "Alert fired, incident missing: where a Sentinel alert dies in the unified portal"
+    resumo:
+      pt: Diagnóstico de uma analytic rule do Sentinel que gerava alerta mas não abria incidente no portal unificado do Defender. Segui o alerta etapa por etapa com KQL, descartei coleta, configuração e alert tuning, achei a etapa em que ele se perdia e restabeleci a criação de incidentes, validando com um novo teste.
+      en: Troubleshooting a Sentinel analytic rule that fired alerts but never opened incidents in the Defender unified portal. Traced the alert step by step with KQL, ruled out data collection, configuration and alert tuning, found the stage where it was lost and restored incident creation, validated with a new test.
+    tags: [Sentinel, Defender XDR, KQL]
+    destaque: false
+
   - id: farma-php2shell-hunting-2026
     ordem: "2026-11"   # AAAA-MM do fim do projeto, pra ordenar
     empresa: Consultoria
