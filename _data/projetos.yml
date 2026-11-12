@@ -136,6 +136,7 @@ items:
       en: Troubleshooting a Sentinel analytic rule that fired alerts but never opened incidents in the Defender unified portal. Traced the alert step by step with KQL, ruled out data collection, configuration and alert tuning, found the stage where it was lost and restored incident creation, validated with a new test.
     tags: [Sentinel, Defender XDR, KQL]
     destaque: false
+    artigo: /posts/alerta-gerado-incidente-sumido/
 
   - id: farma-php2shell-hunting-2026
     ordem: "2026-11"   # AAAA-MM do fim do projeto, pra ordenar
