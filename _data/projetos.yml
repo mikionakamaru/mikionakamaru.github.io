@@ -200,3 +200,18 @@ items:
     tags: [Sentinel, KQL, Defender for Endpoint, Defender XDR, MITRE ATT&CK]
     destaque: false
     artigo: /posts/quando-o-alerta-vem-do-proprio-edr/
+
+  - id: farma-defender-assinatura-fallback-intune-2026
+    ordem: "2026-11"   # AAAA-MM do fim do projeto, pra ordenar
+    empresa: Consultoria
+    periodo: { pt: 2026, en: 2026 }
+    ano: 2026
+    setor: { pt: Indústria, en: Industry }
+    titulo:
+      pt: "Defender sem atualizar: fallback de assinatura e remediação pelo Intune que diz por onde atualizou"
+      en: "Defender not updating: signature fallback and an Intune remediation that reports which source worked"
+    resumo:
+      pt: Revisão do fallback de atualização de assinatura do Microsoft Defender num parque gerenciado por Configuration Manager. Levantei o que impede a fonte externa de funcionar na prática e escrevi scripts de detecção e remediação pro Intune que tentam as fontes na ordem configurada, informam qual funcionou ou onde falhou e devolvem o resultado em uma linha pronta pra CSV.
+      en: Review of Microsoft Defender signature update fallback in a fleet managed by Configuration Manager. Mapped what keeps the external source from working in practice and wrote Intune detection and remediation scripts that try each source in the configured order, report which one worked or where it failed, and return the result as a single CSV-ready line.
+    tags: [Defender for Endpoint, Intune, Configuration Manager, PowerShell]
+    destaque: false
