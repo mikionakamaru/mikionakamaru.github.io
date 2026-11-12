@@ -1,7 +1,7 @@
 ---
 title: "O Defender disse zero: medindo e corrigindo um 0-day do Outlook com KQL e Intune"
 description: "Como medir a exposição real a uma CVE do Office por build, sem esperar o painel do Defender, e corrigir o parque com Intune Remediations em ondas."
-date: 2026-11-12 09:00:00 -0300
+date: 2026-11-13 09:00:00 -0300
 categories: [Na prática, Intune]
 tags: [intune, remediations, kql, defender vulnerability management, microsoft 365 apps, vulnerabilidade]
 media_subpath: /assets/img/posts/o-defender-disse-zero
