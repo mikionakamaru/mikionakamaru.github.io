@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" width="900" height="380" font-family="Montserrat, Arial, sans-serif">
+  <rect width="900" height="380" rx="12" fill="#0e1013"/>
+  <text x="30" y="38" fill="#ffffff" font-size="18" font-weight="700">A ordem de fontes e o que costuma travar cada uma</text>
+  <text x="30" y="60" fill="#9aa4b2" font-size="12">Ambiente de exemplo. A ordem real vem do Signature Update Fallback Order de cada máquina.</text>
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9aa4b2"/></marker>
+  </defs>
+  <g font-size="13">
+    <rect x="30" y="90" width="180" height="92" rx="10" fill="#161a20" stroke="#71E4D1" stroke-width="2"/>
+    <text x="120" y="118" fill="#71E4D1" font-weight="700" text-anchor="middle">1. Gerenciador</text>
+    <text x="120" y="138" fill="#e6e9ee" text-anchor="middle">Configuration Manager</text>
+    <text x="120" y="160" fill="#9aa4b2" font-size="11" text-anchor="middle">entrega por software update</text>
+
+    <rect x="250" y="90" width="180" height="92" rx="10" fill="#161a20" stroke="#4BB1EA" stroke-width="2"/>
+    <text x="340" y="118" fill="#4BB1EA" font-weight="700" text-anchor="middle">2. WSUS interno</text>
+    <text x="340" y="138" fill="#e6e9ee" text-anchor="middle">InternalDefinition</text>
+    <text x="340" y="156" fill="#e6e9ee" text-anchor="middle">UpdateServer</text>
+
+    <rect x="470" y="90" width="180" height="92" rx="10" fill="#161a20" stroke="#9C7AD2" stroke-width="2"/>
+    <text x="560" y="118" fill="#9C7AD2" font-weight="700" text-anchor="middle">3. Microsoft Update</text>
+    <text x="560" y="138" fill="#e6e9ee" text-anchor="middle">MicrosoftUpdateServer</text>
+    <text x="560" y="160" fill="#9aa4b2" font-size="11" text-anchor="middle">usa o agente do Windows Update</text>
+
+    <rect x="690" y="90" width="180" height="92" rx="10" fill="#161a20" stroke="#F6F183" stroke-width="2"/>
+    <text x="780" y="118" fill="#F6F183" font-weight="700" text-anchor="middle">4. Página da Microsoft</text>
+    <text x="780" y="138" fill="#e6e9ee" text-anchor="middle">MMPC</text>
+    <text x="780" y="160" fill="#9aa4b2" font-size="11" text-anchor="middle">download direto por HTTPS</text>
+  </g>
+  <g stroke="#9aa4b2" stroke-width="2" marker-end="url(#a)">
+    <line x1="212" y1="136" x2="246" y2="136"/><line x1="432" y1="136" x2="466" y2="136"/><line x1="652" y1="136" x2="686" y2="136"/>
+  </g>
+  <g font-size="12">
+    <rect x="30" y="214" width="180" height="120" rx="10" fill="#1d1416" stroke="#F97066"/>
+    <text x="42" y="238" fill="#F97066" font-weight="700">O que trava</text>
+    <text x="42" y="260" fill="#e6e9ee">Sincronização ou regra</text>
+    <text x="42" y="277" fill="#e6e9ee">de implantação parada.</text>
+    <text x="42" y="300" fill="#9aa4b2">O cliente só desiste depois</text>
+    <text x="42" y="317" fill="#9aa4b2">da carência em horas.</text>
+
+    <rect x="250" y="214" width="180" height="120" rx="10" fill="#1d1416" stroke="#F97066"/>
+    <text x="262" y="238" fill="#F97066" font-weight="700">O que trava</text>
+    <text x="262" y="260" fill="#e6e9ee">Definição sem aprovação</text>
+    <text x="262" y="277" fill="#e6e9ee">no WSUS.</text>
+    <text x="262" y="300" fill="#9aa4b2">Responde sem erro</text>
+    <text x="262" y="317" fill="#9aa4b2">e não entrega nada.</text>
+
+    <rect x="470" y="214" width="180" height="120" rx="10" fill="#1d1416" stroke="#F97066"/>
+    <text x="482" y="238" fill="#F97066" font-weight="700">O que trava</text>
+    <text x="482" y="260" fill="#e6e9ee">Política que prende</text>
+    <text x="482" y="277" fill="#e6e9ee">todo scan no WSUS.</text>
+    <text x="482" y="300" fill="#9aa4b2">Falha com erro 0x8024....</text>
+
+    <rect x="690" y="214" width="180" height="120" rx="10" fill="#1d1416" stroke="#F97066"/>
+    <text x="702" y="238" fill="#F97066" font-weight="700">O que trava</text>
+    <text x="702" y="260" fill="#e6e9ee">Proxy ou firewall pra</text>
+    <text x="702" y="277" fill="#e6e9ee">conta SYSTEM.</text>
+    <text x="702" y="300" fill="#9aa4b2">E a espera de dias até a</text>
+    <text x="702" y="317" fill="#9aa4b2">assinatura contar como vencida.</text>
+  </g>
+</svg>
