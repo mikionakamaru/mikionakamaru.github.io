@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340" width="900" height="340" font-family="Montserrat, Arial, sans-serif">
+  <rect width="900" height="340" rx="14" fill="#0e1013"/>
+  <text x="40" y="44" fill="#e8eaed" font-size="20" font-weight="700">Do patch ao "Exposed devices": três relógios diferentes</text>
+  <line x1="70" y1="170" x2="840" y2="170" stroke="#3a3f47" stroke-width="3"/>
+  <circle cx="110" cy="170" r="11" fill="#71E4D1"/>
+  <text x="110" y="128" fill="#71E4D1" font-size="15" font-weight="700" text-anchor="middle">Dia 0</text>
+  <text x="110" y="210" fill="#e8eaed" font-size="13" text-anchor="middle">Patch e CVE</text>
+  <text x="110" y="228" fill="#e8eaed" font-size="13" text-anchor="middle">publicados</text>
+  <circle cx="330" cy="170" r="11" fill="#4BB1EA"/>
+  <text x="330" y="128" fill="#4BB1EA" font-size="15" font-weight="700" text-anchor="middle">Dia 1 a 2</text>
+  <text x="330" y="210" fill="#e8eaed" font-size="13" text-anchor="middle">CVE entra no catálogo</text>
+  <text x="330" y="228" fill="#9aa0a6" font-size="12" text-anchor="middle">DeviceTvmSoftwareVulnerabilitiesKB</text>
+  <rect x="440" y="150" width="200" height="40" rx="8" fill="#2a1418" stroke="#F97066" stroke-width="2"/>
+  <text x="540" y="175" fill="#F97066" font-size="14" font-weight="700" text-anchor="middle">"0 exposed devices"</text>
+  <text x="540" y="128" fill="#F97066" font-size="13" text-anchor="middle">a zona do falso negativo</text>
+  <text x="540" y="214" fill="#e8eaed" font-size="13" text-anchor="middle">o parque ainda não</text>
+  <text x="540" y="232" fill="#e8eaed" font-size="13" text-anchor="middle">foi reavaliado</text>
+  <circle cx="780" cy="170" r="11" fill="#9C7AD2"/>
+  <text x="780" y="128" fill="#9C7AD2" font-size="15" font-weight="700" text-anchor="middle">Dia 2 a 4</text>
+  <text x="780" y="210" fill="#e8eaed" font-size="13" text-anchor="middle">Avaliação por device</text>
+  <text x="780" y="228" fill="#9aa0a6" font-size="12" text-anchor="middle">DeviceTvmSoftwareVulnerabilities</text>
+  <rect x="70" y="268" width="770" height="44" rx="8" fill="#1a1d22"/>
+  <text x="455" y="296" fill="#F6F183" font-size="14" text-anchor="middle">Nesse intervalo, quem responde é o inventário de build, não o painel.</text>
+</svg>

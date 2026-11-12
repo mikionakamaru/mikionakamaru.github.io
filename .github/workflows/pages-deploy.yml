@@ -12,6 +12,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+  # Rebuild diario as 09:05 (BRT) pra publicar posts agendados (data futura no front matter)
+  schedule:
+    - cron: "5 12 * * *"
+
 permissions:
   contents: read
   pages: write
