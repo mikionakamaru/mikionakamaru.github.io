@@ -5,6 +5,7 @@ Pares de scripts de detecção e correção pra usar em **Intune > Devices > Scr
 | Pasta | O que corrige | Post |
 |---|---|---|
 | [office-outlook-cve-2026-124194](office-outlook-cve-2026-124194/) | Microsoft 365 Apps / Office LTSC em build vulnerável à CVE-2026-124194 (Outlook, vazamento de hash NTLMv2) | [O Defender disse zero](https://mikionakamaru.github.io/posts/o-defender-disse-zero/) |
+| [defender-assinatura-fallback](defender-assinatura-fallback/) | Assinatura do Microsoft Defender há mais de 2 dias sem atualizar. Tenta as fontes na ordem do Signature Update Fallback Order e informa por qual atualizou | Ainda sem post |
 
 ## Padrão de todos os scripts
 
