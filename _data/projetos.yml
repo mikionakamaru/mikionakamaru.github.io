@@ -2,6 +2,21 @@
 # Sem nome de cliente. Projetos de empregador oculto não entram.
 # destaque: true = aparece no bloco "Projetos em destaque" do /cv/ (máximo 4).
 items:
+  - id: multissetor-intune-outlook-cve-2026
+    ordem: "2026-11"   # AAAA-MM do fim do projeto, pra ordenar
+    empresa: SGA TI em Nuvem
+    periodo: { pt: nov/2026, en: Nov 2026 }
+    ano: 2026
+    setor: { pt: 2 clientes de setores diferentes, en: 2 clients across industries }
+    titulo:
+      pt: Resposta a um 0-day do Outlook com KQL e Intune Remediations
+      en: Responding to an Outlook 0-day with KQL and Intune Remediations
+    resumo:
+      pt: Medi a exposição real comparando o build do Office de cada máquina com a tabela oficial de cada canal, contornando um falso negativo do painel do Defender. Corrigi o parque com scripts de detecção e correção no Intune, em ondas com grupos de dispositivos.
+      en: Measured real exposure by comparing each device's Office build against Microsoft's per-channel table, working around a false negative in the Defender dashboard. Remediated the fleet with Intune detection and remediation scripts, rolled out in waves using device groups.
+    tags: [Intune, Remediations, KQL, Defender Vulnerability Management, Microsoft 365 Apps]
+    destaque: false
+
   - id: financeiro-sentinel-2026
     ordem: "2026-06"   # AAAA-MM do fim do projeto, pra ordenar
     empresa: SGA TI em Nuvem
