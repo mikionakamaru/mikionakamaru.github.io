@@ -2,6 +2,21 @@
 # Sem nome de cliente. Projetos de empregador oculto não entram.
 # destaque: true = aparece no bloco "Projetos em destaque" do /cv/ (máximo 4).
 items:
+  - id: farma-sentinel-spyware-visitante-2026
+    ordem: "2026-11"   # AAAA-MM do fim do projeto, pra ordenar
+    empresa: Consultoria
+    periodo: { pt: 2026, en: 2026 }
+    ano: 2026
+    setor: { pt: Indústria, en: Industry }
+    titulo:
+      pt: "Migrando uma regra do Splunk pro Sentinel: provar a equivalência antes de filtrar"
+      en: "Migrating a rule from Splunk to Sentinel: prove equivalence before filtering"
+    resumo:
+      pt: Migrei do Splunk para o Sentinel uma regra de detecção de spyware em firewall Palo Alto, que precisava deixar a rede de visitantes de fora. Reproduzi a lógica em KQL, comparei o resultado com o original antes de mudar qualquer coisa e corrigi as diferenças de formato entre os dois produtos. Em produção, usei o agrupamento por IP no lugar do throttle do Splunk e uma exceção específica para um host que dominava os alertas.
+      en: Migrated a firewall spyware detection from Splunk to Sentinel that had to leave the guest network out. Rebuilt the logic in KQL, compared the result with the original before changing anything, and fixed the format differences between the two products. In production, used incident grouping by IP instead of Splunk's throttle and a narrow exception for a host that dominated the alerts.
+    tags: [Sentinel, KQL, SIEM, Splunk, Palo Alto]
+    destaque: false
+
   - id: farma-sentinel-login-local-banco-2026
     ordem: "2026-11"   # AAAA-MM do fim do projeto, pra ordenar
     empresa: Consultoria
