@@ -1,7 +1,7 @@
 ---
 title: "Migrando uma regra do Splunk pro Sentinel: provar a equivalência antes de filtrar"
 description: "Como migrar uma regra de firewall do Splunk pro Sentinel e deixar uma rede de fora sem criar furo: reproduzir, comparar com o original e só então filtrar."
-date: 2026-12-04 09:00:00 -0300
+date: 2026-11-13 11:50:00 -0300
 categories: [Na prática, Sentinel]
 tags: [sentinel, kql, siem, splunk, palo alto]
 media_subpath: /assets/img/posts/provar-equivalencia-antes-de-filtrar
