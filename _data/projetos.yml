@@ -47,6 +47,7 @@ items:
       en: Measured real exposure by comparing each device's Office build against Microsoft's per-channel table, working around a false negative in the Defender dashboard. Remediated the fleet with Intune detection and remediation scripts, rolled out in waves using device groups.
     tags: [Intune, Remediations, KQL, Defender Vulnerability Management, Microsoft 365 Apps]
     destaque: false
+    artigo: /posts/o-defender-disse-zero/
 
   - id: financeiro-sentinel-2026
     ordem: "2026-06"   # AAAA-MM do fim do projeto, pra ordenar
