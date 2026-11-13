@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" role="img" aria-labelledby="t d">
+<title id="t">Método de migração de regra em cinco passos</title>
+<desc id="d">Cinco etapas em sequência: ler a regra original, reescrever em KQL sem filtro, comparar com o original, só então filtrar, e observar as primeiras 24 horas.</desc>
+<rect width="900" height="300" rx="14" fill="#0e1013"/>
+<g font-family="Montserrat,Segoe UI,Arial,sans-serif" font-size="14" fill="#e8eaee" text-anchor="middle">
+<rect x="20" y="90" width="150" height="90" rx="10" fill="#161b22" stroke="#4bb1ea"/>
+<text x="95" y="122" font-weight="700" fill="#4bb1ea">1. Ler</text><text x="95" y="146">a regra original</text><text x="95" y="164">como ela roda hoje</text>
+<rect x="190" y="90" width="150" height="90" rx="10" fill="#161b22" stroke="#9c7ad2"/>
+<text x="265" y="122" font-weight="700" fill="#9c7ad2">2. Reescrever</text><text x="265" y="146">em KQL, sem</text><text x="265" y="164">nenhum filtro novo</text>
+<rect x="360" y="90" width="150" height="90" rx="10" fill="#161b22" stroke="#f6f183"/>
+<text x="435" y="122" font-weight="700" fill="#f6f183">3. Comparar</text><text x="435" y="146">mesmo período,</text><text x="435" y="164">mesmo resultado?</text>
+<rect x="530" y="90" width="150" height="90" rx="10" fill="#161b22" stroke="#71e4d1"/>
+<text x="605" y="122" font-weight="700" fill="#71e4d1">4. Filtrar</text><text x="605" y="146">agora sim, e</text><text x="605" y="164">comparar de novo</text>
+<rect x="700" y="90" width="180" height="90" rx="10" fill="#161b22" stroke="#f97066"/>
+<text x="790" y="122" font-weight="700" fill="#f97066">5. Observar</text><text x="790" y="146">as primeiras 24 h</text><text x="790" y="164">em produção</text>
+<g stroke="#8b93a1" stroke-width="2" fill="none"><path d="M172 135h16"/><path d="M342 135h16"/><path d="M512 135h16"/><path d="M682 135h16"/></g>
+<path d="M435 190v40h-170" stroke="#f6f183" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
+<text x="350" y="256" fill="#f6f183">não bateu? volta pro passo 2, não pro filtro</text>
+</g></svg>
