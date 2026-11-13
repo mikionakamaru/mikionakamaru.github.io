@@ -16,7 +16,6 @@ items:
       en: Migrated a firewall spyware detection from Splunk to Sentinel that had to leave the guest network out. Rebuilt the logic in KQL, compared the result with the original before changing anything, and fixed the format differences between the two products. In production, used incident grouping by IP instead of Splunk's throttle and a narrow exception for a host that dominated the alerts.
     tags: [Sentinel, KQL, SIEM, Splunk, Palo Alto]
     destaque: false
-    artigo: /posts/provar-equivalencia-antes-de-filtrar/
 
   - id: farma-sentinel-login-local-banco-2026
     ordem: "2026-11"   # AAAA-MM do fim do projeto, pra ordenar
