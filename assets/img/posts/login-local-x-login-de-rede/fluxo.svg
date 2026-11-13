@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400" font-family="Montserrat, Segoe UI, sans-serif">
+  <rect width="900" height="400" rx="14" fill="#0e1013"/>
+  <text x="450" y="38" text-anchor="middle" fill="#e8eaed" font-size="18" font-weight="700">Do CREATE LOGIN ao incidente, e a volta que evita alerta repetido</text>
+  <defs>
+    <marker id="seta" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#71E4D1"/></marker>
+    <marker id="setaroxa" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9C7AD2"/></marker>
+  </defs>
+  <g font-size="13" text-anchor="middle">
+    <rect x="20" y="80" width="150" height="120" rx="10" fill="#15181d" stroke="#4BB1EA" stroke-width="2"/>
+    <text x="95" y="110" fill="#4BB1EA" font-weight="700">Bancos</text>
+    <text x="95" y="138" fill="#cfd3d8">SQL Server</text>
+    <text x="95" y="158" fill="#cfd3d8">Oracle</text>
+    <text x="95" y="182" fill="#F6F183" font-family="Consolas, monospace" font-size="12">auditoria ligada</text>
+
+    <rect x="195" y="80" width="150" height="120" rx="10" fill="#15181d" stroke="#4BB1EA" stroke-width="2"/>
+    <text x="270" y="110" fill="#4BB1EA" font-weight="700">Coleta</text>
+    <text x="270" y="138" fill="#cfd3d8">agente, coletor</text>
+    <text x="270" y="158" fill="#cfd3d8">ou conector</text>
+    <text x="270" y="182" fill="#F97066" font-size="12" font-weight="700">atraso variável</text>
+
+    <rect x="370" y="80" width="150" height="120" rx="10" fill="#15181d" stroke="#4BB1EA" stroke-width="2"/>
+    <text x="445" y="110" fill="#4BB1EA" font-weight="700">Workspace</text>
+    <text x="445" y="138" fill="#cfd3d8">tabela ou função</text>
+    <text x="445" y="158" fill="#cfd3d8">de auditoria</text>
+    <text x="445" y="182" fill="#F6F183" font-family="Consolas, monospace" font-size="12">ingestion_time()</text>
+
+    <rect x="545" y="80" width="150" height="120" rx="10" fill="#15181d" stroke="#71E4D1" stroke-width="3"/>
+    <text x="620" y="110" fill="#71E4D1" font-weight="700">Regra agendada</text>
+    <text x="620" y="138" fill="#cfd3d8">roda a cada 1 h</text>
+    <text x="620" y="158" fill="#cfd3d8">olha 1 dia</text>
+    <text x="620" y="182" fill="#F6F183" font-family="Consolas, monospace" font-size="12">só login local</text>
+
+    <rect x="720" y="80" width="160" height="120" rx="10" fill="#15181d" stroke="#9C7AD2" stroke-width="2"/>
+    <text x="800" y="110" fill="#9C7AD2" font-weight="700">Alerta</text>
+    <text x="800" y="138" fill="#cfd3d8">um por evento</text>
+    <text x="800" y="158" fill="#cfd3d8">com EventKey</text>
+    <text x="800" y="182" fill="#F6F183" font-family="Consolas, monospace" font-size="12">SecurityAlert</text>
+  </g>
+  <g stroke="#71E4D1" stroke-width="2" marker-end="url(#seta)">
+    <line x1="172" y1="140" x2="192" y2="140"/>
+    <line x1="347" y1="140" x2="367" y2="140"/>
+    <line x1="522" y1="140" x2="542" y2="140"/>
+    <line x1="697" y1="140" x2="717" y2="140"/>
+  </g>
+  <path d="M800,202 L800,262 L620,262 L620,206" fill="none" stroke="#9C7AD2" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#setaroxa)"/>
+  <text x="710" y="285" text-anchor="middle" fill="#9C7AD2" font-size="13" font-weight="700">antes de alertar: essa chave já virou alerta?</text>
+  <rect x="20" y="315" width="860" height="62" rx="10" fill="#15181d" stroke="#2a2f36"/>
+  <text x="450" y="342" text-anchor="middle" fill="#cfd3d8" font-size="13">A janela longa pega o evento atrasado. A consulta na SecurityAlert impede o mesmo evento</text>
+  <text x="450" y="362" text-anchor="middle" fill="#cfd3d8" font-size="13">de alertar de novo a cada hora. Exemplo genérico, sem nomes de ambiente real.</text>
+</svg>

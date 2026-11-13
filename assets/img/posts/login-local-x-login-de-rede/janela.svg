@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" width="900" height="380" font-family="Montserrat, Segoe UI, sans-serif">
+  <rect width="900" height="380" rx="14" fill="#0e1013"/>
+  <text x="450" y="38" text-anchor="middle" fill="#e8eaed" font-size="18" font-weight="700">O evento que nenhuma execução enxerga (exemplo)</text>
+  <line x1="80" y1="170" x2="840" y2="170" stroke="#5b6270" stroke-width="2"/>
+  <g font-size="13" fill="#cfd3d8" text-anchor="middle">
+    <line x1="120" y1="162" x2="120" y2="178" stroke="#5b6270" stroke-width="2"/><text x="120" y="198">10:00</text>
+    <line x1="340" y1="162" x2="340" y2="178" stroke="#5b6270" stroke-width="2"/><text x="340" y="198">11:00</text>
+    <line x1="560" y1="162" x2="560" y2="178" stroke="#5b6270" stroke-width="2"/><text x="560" y="198">12:00</text>
+    <line x1="780" y1="162" x2="780" y2="178" stroke="#5b6270" stroke-width="2"/><text x="780" y="198">13:00</text>
+  </g>
+  <circle cx="138" cy="170" r="9" fill="#F6F183"/>
+  <text x="138" y="140" text-anchor="middle" fill="#F6F183" font-size="13" font-weight="700">10:05 login criado</text>
+  <circle cx="432" cy="170" r="9" fill="#4BB1EA"/>
+  <text x="432" y="140" text-anchor="middle" fill="#4BB1EA" font-size="13" font-weight="700">11:25 chega no workspace</text>
+
+  <rect x="120" y="225" width="220" height="34" rx="6" fill="#2a1a1a" stroke="#F97066"/>
+  <text x="230" y="247" text-anchor="middle" fill="#F97066" font-size="12" font-weight="700">execução 11:00: ainda não chegou</text>
+  <rect x="320" y="268" width="270" height="34" rx="6" fill="#2a1a1a" stroke="#F97066"/>
+  <text x="455" y="290" text-anchor="middle" fill="#F97066" font-size="12" font-weight="700">execução 12:00: evento é de 10:05, fora</text>
+  <text x="725" y="250" text-anchor="middle" fill="#cfd3d8" font-size="13">janela de 1 h pelo horário do evento</text>
+  <text x="725" y="270" text-anchor="middle" fill="#cfd3d8" font-size="13">= nenhum alerta, nenhum erro</text>
+
+  <rect x="20" y="318" width="860" height="44" rx="10" fill="#15181d" stroke="#71E4D1"/>
+  <text x="450" y="345" text-anchor="middle" fill="#71E4D1" font-size="13" font-weight="700">Com janela de 1 dia e chave do evento: a execução das 12:00 alerta, a das 13:00 vê o alerta e pula.</text>
+</svg>
