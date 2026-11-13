@@ -83,6 +83,9 @@ ui:
   evidence_title:
     pt: Onde conferir
     en: Where to check
+  ev_open:
+    pt: Abrir em
+    en: Open on
   evidence_intro:
     pt: Cada número entre colchetes na página aponta pra um destes links. Dá pra verificar sem falar comigo.
     en: Every bracketed number on this page points to one of these links. You can check them without asking me.

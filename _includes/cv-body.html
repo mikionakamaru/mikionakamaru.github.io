@@ -141,7 +141,7 @@
           {%- for e in cv.evidence %}
           <li id="ev-{{ e.n }}" class="ev">
             <span class="ev-n" aria-hidden="true">[{{ e.n }}]</span>
-            <h3><a href="{{ e.url }}" target="_blank" rel="noopener">{{ e.title[l] }}<span class="sr-only"> {{ ui.new_tab[l] }}</span></a></h3>
+            <h3><a href="{{ e.url }}" target="_blank" rel="noopener">{{ e.title[l] }}<span class="ev-arrow" aria-hidden="true"> ↗</span><span class="sr-only"> {{ ui.new_tab[l] }}</span></a></h3>
             <p>{{ e.text[l] }}</p>
             {%- if e.extra_url %}
             <p class="ev-extra"><a href="{{ e.extra_url }}" target="_blank" rel="noopener">{{ e.extra[l] }}<span class="sr-only"> {{ ui.new_tab[l] }}</span></a></p>
@@ -153,7 +153,11 @@
               {%- endfor %}
             </ul>
             {%- endif %}
+            {%- unless e.links %}
+            <p class="ev-host"><a href="{{ e.url }}" target="_blank" rel="noopener">{{ ui.ev_open[l] }} {{ e.url | remove: 'https://' | split: '/' | first }}<span aria-hidden="true"> ↗</span><span class="sr-only"> {{ ui.new_tab[l] }}</span></a></p>
+            {%- else %}
             <p class="ev-host">{{ e.url | remove: 'https://' | split: '/' | first }}</p>
+            {%- endunless %}
           </li>
           {%- endfor %}
         </ol>
