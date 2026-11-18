@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" width="900" height="360" font-family="Montserrat, Segoe UI, sans-serif">
+  <rect width="900" height="360" rx="14" fill="#0e1013"/>
+  <text x="450" y="38" text-anchor="middle" fill="#e8eaed" font-size="18" font-weight="700">Força bruta clássica x password spray lento</text>
+  <g font-size="13">
+    <rect x="20" y="60" width="420" height="230" rx="10" fill="#15181d" stroke="#4BB1EA" stroke-width="2"/>
+    <text x="230" y="86" text-anchor="middle" fill="#4BB1EA" font-size="15" font-weight="700">Força bruta clássica</text>
+    <circle cx="80" cy="180" r="22" fill="#4BB1EA" opacity="0.25" stroke="#4BB1EA"/>
+    <text x="80" y="185" text-anchor="middle" fill="#e8eaed" font-size="11">1 IP</text>
+    <g stroke="#4BB1EA" stroke-width="1.5">
+      <line x1="104" y1="170" x2="330" y2="120"/><line x1="104" y1="175" x2="330" y2="145"/><line x1="104" y1="180" x2="330" y2="170"/>
+      <line x1="104" y1="185" x2="330" y2="195"/><line x1="104" y1="190" x2="330" y2="220"/><line x1="104" y1="195" x2="330" y2="245"/>
+    </g>
+    <rect x="335" y="160" width="80" height="40" rx="8" fill="#15181d" stroke="#cfd3d8"/>
+    <text x="375" y="185" text-anchor="middle" fill="#cfd3d8" font-size="12">1 conta</text>
+    <text x="230" y="272" text-anchor="middle" fill="#cfd3d8">centenas de tentativas, mesma origem</text>
+
+    <rect x="460" y="60" width="420" height="230" rx="10" fill="#15181d" stroke="#F97066" stroke-width="3"/>
+    <text x="670" y="86" text-anchor="middle" fill="#F97066" font-size="15" font-weight="700">Password spray lento</text>
+    <g fill="#F97066" opacity="0.55">
+      <circle cx="510" cy="115" r="7"/><circle cx="540" cy="135" r="7"/><circle cx="505" cy="150" r="7"/><circle cx="535" cy="168" r="7"/>
+      <circle cx="510" cy="186" r="7"/><circle cx="545" cy="200" r="7"/><circle cx="505" cy="220" r="7"/><circle cx="538" cy="238" r="7"/>
+    </g>
+    <g stroke="#F97066" stroke-width="1" stroke-dasharray="4 4">
+      <line x1="518" y1="115" x2="770" y2="175"/><line x1="548" y1="135" x2="770" y2="178"/><line x1="513" y1="150" x2="770" y2="180"/><line x1="543" y1="168" x2="770" y2="182"/>
+      <line x1="518" y1="186" x2="770" y2="184"/><line x1="553" y1="200" x2="770" y2="186"/><line x1="513" y1="220" x2="770" y2="188"/><line x1="546" y1="238" x2="770" y2="190"/>
+    </g>
+    <rect x="775" y="160" width="80" height="40" rx="8" fill="#15181d" stroke="#cfd3d8"/>
+    <text x="815" y="185" text-anchor="middle" fill="#cfd3d8" font-size="12">1 conta</text>
+    <text x="670" y="272" text-anchor="middle" fill="#cfd3d8">dezenas de IPs, 1 ou 2 tentativas cada, por semanas</text>
+  </g>
+  <rect x="20" y="304" width="860" height="40" rx="10" fill="#15181d" stroke="#2a2f36"/>
+  <text x="450" y="329" text-anchor="middle" fill="#cfd3d8" font-size="13">Regra que conta falhas por IP pega a da esquerda. A da direita só aparece quando você agrupa por conta.</text>
+</svg>
