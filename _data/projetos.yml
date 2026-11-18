@@ -2,6 +2,21 @@
 # Sem nome de cliente. Projetos de empregador oculto não entram.
 # destaque: true = aparece no bloco "Projetos em destaque" do /cv/ (máximo 4).
 items:
+  - id: farma-hunting-forca-bruta-identidades-2026
+    ordem: "2026-11"   # AAAA-MM do fim do projeto, pra ordenar
+    empresa: Consultoria
+    periodo: { pt: 2026, en: 2026 }
+    ano: 2026
+    setor: { pt: Indústria, en: Industry }
+    titulo:
+      pt: "Uma centena de contas com alerta de força bruta: separando o ataque real do usuário que errou a senha"
+      en: "A hundred accounts flagged for brute force: telling the real attack apart from users mistyping their password"
+    resumo:
+      pt: Threat hunting em uma centena de identidades com alertas de força bruta, para priorizar as de maior risco. Cruzei telemetria de endpoint, Active Directory e Entra ID no SIEM, com país e provedor de cada IP externo, e separei a origem de cada alerta. Descartei comprometimento, isolei as contas sob password spray externo e entreguei relatório com as consultas em anexo e plano de ação priorizado.
+      en: Threat hunting across about a hundred identities flagged for brute force, to prioritize the riskiest ones. Correlated endpoint, Active Directory and Entra ID telemetry in the SIEM, with country and provider for each external IP, and traced the source of every alert. Ruled out compromise, isolated the accounts under external password spray and delivered a report with the queries attached and a prioritized action plan.
+    tags: [Threat Hunting, KQL, Sentinel, Defender XDR, Entra ID]
+    destaque: false
+
   - id: farma-sentinel-migracao-firewall-2026
     ordem: "2026-11"   # AAAA-MM do fim do projeto, pra ordenar
     empresa: Consultoria
