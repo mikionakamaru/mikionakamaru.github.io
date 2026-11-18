@@ -5,6 +5,9 @@ date: 2026-11-16 09:00:00 -0300
 categories: [Na prática, Defender]
 tags: [defender for endpoint, intune, remediations, configuration manager, powershell]
 media_subpath: /assets/img/posts/defender-sem-atualizar-fallback-de-assinatura
+image:
+  path: capa.webp
+  alt: "Escudo de desenho animado com uma lanterna e uma caixa vazia, num corredor escuro com quatro portas: WSUS, Microsoft Update, MMPC e File Share. Só a porta MMPC está entreaberta, com luz saindo."
 ---
 
 Todo mundo tem um plano B pra atualização do antivírus. Tá lá na política, marcadinho, quatro fontes em ordem. O problema é que plano B que nunca foi testado é só uma caixa de seleção. E a gente só descobre isso no dia em que o plano A para e ninguém avisa.
