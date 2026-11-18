@@ -247,3 +247,4 @@ items:
       en: Review of Microsoft Defender signature update fallback in a fleet managed by Configuration Manager. Mapped what keeps the external source from working in practice and wrote Intune detection and remediation scripts that try each source in the configured order, report which one worked or where it failed, and return the result as a single CSV-ready line.
     tags: [Defender for Endpoint, Intune, Configuration Manager, PowerShell]
     destaque: false
+    artigo: /posts/defender-sem-atualizar-fallback-de-assinatura/
