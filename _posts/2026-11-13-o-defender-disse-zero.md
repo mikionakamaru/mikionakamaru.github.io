@@ -5,6 +5,9 @@ date: 2026-11-13 09:00:00 -0300
 categories: [Na prática, Intune]
 tags: [intune, remediations, kql, defender vulnerability management, microsoft 365 apps, vulnerabilidade]
 media_subpath: /assets/img/posts/o-defender-disse-zero
+image:
+  path: capa.webp
+  alt: "Escritório escuro à noite com dois monitores: um painel de segurança mostrando um zero com selo verde e, ao lado, uma lista de linhas em vermelho, em luz verde-água e roxa."
 ---
 
 Sai um 0-day do Outlook com exploração confirmada. Você abre o Defender, procura a CVE, e lá está ela: "No action required", zero dispositivos expostos. Dá aquela vontade de fechar a aba e ir tomar café. Não vá. Zero, nas primeiras horas de uma CVE, quase sempre quer dizer "ainda não olhei".
