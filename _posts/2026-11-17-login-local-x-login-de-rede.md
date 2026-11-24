@@ -5,6 +5,9 @@ date: 2026-11-17 09:00:00 -0300
 categories: [Na prática, Sentinel]
 tags: [sentinel, kql, siem, sql server, oracle, detection engineering]
 media_subpath: /assets/img/posts/login-local-x-login-de-rede
+image:
+  path: capa.webp
+  alt: "Ilustração de um segurança na porta de um banco de dados em forma de balada: deixa entrar quem tem crachá corporativo, barra quem chega com uma senha anotada no papel, enquanto um atrasado corre com um relógio."
 ---
 
 O pedido chega numa linha: "a regra de criação de login no banco só deve alertar conta local, não de rede". Parece um `where` a mais. Aí você abre os eventos e descobre que metade nem é criação de login, que o Oracle tem quatro jeitos de autenticar e que tem evento que chega no workspace depois que a regra já passou por ali. O que podia dar errado?

@@ -78,6 +78,7 @@ items:
       en: Refinement of a Sentinel analytic rule that monitors login creation in Oracle and SQL Server, so it alerts only on local accounts. Validated the new logic with KQL against months of events and incidents before applying it, and adjusted the window to catch late-arriving events, deduplicating against the rule's own alerts and keeping the same rule ID.
     tags: [Sentinel, KQL, SIEM]
     destaque: false
+    artigo: /posts/login-local-x-login-de-rede/
 
   - id: multissetor-intune-outlook-cve-2026
     ordem: "2026-11"   # AAAA-MM do fim do projeto, pra ordenar
