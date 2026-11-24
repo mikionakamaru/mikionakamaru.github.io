@@ -2,6 +2,21 @@
 # Sem nome de cliente. Projetos de empregador oculto não entram.
 # destaque: true = aparece no bloco "Projetos em destaque" do /cv/ (máximo 4).
 items:
+  - id: farma-artex-avaliacao-ambiente-2026
+    ordem: "2026-11"
+    empresa: Consultoria
+    periodo: { pt: 2026, en: 2026 }
+    ano: 2026
+    setor: { pt: Indústria, en: Industry }
+    titulo:
+      pt: "O FBI soltou um alerta e o cliente perguntou se foi afetado: como responder com evidência"
+      en: "The FBI issued an alert and the client asked if they were hit: answering with evidence"
+    resumo:
+      pt: Avaliação de um ambiente diante do alerta do FBI sobre uma ferramenta de ataque com agentes de IA. Extraí os indicadores das fontes oficiais e busquei cada um em 90 dias de logs de firewall, WAF, CDN e Entra ID no SIEM. Não encontrei indício da ferramenta, declarei o que a busca não cobria e separei do tema o ruído de scanners comuns. Entreguei relatório e e-mail executivo com recomendações priorizadas.
+      en: Assessed an environment after the FBI alert on an AI agent attack framework. Extracted the indicators from the official sources and searched each one across 90 days of firewall, WAF, CDN and Entra ID logs in the SIEM. Found no trace of the tool, stated what the search could not cover and set apart the noise from common scanners. Delivered a report and an executive email with prioritized recommendations.
+    tags: [Threat Hunting, Threat Intelligence, KQL, Sentinel, Entra ID]
+    destaque: false
+
   - id: farma-hunting-forca-bruta-identidades-2026
     ordem: "2026-11"   # AAAA-MM do fim do projeto, pra ordenar
     empresa: Consultoria
