@@ -16,6 +16,7 @@ items:
       en: Assessed an environment after the FBI alert on an AI agent attack framework. Extracted the indicators from the official sources and searched each one across 90 days of firewall, WAF, CDN and Entra ID logs in the SIEM. Found no trace of the tool, stated what the search could not cover and set apart the noise from common scanners. Delivered a report and an executive email with prioritized recommendations.
     tags: [Threat Hunting, Threat Intelligence, KQL, Sentinel, Entra ID]
     destaque: false
+    artigo: /posts/o-alerta-saiu-e-perguntaram-se-fomos-afetados/
 
   - id: farma-hunting-forca-bruta-identidades-2026
     ordem: "2026-11"   # AAAA-MM do fim do projeto, pra ordenar
