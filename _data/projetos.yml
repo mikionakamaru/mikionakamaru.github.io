@@ -16,6 +16,7 @@ items:
       en: Took the Cloudflare WAF log into Microsoft Sentinel end to end, from assessing what arrived to use cases, rules, playbooks and production. Before turning on incidents, validated two weeks of alerts and proved with a simple test that the main false positive was the sites' default page, cutting the rule down to a few alerts per day. Exceptions were based on behavior, never on IP alone.
     tags: [Sentinel, KQL, Cloudflare, WAF, SOAR]
     destaque: false
+    artigo: /posts/do-log-de-waf-ao-incidente/
 
   - id: farma-artex-avaliacao-ambiente-2026
     ordem: "2026-11"
