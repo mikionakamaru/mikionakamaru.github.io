@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="900" height="420" font-family="Montserrat, Arial, sans-serif">
+  <rect width="900" height="420" rx="14" fill="#0e1013"/>
+  <text x="450" y="38" text-anchor="middle" fill="#e8eaed" font-size="18" font-weight="700">Do log de WAF ao incidente: a ordem que evita afogar o SOC</text>
+  <defs><marker id="s" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a8f98"/></marker></defs>
+  <g font-size="13" fill="#e8eaed">
+    <rect x="30" y="70" width="150" height="70" rx="10" fill="#14181d" stroke="#4BB1EA" stroke-width="2"/>
+    <text x="105" y="100" text-anchor="middle" font-weight="700">WAF / CDN</text>
+    <text x="105" y="120" text-anchor="middle" fill="#b8bcc4" font-size="12">envio dos eventos</text>
+    <rect x="215" y="70" width="150" height="70" rx="10" fill="#14181d" stroke="#4BB1EA" stroke-width="2"/>
+    <text x="290" y="100" text-anchor="middle" font-weight="700">SIEM</text>
+    <text x="290" y="120" text-anchor="middle" fill="#b8bcc4" font-size="12">tabela do WAF</text>
+    <rect x="400" y="70" width="210" height="70" rx="10" fill="#14181d" stroke="#71E4D1" stroke-width="2"/>
+    <text x="505" y="96" text-anchor="middle" font-weight="700">1. Medir o que chega</text>
+    <text x="505" y="116" text-anchor="middle" fill="#b8bcc4" font-size="12">campos, volume, atraso</text>
+    <rect x="645" y="70" width="225" height="70" rx="10" fill="#14181d" stroke="#71E4D1" stroke-width="2"/>
+    <text x="757" y="96" text-anchor="middle" font-weight="700">2. Casos de uso</text>
+    <text x="757" y="116" text-anchor="middle" fill="#b8bcc4" font-size="12">só o que o dado aguenta</text>
+    <line x1="180" y1="105" x2="213" y2="105" stroke="#8a8f98" stroke-width="2" marker-end="url(#s)"/>
+    <line x1="365" y1="105" x2="398" y2="105" stroke="#8a8f98" stroke-width="2" marker-end="url(#s)"/>
+    <line x1="610" y1="105" x2="643" y2="105" stroke="#8a8f98" stroke-width="2" marker-end="url(#s)"/>
+    <line x1="757" y1="140" x2="757" y2="178" stroke="#8a8f98" stroke-width="2" marker-end="url(#s)"/>
+    <rect x="645" y="180" width="225" height="70" rx="10" fill="#14181d" stroke="#F6F183" stroke-width="2"/>
+    <text x="757" y="206" text-anchor="middle" font-weight="700">3. Homologação</text>
+    <text x="757" y="226" text-anchor="middle" fill="#b8bcc4" font-size="12">regra ativa, sem incidente</text>
+    <line x1="645" y1="215" x2="612" y2="215" stroke="#8a8f98" stroke-width="2" marker-end="url(#s)"/>
+    <rect x="400" y="180" width="210" height="70" rx="10" fill="#14181d" stroke="#F6F183" stroke-width="2"/>
+    <text x="505" y="206" text-anchor="middle" font-weight="700">4. Validar 14 dias</text>
+    <text x="505" y="226" text-anchor="middle" fill="#b8bcc4" font-size="12">volume, ruído, saúde da regra</text>
+    <line x1="400" y1="215" x2="367" y2="215" stroke="#8a8f98" stroke-width="2" marker-end="url(#s)"/>
+    <rect x="215" y="180" width="150" height="70" rx="10" fill="#14181d" stroke="#F97066" stroke-width="2"/>
+    <text x="290" y="206" text-anchor="middle" font-weight="700">5. Ajustar</text>
+    <text x="290" y="226" text-anchor="middle" fill="#b8bcc4" font-size="12">simulação antes/depois</text>
+    <line x1="290" y1="250" x2="290" y2="288" stroke="#8a8f98" stroke-width="2" marker-end="url(#s)"/>
+    <rect x="215" y="290" width="150" height="70" rx="10" fill="#14181d" stroke="#9C7AD2" stroke-width="2"/>
+    <text x="290" y="316" text-anchor="middle" font-weight="700">6. Orquestração</text>
+    <text x="290" y="336" text-anchor="middle" fill="#b8bcc4" font-size="12">regra e playbook cadastrados</text>
+    <line x1="365" y1="325" x2="398" y2="325" stroke="#8a8f98" stroke-width="2" marker-end="url(#s)"/>
+    <rect x="400" y="290" width="210" height="70" rx="10" fill="#14181d" stroke="#9C7AD2" stroke-width="2"/>
+    <text x="505" y="316" text-anchor="middle" font-weight="700">7. Ligar o incidente</text>
+    <text x="505" y="336" text-anchor="middle" fill="#b8bcc4" font-size="12">agrupado por entidade</text>
+    <line x1="610" y1="325" x2="643" y2="325" stroke="#8a8f98" stroke-width="2" marker-end="url(#s)"/>
+    <rect x="645" y="290" width="225" height="70" rx="10" fill="#14181d" stroke="#71E4D1" stroke-width="2"/>
+    <text x="757" y="316" text-anchor="middle" font-weight="700">8. Conferir a 1ª noite</text>
+    <text x="757" y="336" text-anchor="middle" fill="#b8bcc4" font-size="12">volume real x estimado</text>
+  </g>
+  <text x="450" y="398" text-anchor="middle" fill="#8a8f98" font-size="12">A ordem 6 → 7 não inverte: se a integração só envia na criação do incidente, cadastrar depois é perder o incidente.</text>
+</svg>
