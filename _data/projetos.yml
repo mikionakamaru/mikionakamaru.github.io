@@ -2,6 +2,21 @@
 # Sem nome de cliente. Projetos de empregador oculto não entram.
 # destaque: true = aparece no bloco "Projetos em destaque" do /cv/ (máximo 4).
 items:
+  - id: farma-sentinel-ingestao-waf-cloudflare-2026
+    ordem: "2026-11"   # AAAA-MM do fim do projeto, pra ordenar
+    empresa: Consultoria
+    periodo: { pt: 2026, en: 2026 }
+    ano: 2026
+    setor: { pt: Indústria, en: Industry }
+    titulo:
+      pt: "Do log de WAF ao incidente: levando a Cloudflare pro Sentinel sem afogar o SOC"
+      en: "From WAF log to incident: bringing Cloudflare into Sentinel without flooding the SOC"
+    resumo:
+      pt: Levei o log de WAF da Cloudflare ao Microsoft Sentinel em todas as etapas, da avaliação do que chegava aos casos de uso, regras, playbooks e produção. Antes de ligar os incidentes, validei duas semanas de alertas e provei com um teste simples que o principal falso positivo era a página padrão dos sites, reduzindo a regra a poucos alertas por dia. As exceções foram por comportamento, nunca só por IP.
+      en: Took the Cloudflare WAF log into Microsoft Sentinel end to end, from assessing what arrived to use cases, rules, playbooks and production. Before turning on incidents, validated two weeks of alerts and proved with a simple test that the main false positive was the sites' default page, cutting the rule down to a few alerts per day. Exceptions were based on behavior, never on IP alone.
+    tags: [Sentinel, KQL, Cloudflare, WAF, SOAR]
+    destaque: false
+
   - id: farma-artex-avaliacao-ambiente-2026
     ordem: "2026-11"
     empresa: Consultoria
